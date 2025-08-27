@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Installation Callback Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .step {
+            display: none;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .checkbox-group {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            accent-color: #3498db;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .photo-upload {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .photo-upload:hover {
+            background: #e9ecef;
+        }
+
+        .photo-upload input[type="file"] {
+            display: none;
+        }
+
+        .photo-upload-btn {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .uploaded-photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .uploaded-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 2px solid #e1e8ed;
+        }
+
+        .signature-pad {
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .signature-canvas {
+            width: 100%;
+            height: 200px;
+            display: block;
+        }
+
+        .signature-clear {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-sms {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .btn-sms:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #e1e8ed;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            transition: width 0.3s ease;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .completion-summary {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .completion-icon {
+            font-size: 3rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .time-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .step {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Installation Callback Checklist</h1>
+            <p>Professional Documentation System</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Step 1: Job Information -->
+        <div class="step active" id="step1">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Job Information</div>
+            </div>
+
+            <div class="form-group">
+                <label for="customerName">Customer Name *</label>
+                <input type="text" id="customerName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <input type="text" id="address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="callbackReason">Original Issue/Callback Reason *</label>
+                <textarea id="callbackReason" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="crewMembers">Crew Members Present *</label>
+                <input type="text" id="crewMembers" placeholder="Enter all crew member names" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 2: Pre-Work Documentation -->
+        <div class="step" id="step2">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Pre-Work Documentation</div>
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>CRITICAL:</strong> Document EVERYTHING before touching anything!
+            </div>
+
+            <div class="form-group">
+                <label>Photos of Current Conditions *</label>
+                <div class="photo-upload">
+                    <label for="preWorkPhotos" class="photo-upload-btn">📷 Take Photos</label>
+                    <input type="file" id="preWorkPhotos" multiple accept="image/*" capture="environment">
+                    <p>Take photos of: problem areas, surrounding areas, transitions, any existing damage</p>
+                    <div class="uploaded-photos" id="preWorkPhotoPreview"></div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <h4>Pre-Work Inspection Checklist</h4>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="existingDamage">
+                    <label for="existingDamage">Documented existing damage/issues not related to callback</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="transitionPhotos">
+                    <label for="transitionPhotos">Photographed all transition areas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="obstacles">
+                    <label for="obstacles">Noted furniture/obstacles in work area</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="customerPresent">
+                    <label for="customerPresent">Customer present for pre-work walkthrough</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preWorkNotes">Additional Notes</label>
+                <textarea id="preWorkNotes" rows="3" placeholder="Any additional observations or concerns"></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 3: Work Performed -->
+        <div class="step" id="step3">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Work Performed</div>
+            </div>
+
+            <div class="form-group">
+                <label for="workPerformed">Work Performed *</label>
+                <textarea id="workPerformed" rows="4" placeholder="Describe in detail what work was completed" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="materialsUsed">Materials Used</label>
+                <textarea id="materialsUsed" rows="2" placeholder="List all materials, tools, or supplies used"></textarea>
+            </div>
+
+            <div class="time-display" id="currentTime"></div>
+
+            <div class="form-group">
+                <label for="workStartTime">Work Start Time *</label>
+                <input type="time" id="workStartTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="workEndTime">Work End Time *</label>
+                <input type="time" id="workEndTime" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 4: Post-Work Documentation -->
+        <div class="step" id="step4">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Post-Work Documentation</div>
+            </div>
+
+            <div class="form-group">
+                <label>Photos of Completed Work *</label>
+                <div class="photo-upload">
+                    <label for="postWorkPhotos" class="photo-upload-btn">📷 Take Photos</label>
+                    <input type="file" id="postWorkPhotos" multiple accept="image/*" capture="environment">
+                    <p>Take photos of: completed work, all transitions, clean-up areas</p>
+                    <div class="uploaded-photos" id="postWorkPhotoPreview"></div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <h4>Post-Work Quality Checklist</h4>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="workCompleted">
+                    <label for="workCompleted">All work completed per work order</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="transitionsInstalled">
+                    <label for="transitionsInstalled">Transitions properly installed and finished</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="areaCleaned">
+                    <label for="areaCleaned">Work area cleaned and debris removed</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="noDamage">
+                    <label for="noDamage">No damage to surrounding areas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="toolsRemoved">
+                    <label for="toolsRemoved">All tools and materials removed from site</label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 5: Customer Walkthrough -->
+        <div class="step" id="step5">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Customer Walkthrough</div>
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>MANDATORY:</strong> Customer must approve work before leaving!
+            </div>
+
+            <div class="checkbox-group">
+                <h4>Customer Walkthrough Checklist</h4>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="showedWork">
+                    <label for="showedWork">Showed customer all completed work</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="customerInspected">
+                    <label for="customerInspected">Customer inspected all transition areas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="addressedConcerns">
+                    <label for="addressedConcerns">Addressed any customer questions/concerns</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="customerSatisfied">
+                    <label for="customerSatisfied">Customer confirmed satisfaction with work</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="customerFeedback">Customer Feedback/Comments</label>
+                <textarea id="customerFeedback" rows="3" placeholder="Any feedback, concerns, or compliments from customer"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="followupRequired">Follow-up Required?</label>
+                <select id="followupRequired">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="followupDetails" style="display: none;">
+                <label for="followupText">Follow-up Details</label>
+                <textarea id="followupText" rows="2" placeholder="Describe what follow-up is needed"></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 6: Customer Signature -->
+        <div class="step" id="step6">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Customer Sign-Off</div>
+            </div>
+
+            <div class="alert alert-info">
+                Customer signature confirms satisfaction with completed work
+            </div>
+
+            <div class="form-group">
+                <label>Customer Signature *</label>
+                <div class="signature-pad">
+                    <canvas class="signature-canvas" id="signatureCanvas"></canvas>
+                    <button type="button" class="signature-clear" onclick="clearSignature()">Clear</button>
+                </div>
+                <p style="text-align: center; color: #6c757d; font-size: 0.9rem; margin-top: 10px;">Sign above</p>
+            </div>
+
+            <div class="form-group">
+                <label for="customerPrintName">Print Customer Name *</label>
+                <input type="text" id="customerPrintName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signatureDate">Date *</label>
+                <input type="date" id="signatureDate" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+        </div>
+
+        <!-- Step 7: Final Confirmation -->
+        <div class="step" id="step7">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Final Confirmation</div>
+            </div>
+
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="finalConfirmation" required>
+                    <label for="finalConfirmation"><strong>I confirm that all callback work has been completed to the customer's satisfaction</strong></label>
+                </div>
+            </div>
+
+            <button class="btn btn-success" onclick="completeCallback()">Complete Callback</button>
+        </div>
+
+        <!-- Completion Screen -->
+        <div class="step" id="completion">
+            <div class="completion-summary">
+                <div class="completion-icon">✅</div>
+                <h2>Callback Completed!</h2>
+                <p>Documentation has been saved successfully.</p>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-sms" onclick="sendSMS()">📱 Send Text Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 7;
+        let signaturePad;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            updateCurrentTime();
+            initializeSignaturePad();
+            
+            // Set current date
+            document.getElementById('signatureDate').value = new Date().toISOString().split('T')[0];
+            
+            // Auto-set work times to current time
+            const now = new Date();
+            const timeString = now.toTimeString().split(' ')[0].substring(0, 5);
+            document.getElementById('workStartTime').value = timeString;
+            
+            // Update time every minute
+            setInterval(updateCurrentTime, 60000);
+        });
+
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString();
+            document.getElementById('currentTime').textContent = `Current Time: ${timeString}`;
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById(`step${stepNumber}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            }
+        }
+
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById(`step${currentStep}`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    alert(`Please fill in all required fields before proceeding.`);
+                    field.focus();
+                    return false;
+                }
+            }
+            
+            // Additional validation for specific steps
+            if (currentStep === 2) {
+                const preWorkPhotos = document.getElementById('preWorkPhotos').files;
+                if (preWorkPhotos.length === 0) {
+                    alert('Please take at least one pre-work photo before proceeding.');
+                    return false;
+                }
+                
+                const checkboxes = currentStepElement.querySelectorAll('input[type="checkbox"]');
+                const checkedBoxes = currentStepElement.querySelectorAll('input[type="checkbox"]:checked');
+                if (checkedBoxes.length === 0) {
+                    alert('Please complete the pre-work inspection checklist.');
+                    return false;
+                }
+            }
+            
+            if (currentStep === 4) {
+                const postWorkPhotos = document.getElementById('postWorkPhotos').files;
+                if (postWorkPhotos.length === 0) {
+                    alert('Please take at least one post-work photo before proceeding.');
+                    return false;
+                }
+                
+                const checkboxes = currentStepElement.querySelectorAll('input[type="checkbox"]');
+                const checkedBoxes = currentStepElement.querySelectorAll('input[type="checkbox"]:checked');
+                if (checkedBoxes.length < checkboxes.length) {
+                    alert('Please complete all items in the post-work quality checklist.');
+                    return false;
+                }
+            }
+            
+            if (currentStep === 5) {
+                const checkboxes = currentStepElement.querySelectorAll('input[type="checkbox"]');
+                const checkedBoxes = currentStepElement.querySelectorAll('input[type="checkbox"]:checked');
+                if (checkedBoxes.length < checkboxes.length) {
+                    alert('Please complete the customer walkthrough checklist.');
+                    return false;
+                }
+            }
+            
+            if (currentStep === 6) {
+                if (!signaturePad || signaturePad.isEmpty()) {
+                    alert('Please obtain customer signature before proceeding.');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        function completeCallback() {
+            if (!document.getElementById('finalConfirmation').checked) {
+                alert('Please confirm that all work has been completed to customer satisfaction.');
+                return;
+            }
+            
+            // Show completion screen
+            currentStep = 8;
+            showStep(8);
+            document.getElementById('completion').classList.add('active');
+            
+            // Here you would typically send the data to your server
+            console.log('Callback documentation completed');
+            
+            // Auto-set end time to now
+            const now = new Date();
+            const timeString = now.toTimeString().split(' ')[0].substring(0, 5);
+            document.getElementById('workEndTime').value = timeString;
+        }
+
+        function sendSMS() {
+            // Generate the summary text for the SMS
+            const customerName = document.getElementById('customerName').value;
+            const address = document.getElementById('address').value;
+            const callbackReason = document.getElementById('callbackReason').value;
+            const crewMembers = document.getElementById('crewMembers').value;
+            const workPerformed = document.getElementById('workPerformed').value;
+            const customerPrintName = document.getElementById('customerPrintName').value;
+            const signatureDate = document.getElementById('signatureDate').value;
+            const workStartTime = document.getElementById('workStartTime').value;
+            const workEndTime = document.getElementById('workEndTime').value;
+            
+            const messageText = `CALLBACK COMPLETED:
+Customer: ${customerName}
+Address: ${address}
+Callback Reason: ${callbackReason}
+Crew: ${crewMembers}
+Work Performed: ${workPerformed}
+Start Time: ${workStartTime}
+End Time: ${workEndTime}
+Customer Signature: ${customerPrintName} (${signatureDate})
+All documentation and photos completed per SOP.`;
+
+            // Create SMS URL - this will work on both iOS and Android
+            const smsUrl = `sms:?body=${encodeURIComponent(messageText)}`;
+            
+            // Open the SMS app
+            window.location.href = smsUrl;
+        }
+
+        // Photo upload handling
+        document.getElementById('preWorkPhotos').addEventListener('change', function(e) {
+            handlePhotoUpload(e, 'preWorkPhotoPreview');
+        });
+
+        document.getElementById('postWorkPhotos').addEventListener('change', function(e) {
+            handlePhotoUpload(e, 'postWorkPhotoPreview');
+        });
+
+        function handlePhotoUpload(event, previewId) {
+            const files = event.target.files;
+            const preview = document.getElementById(previewId);
+            preview.innerHTML = '';
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'uploaded-photo';
+                    img.alt = `Photo ${i + 1}`;
+                    preview.appendChild(img);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Follow-up toggle
+        document.getElementById('followupRequired').addEventListener('change', function() {
+            const followupDetails = document.getElementById('followupDetails');
+            if (this.value === 'yes') {
+                followupDetails.style.display = 'block';
+                document.getElementById('followupText').required = true;
+            } else {
+                followupDetails.style.display = 'none';
+                document.getElementById('followupText').required = false;
+            }
+        });
+
+        // Signature pad functionality
+        function initializeSignaturePad() {
+            const canvas = document.getElementById('signatureCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            let isDrawing = false;
+            let hasDrawn = false;
+            
+            // Mouse events
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            
+            // Touch events
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+            
+            function startDrawing(e) {
+                isDrawing = true;
+                hasDrawn = true;
+                const rect = canvas.getBoundingClientRect();
+                ctx.beginPath();
+                ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            }
+            
+            function draw(e) {
+                if (!isDrawing) return;
+                
+                const rect = canvas.getBoundingClientRect();
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = '#000';
+                ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+                ctx.stroke();
+            }
+            
+            function stopDrawing() {
+                isDrawing = false;
+            }
+            
+            function handleTouch(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                                 e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                    clientX: touch.clientX,
+                    clientY: touch.clientY
+                });
+                canvas.dispatchEvent(mouseEvent);
+            }
+            
+            signaturePad = {
+                isEmpty: function() {
+                    return !hasDrawn;
+                },
+                clear: function() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    hasDrawn = false;
+                }
+            };
+        }
+
+        function clearSignature() {
+            signaturePad.clear();
+        }
+
+        // Prevent form submission on enter
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                nextStep();
+            }
+        });
+    </script>
+</body>
+</html>
