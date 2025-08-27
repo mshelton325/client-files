@@ -1,19 +1,111 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Client Files</title>
+  <meta name="robots" content="noindex,nofollow" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    li { margin: .4rem 0; }
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; max-width: 900px; }
+    h1 { margin: 0 0 .25rem 0; }
+    .path { color: #555; margin: 0 0 1rem 0; font-size: .95rem; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin: .35rem 0; }
+    a { text-decoration: none; }
+    .folder::before { content: "📁 "; }
+    .file::before   { content: "📄 "; }
+    .muted { color: #777; }
+    .toolbar { margin: 1rem 0; }
+    button { cursor: pointer; }
   </style>
 </head>
 <body>
   <h1>Client Files</h1>
-  <ul>
-    <li><a href="proposal.html">proposal.html</a></li>
-    <li><a href="estimate.html">estimate.html</a></li>
-    <li><a href="demo/">demo/</a></li>
-  </ul>
+  <div class="path" id="crumbs"></div>
+  <div class="toolbar">
+    <button id="upBtn" title="Up one level">⬆️ Up</button>
+  </div>
+  <ul id="list"><li class="muted">Loading…</li></ul>
+
+  <script>
+    // Your GitHub repo (public) — used to fetch the live file list:
+    const GITHUB_USER = "mshelton325";
+    const GITHUB_REPO = "client-files";
+
+    // File types to show as direct links (add more if you want):
+    const ALLOWED_EXTS = [".html",".htm",".pdf",".png",".jpg",".jpeg",".gif",".svg",".txt",".csv"];
+    // Show everything instead? set to null:
+    // const ALLOWED_EXTS = null;
+
+    // Where files are served from (your Netlify site). location.origin works automatically.
+    const WEB_BASE = location.origin + "/";
+
+    async function fetchDir(path) {
+      const api = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${encodeURIComponent(path)}`;
+      const res = await fetch(api);
+      if (!res.ok) throw new Error("Unable to load directory: " + path);
+      return res.json();
+    }
+
+    function ext(name){ const i=name.lastIndexOf("."); return i>=0?name.slice(i).toLowerCase():""; }
+    function isAllowedFile(name){ if(!ALLOWED_EXTS) return true; return ALLOWED_EXTS.includes(ext(name)); }
+
+    function render(path, items) {
+      const ul = document.getElementById("list");
+      const crumbs = document.getElementById("crumbs");
+      ul.innerHTML = "";
+      const parts = path.split("/").filter(Boolean);
+      const trail = ['<a href="#/">Home</a>'];
+      parts.forEach((p,i)=>{
+        const up = parts.slice(0,i+1).join("/");
+        trail.push(`<span class="muted">/</span> <a href="#/${up}">${p}</a>`);
+      });
+      crumbs.innerHTML = trail.join(" ");
+
+      const upBtn = document.getElementById("upBtn");
+      upBtn.disabled = parts.length===0;
+      upBtn.onclick = () => { parts.pop(); location.hash = "#/" + parts.join("/"); };
+
+      const folders = items.filter(it=>it.type==="dir").sort((a,b)=>a.name.localeCompare(b.name));
+      const files   = items.filter(it=>it.type==="file" && isAllowedFile(it.name)).sort((a,b)=>a.name.localeCompare(b.name));
+
+      if (folders.length===0 && files.length===0) {
+        ul.innerHTML = '<li class="muted">This folder is empty.</li>';
+        return;
+      }
+
+      for (const f of folders) {
+        const li = document.createElement("li");
+        li.className = "folder";
+        const a = document.createElement("a");
+        a.href = "#/" + (path ? path + "/" : "") + f.name;
+        a.textContent = f.name + "/";
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+
+      for (const f of files) {
+        const li = document.createElement("li");
+        li.className = "file";
+        const a = document.createElement("a");
+        a.href = WEB_BASE + (path ? path + "/" : "") + f.name;
+        a.textContent = f.name;
+        a.target = "_blank";
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+    }
+
+    async function loadFromHash() {
+      let hash = decodeURIComponent(location.hash || "#/");
+      if (!hash.startsWith("#/")) hash = "#/";
+      let path = hash.slice(2);
+      if (path.endsWith("/")) path = path.slice(0,-1);
+      try { const items = await fetchDir(path); render(path, items); }
+      catch (e) { document.getElementById("list").innerHTML = `<li class="muted">Error: ${e.message}</li>`; }
+    }
+
+    window.addEventListener("hashchange", loadFromHash);
+    loadFromHash();
+  </script>
 </body>
 </html>
