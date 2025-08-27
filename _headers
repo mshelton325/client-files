@@ -1,3 +1,6 @@
 /*
   Basic-Auth: testuser:testpass
   X-Robots-Tag: noindex, nofollow
+
+/index.html
+  Basic-Auth: testuser:testpass
