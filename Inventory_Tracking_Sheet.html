@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Tracking Sheet - FloorPro Business Arsenal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+        .form-section { break-inside: avoid; }
+        input, select, textarea { border: 1px solid #d1d5db; }
+        .grid-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-7xl mx-auto p-6 bg-white">
+        <!-- Header -->
+        <div class="text-center mb-8 border-b-2 border-blue-600 pb-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-boxes text-blue-600 mr-3"></i>
+                INVENTORY TRACKING SHEET
+            </h1>
+            <p class="text-lg text-gray-600">Comprehensive Material and Equipment Inventory Management</p>
+            <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
+                <div><strong>Date:</strong> <input type="date" class="ml-2 p-1 rounded border"></div>
+                <div><strong>Location:</strong> <input type="text" class="ml-2 p-1 rounded border w-32" placeholder="Warehouse/Site"></div>
+                <div><strong>Manager:</strong> <input type="text" class="ml-2 p-1 rounded border w-32" placeholder="Name"></div>
+            </div>
+        </div>
+
+        <!-- Inventory Item Identification -->
+        <div class="form-section mb-8 bg-blue-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-blue-800 mb-4 border-b border-blue-300 pb-2">
+                <i class="fas fa-barcode mr-2"></i>INVENTORY ITEM IDENTIFICATION
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Item Number/SKU</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Enter SKU">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Item Description</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Detailed description">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Flooring Materials</option>
+                        <option>Tools & Equipment</option>
+                        <option>Supplies & Accessories</option>
+                        <option>Safety Equipment</option>
+                        <option>Adhesives & Chemicals</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Brand/Manufacturer</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Brand name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Model/Style</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Model number">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Unit of Measure</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Square Feet</option>
+                        <option>Linear Feet</option>
+                        <option>Pieces</option>
+                        <option>Boxes</option>
+                        <option>Gallons</option>
+                        <option>Each</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Supplier/Vendor Information</label>
+                <textarea class="w-full p-2 rounded border h-20" placeholder="Primary supplier name, contact info, account number"></textarea>
+            </div>
+        </div>
+
+        <!-- Current Inventory Status -->
+        <div class="form-section mb-8 bg-green-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-green-800 mb-4 border-b border-green-300 pb-2">
+                <i class="fas fa-clipboard-list mr-2"></i>CURRENT INVENTORY STATUS
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Quantity on Hand</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Current qty">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Storage Location</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Bin/Rack location">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Minimum Stock Level</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Reorder point">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Maximum Stock Level</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Max capacity">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Reserved Quantity</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Reserved for projects">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Available Quantity</label>
+                    <input type="number" class="w-full p-2 rounded border bg-gray-100" placeholder="Auto-calculated" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost & Pricing Information -->
+        <div class="form-section mb-8 bg-yellow-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-yellow-800 mb-4 border-b border-yellow-300 pb-2">
+                <i class="fas fa-dollar-sign mr-2"></i>COST & PRICING INFORMATION
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Purchase Cost</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border" placeholder="0.00">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Purchase Date</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Average Cost</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border" placeholder="0.00">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Current Supplier Price</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border" placeholder="0.00">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Retail/Markup Price</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border" placeholder="0.00">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Markup Percentage</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="0.0%">
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier & Ordering -->
+        <div class="form-section mb-8 bg-purple-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-purple-800 mb-4 border-b border-purple-300 pb-2">
+                <i class="fas fa-truck mr-2"></i>SUPPLIER & ORDERING
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-gray-700 mb-3">Primary Supplier</h3>
+                    <div class="space-y-2">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Supplier name">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Contact person">
+                        <input type="tel" class="w-full p-2 rounded border" placeholder="Phone number">
+                        <input type="email" class="w-full p-2 rounded border" placeholder="Email address">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-700 mb-3">Secondary Supplier</h3>
+                    <div class="space-y-2">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Backup supplier">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Contact person">
+                        <input type="tel" class="w-full p-2 rounded border" placeholder="Phone number">
+                        <input type="email" class="w-full p-2 rounded border" placeholder="Email address">
+                    </div>
+                </div>
+            </div>
+            <div class="grid-form mt-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Lead Time (Days)</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Delivery days">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Minimum Order Qty</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Min qty">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Payment Terms</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Net 30</option>
+                        <option>Net 15</option>
+                        <option>COD</option>
+                        <option>Prepaid</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Available Discounts</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Volume discounts">
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage & Demand Tracking -->
+        <div class="form-section mb-8 bg-indigo-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-indigo-800 mb-4 border-b border-indigo-300 pb-2">
+                <i class="fas fa-chart-line mr-2"></i>USAGE & DEMAND TRACKING
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Usage (Avg)</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Units/month">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Peak Season Usage</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Peak units">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Low Season Usage</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Low units">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Waste Percentage</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="0.0%">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Peak Season Months</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="List peak months"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Usage Notes</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Usage patterns by project type"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Demand Forecast</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Future demand expectations"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quality & Condition -->
+        <div class="form-section mb-8 bg-red-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-red-800 mb-4 border-b border-red-300 pb-2">
+                <i class="fas fa-shield-alt mr-2"></i>QUALITY & CONDITION
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Condition Grade</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                        <option>Damaged</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Inspection Date</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Expiration Date</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Temperature Requirements</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Storage temperature">
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Damage/Defect Documentation</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Document any damage or defects"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Quality Control Notes</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Inspection notes and observations"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movement Tracking -->
+        <div class="form-section mb-8 bg-teal-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-teal-800 mb-4 border-b border-teal-300 pb-2">
+                <i class="fas fa-exchange-alt mr-2"></i>MOVEMENT TRACKING
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-gray-700 mb-3">Recent Receipts</h3>
+                    <div class="space-y-2">
+                        <input type="date" class="w-full p-2 rounded border" placeholder="Receipt date">
+                        <input type="number" class="w-full p-2 rounded border" placeholder="Quantity received">
+                        <input type="number" step="0.01" class="w-full p-2 rounded border" placeholder="Cost per unit">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Supplier/Source">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-700 mb-3">Recent Issues</h3>
+                    <div class="space-y-2">
+                        <input type="date" class="w-full p-2 rounded border" placeholder="Issue date">
+                        <input type="number" class="w-full p-2 rounded border" placeholder="Quantity issued">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Job number">
+                        <input type="text" class="w-full p-2 rounded border" placeholder="Issued to">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Returns</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Returns from jobs or suppliers"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Transfers</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Location transfers"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Adjustments</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Corrections and adjustments"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valuation & Reporting -->
+        <div class="form-section mb-8 bg-orange-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-orange-800 mb-4 border-b border-orange-300 pb-2">
+                <i class="fas fa-calculator mr-2"></i>VALUATION & REPORTING
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Value at Cost</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border bg-gray-100" placeholder="$0.00" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Value at Retail</label>
+                    <input type="number" step="0.01" class="w-full p-2 rounded border bg-gray-100" placeholder="$0.00" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Turnover Rate</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="Times per year">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Days on Hand</label>
+                    <input type="number" class="w-full p-2 rounded border bg-gray-100" placeholder="Days" readonly>
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Slow-Moving Analysis</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Items with low turnover"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Obsolete Inventory Assessment</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Items to liquidate or dispose"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reorder Management -->
+        <div class="form-section mb-8 bg-pink-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-pink-800 mb-4 border-b border-pink-300 pb-2">
+                <i class="fas fa-shopping-cart mr-2"></i>REORDER MANAGEMENT
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Reorder Status</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Above Minimum</option>
+                        <option>At Reorder Point</option>
+                        <option>Below Minimum</option>
+                        <option>Critical Low</option>
+                        <option>Out of Stock</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Pending Order Qty</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Quantity ordered">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Expected Delivery</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Order Priority</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Normal</option>
+                        <option>High</option>
+                        <option>Urgent</option>
+                        <option>Emergency</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Backorder Situations</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Current backorder status"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Procurement</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Alternative sources for emergencies"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location & Organization -->
+        <div class="form-section mb-8 bg-gray-100 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-400 pb-2">
+                <i class="fas fa-map-marker-alt mr-2"></i>LOCATION & ORGANIZATION
+            </h2>
+            <div class="grid-form">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Primary Location</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Warehouse section">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Bin/Rack Number</label>
+                    <input type="text" class="w-full p-2 rounded border" placeholder="Bin identifier">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Organization System</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Alphabetical</option>
+                        <option>By Category</option>
+                        <option>By Size</option>
+                        <option>By Frequency</option>
+                        <option>Custom</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Accessibility Rating</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Security Measures</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Security and loss prevention"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Climate Control</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Temperature and humidity control"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Special Requirements</label>
+                    <textarea class="w-full p-2 rounded border h-16" placeholder="Special storage needs"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cycle Count & Auditing -->
+        <div class="form-section mb-8 bg-blue-100 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-blue-800 mb-4 border-b border-blue-400 pb-2">
+                <i class="fas fa-search mr-2"></i>CYCLE COUNT & AUDITING
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Count Date</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Count Frequency</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annual</option>
+                        <option>Annual</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Count Accuracy %</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="98.5%">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Next Count Due</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Variances & Adjustments</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Document count variances and corrections"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Investigation Notes</label>
+                    <textarea class="w-full p-2 rounded border h-20" placeholder="Variance investigation and resolution"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="form-section mb-8 bg-green-100 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-green-800 mb-4 border-b border-green-400 pb-2">
+                <i class="fas fa-chart-bar mr-2"></i>PERFORMANCE METRICS
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Turnover Rate</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="x/year">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Stock-out Frequency</label>
+                    <input type="number" class="w-full p-2 rounded border" placeholder="Times/year">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Carrying Cost %</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="0.0%">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Order Fill Rate</label>
+                    <input type="number" step="0.1" class="w-full p-2 rounded border" placeholder="98.5%">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Supplier Rating</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature and Approval Section -->
+        <div class="form-section border-2 border-gray-300 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">AUTHORIZATION & SIGNATURES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="border-b-2 border-gray-400 mb-2 h-16"></div>
+                    <p class="font-medium">Inventory Manager Signature</p>
+                    <p class="text-sm text-gray-600">Date: ___________</p>
+                </div>
+                <div class="text-center">
+                    <div class="border-b-2 border-gray-400 mb-2 h-16"></div>
+                    <p class="font-medium">Warehouse Supervisor</p>
+                    <p class="text-sm text-gray-600">Date: ___________</p>
+                </div>
+                <div class="text-center">
+                    <div class="border-b-2 border-gray-400 mb-2 h-16"></div>
+                    <p class="font-medium">Operations Manager</p>
+                    <p class="text-sm text-gray-600">Date: ___________</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-sm text-gray-600 border-t pt-4">
+            <p><strong>FloorPro Business Arsenal</strong> - Professional Flooring Business Management Tools</p>
+            <p>Inventory Tracking Sheet - Designed for Efficient Material and Cost Control</p>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9764f6898b7fcbc5","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmB%2BdC38UVf6BlbjdT31NoH%2F2eu6%2F7gUnFqq416OCSMiOc7MZdFG1uwn4gK%2BeHVIuCfZyKFj2rr8qz8LY1nRkenxk2k3jwl6UMptDy5Z8DSnzcSvCx3LE8dSUxQzl9N%2FEW4A25XOlo48b6HR5jnuHecCF72v9aoaJR2eRci9T4XZUb%2BbASnu7vqA1YivZplDoL4Bea%2B9DeqREnvM5cyI%2BwKb1tlciJ8Fj%2F%2F4KKFZv2cYL%2FNppS3jdUOLZvnn8%2BngOzE8RnFEq4dPxji37HMuW4LI7jTRV0%2Bs%2BIg%2BUgRCsolxYQEMNQQkgSOng6fOCiHMWu7JwGf2uInfGucw44%2FhO0vapdgzcsNji2KUMR8zFlHtM1%2B0jfIfWa5SbyVI9%2B7uJRG0t12S%2FuWSpCXhdAnUqVzDWKGQrly7XFclcqdhrtApxJzSgVrWyaBhbzKIITtl70Rr9K1vJFkPN8GX9NQr3wAJGh5SlA3%2BS4g%2BijO415prRuwpDhr87zGb1MVC27Q2Eg%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmB+dC38UVf6BlbjdT31NoH/2eu6/7gUnFqq416OCSMiOc7MZdFG1uwn4gK+eHVIuCfZyKFj2rr8qz8LY1nRkenxk2k3jwl6UMptDy5Z8DSnzcSvCx3LE8dSUxQzl9N/EW4A25XOlo48b6HR5jnuHecCF72v9aoaJR2eRci9T4XZUb+bASnu7vqA1YivZplDoL4Bea+9DeqREnvM5cyI+wKb1tlciJ8Fj//4KKFZv2cYL/NppS3jdUOLZvnn8+ngOzE8RnFEq4dPxji37HMuW4LI7jTRV0+s+Ig+UgRCsolxYQEMNQQkgSOng6fOCiHMWu7JwGf2uInfGucw44/hO0vapdgzcsNji2KUMR8zFlHtM1+0jfIfWa5SbyVI9+7uJRG0t12S/uWSpCXhdAnUqVzDWKGQrly7XFclcqdhrtApxJzSgVrWyaBhbzKIITtl70Rr9K1vJFkPN8GX9NQr3wAJGh5SlA3+S4g+ijO415prRuwpDhr87zGb1MVC27Q2Eg==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
