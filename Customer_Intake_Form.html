@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Intake Form - FloorPro Business Systems</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none !important; }
+        }
+        .form-section {
+            page-break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-6 rounded-t-lg">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center">
+                        <i class="fas fa-home mr-3"></i>
+                        Customer Intake Form
+                    </h1>
+                    <p class="text-blue-100 mt-2">Comprehensive New Client Onboarding</p>
+                </div>
+                <div class="text-right text-sm">
+                    <p>Date: <span id="currentDate"></span></p>
+                    <p>Form #: CI-2024-001</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 space-y-6">
+            <!-- Customer Contact Information -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-user mr-2 text-blue-600"></i>
+                    Customer Contact Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Customer Name *</label>
+                        <input type="text" name="primary_name" class="w-full" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Spouse/Partner Name</label>
+                        <input type="text" name="spouse_name" class="w-full">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Home Address *</label>
+                        <textarea name="home_address" rows="2" class="w-full" required></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Address (if different)</label>
+                        <textarea name="install_address" rows="2" class="w-full"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Phone *</label>
+                        <input type="tel" name="primary_phone" class="w-full" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Secondary Phone</label>
+                        <input type="tel" name="secondary_phone" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Work Phone</label>
+                        <input type="tel" name="work_phone" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Phone</label>
+                        <input type="tel" name="mobile_phone" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Email *</label>
+                        <input type="email" name="primary_email" class="w-full" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Secondary Email</label>
+                        <input type="email" name="secondary_email" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Communication Method</label>
+                        <select name="comm_method" class="w-full">
+                            <option value="">Select method</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="text">Text/SMS</option>
+                            <option value="either">Phone or Email</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Best Times to Contact</label>
+                        <input type="text" name="best_times" class="w-full" placeholder="e.g., Weekday evenings, Weekend mornings">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Information -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-building mr-2 text-green-600"></i>
+                    Property Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Property Type *</label>
+                        <select name="property_type" class="w-full" required>
+                            <option value="">Select type</option>
+                            <option value="single_family">Single Family Home</option>
+                            <option value="condo">Condominium</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Year Built</label>
+                        <input type="text" name="year_built" class="w-full" placeholder="e.g., 1995">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Recent Renovations</label>
+                        <textarea name="renovations" rows="2" class="w-full" placeholder="Describe any recent renovations or upgrades"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Current Flooring Types Throughout Home</label>
+                        <textarea name="current_flooring" rows="2" class="w-full" placeholder="Describe existing flooring in each room/area"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subfloor Type</label>
+                        <select name="subfloor_type" class="w-full">
+                            <option value="">Select type</option>
+                            <option value="concrete">Concrete</option>
+                            <option value="plywood">Plywood</option>
+                            <option value="osb">OSB</option>
+                            <option value="hardwood">Hardwood</option>
+                            <option value="unknown">Unknown</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Known Subfloor Conditions</label>
+                        <input type="text" name="subfloor_conditions" class="w-full" placeholder="e.g., Level, squeaky, moisture issues">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">HVAC System Type</label>
+                        <select name="hvac_type" class="w-full">
+                            <option value="">Select type</option>
+                            <option value="central_air">Central Air/Heat</option>
+                            <option value="heat_pump">Heat Pump</option>
+                            <option value="radiant">Radiant Heat</option>
+                            <option value="baseboard">Baseboard Heat</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Humidity Control</label>
+                        <select name="humidity_control" class="w-full">
+                            <option value="">Select option</option>
+                            <option value="whole_house">Whole House Humidifier/Dehumidifier</option>
+                            <option value="portable">Portable Units</option>
+                            <option value="none">None</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-tools mr-2 text-orange-600"></i>
+                    Project Details
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Rooms/Areas Requiring Flooring *</label>
+                        <textarea name="project_rooms" rows="3" class="w-full" placeholder="List all rooms and areas needing new flooring" required></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Square Footage by Room</label>
+                        <textarea name="square_footage" rows="3" class="w-full" placeholder="Room 1: 200 sq ft, Room 2: 150 sq ft, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Flooring Types</label>
+                        <div class="space-y-2">
+                            <div class="checkbox-group">
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="hardwood"> Hardwood</label>
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="lvt"> Luxury Vinyl Tile (LVT)</label>
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="laminate"> Laminate</label>
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="carpet"> Carpet</label>
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="tile"> Ceramic/Porcelain Tile</label>
+                                <label class="flex items-center"><input type="checkbox" name="flooring_types" value="other"> Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Color Preferences</label>
+                        <textarea name="color_preferences" rows="3" class="w-full" placeholder="Describe preferred colors, styles, and aesthetic preferences"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Timeline</label>
+                        <select name="timeline" class="w-full">
+                            <option value="">Select timeline</option>
+                            <option value="asap">As Soon As Possible</option>
+                            <option value="1_month">Within 1 Month</option>
+                            <option value="2_3_months">2-3 Months</option>
+                            <option value="3_6_months">3-6 Months</option>
+                            <option value="6_months_plus">6+ Months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Urgency Level</label>
+                        <select name="urgency" class="w-full">
+                            <option value="">Select urgency</option>
+                            <option value="emergency">Emergency (damage/safety)</option>
+                            <option value="high">High (moving/selling)</option>
+                            <option value="medium">Medium (planned renovation)</option>
+                            <option value="low">Low (when convenient)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lifestyle & Usage Factors -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-users mr-2 text-purple-600"></i>
+                    Lifestyle & Usage Factors
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Household Composition</label>
+                        <textarea name="household_composition" rows="2" class="w-full" placeholder="Adults: 2, Children: 1 (age 8), etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Pets</label>
+                        <textarea name="pets" rows="2" class="w-full" placeholder="Type, size, number: e.g., 1 large dog, 2 cats"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Activity Levels</label>
+                        <select name="activity_levels" class="w-full">
+                            <option value="">Select activity level</option>
+                            <option value="low">Low (minimal foot traffic)</option>
+                            <option value="medium">Medium (normal family use)</option>
+                            <option value="high">High (very active household)</option>
+                            <option value="extreme">Extreme (commercial-like use)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Traffic Patterns</label>
+                        <input type="text" name="traffic_patterns" class="w-full" placeholder="High traffic areas, flow patterns">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Special Needs or Accessibility Requirements</label>
+                        <textarea name="special_needs" rows="2" class="w-full" placeholder="Wheelchair access, mobility aids, safety considerations"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Entertaining and Lifestyle Considerations</label>
+                        <textarea name="entertaining" rows="2" class="w-full" placeholder="Frequent entertaining, formal events, casual gatherings"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget & Financing -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-dollar-sign mr-2 text-green-600"></i>
+                    Budget & Financing
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Budget Range</label>
+                        <select name="budget_range" class="w-full">
+                            <option value="">Select budget range</option>
+                            <option value="under_5k">Under $5,000</option>
+                            <option value="5k_10k">$5,000 - $10,000</option>
+                            <option value="10k_20k">$10,000 - $20,000</option>
+                            <option value="20k_35k">$20,000 - $35,000</option>
+                            <option value="35k_50k">$35,000 - $50,000</option>
+                            <option value="over_50k">Over $50,000</option>
+                            <option value="flexible">Flexible/Value-based</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Financing Interest</label>
+                        <select name="financing_interest" class="w-full">
+                            <option value="">Select option</option>
+                            <option value="cash">Paying Cash</option>
+                            <option value="interested">Interested in Financing</option>
+                            <option value="required">Financing Required</option>
+                            <option value="exploring">Exploring Options</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Payment Method Preference</label>
+                        <select name="payment_method" class="w-full">
+                            <option value="">Select preference</option>
+                            <option value="cash">Cash</option>
+                            <option value="check">Check</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="financing">Financing</option>
+                            <option value="combination">Combination</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Decision Timeline</label>
+                        <select name="decision_timeline" class="w-full">
+                            <option value="">Select timeline</option>
+                            <option value="today">Today</option>
+                            <option value="this_week">This Week</option>
+                            <option value="2_weeks">Within 2 Weeks</option>
+                            <option value="1_month">Within 1 Month</option>
+                            <option value="longer">Longer Research Period</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price Sensitivity</label>
+                        <select name="price_sensitivity" class="w-full">
+                            <option value="">Select sensitivity</option>
+                            <option value="low">Low (quality focused)</option>
+                            <option value="medium">Medium (value focused)</option>
+                            <option value="high">High (price focused)</option>
+                            <option value="variable">Varies by room/area</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Value Priorities</label>
+                        <input type="text" name="value_priorities" class="w-full" placeholder="Quality, price, service, warranty, etc.">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision-Making Process -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-balance-scale mr-2 text-indigo-600"></i>
+                    Decision-Making Process
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Decision Maker</label>
+                        <select name="primary_decision_maker" class="w-full">
+                            <option value="">Select decision maker</option>
+                            <option value="customer">Primary Customer</option>
+                            <option value="spouse">Spouse/Partner</option>
+                            <option value="joint">Joint Decision</option>
+                            <option value="other">Other Family Member</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Spouse/Partner Involvement</label>
+                        <select name="spouse_involvement" class="w-full">
+                            <option value="">Select involvement level</option>
+                            <option value="high">High (must approve)</option>
+                            <option value="medium">Medium (input valued)</option>
+                            <option value="low">Low (minimal involvement)</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Other Influences</label>
+                        <input type="text" name="other_influences" class="w-full" placeholder="Children, parents, designer, contractor, etc.">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Research Methods</label>
+                        <input type="text" name="research_methods" class="w-full" placeholder="Online, showrooms, friends, magazines, etc.">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Information Sources Used</label>
+                        <textarea name="information_sources" rows="2" class="w-full" placeholder="Websites, reviews, referrals, social media, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Experience -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-history mr-2 text-yellow-600"></i>
+                    Previous Experience
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Previous Flooring Purchases/Installations</label>
+                        <textarea name="previous_flooring" rows="3" class="w-full" placeholder="Describe previous flooring projects, timeline, contractors used"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Positive Experiences</label>
+                        <textarea name="positive_experiences" rows="2" class="w-full" placeholder="What went well in previous projects?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Negative Experiences</label>
+                        <textarea name="negative_experiences" rows="2" class="w-full" placeholder="What problems or disappointments occurred?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Contractors/Brands</label>
+                        <input type="text" name="preferred_contractors" class="w-full" placeholder="Any preferred companies or brands?">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Expectations</label>
+                        <input type="text" name="warranty_expectations" class="w-full" placeholder="What warranty terms are important?">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Service Priorities</label>
+                        <textarea name="service_priorities" rows="2" class="w-full" placeholder="What service aspects are most important? (communication, cleanliness, timeliness, etc.)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Information -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-chart-line mr-2 text-red-600"></i>
+                    Competitive Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Other Companies Being Considered</label>
+                        <textarea name="competitors" rows="2" class="w-full" placeholder="List other companies you're considering"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quotes Already Received</label>
+                        <select name="quotes_received" class="w-full">
+                            <option value="">Select option</option>
+                            <option value="none">None Yet</option>
+                            <option value="1">1 Quote</option>
+                            <option value="2">2 Quotes</option>
+                            <option value="3_plus">3+ Quotes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Shopping Timeline</label>
+                        <select name="shopping_timeline" class="w-full">
+                            <option value="">Select timeline</option>
+                            <option value="just_started">Just Started</option>
+                            <option value="1_week">Shopping 1 Week</option>
+                            <option value="2_weeks">Shopping 2+ Weeks</option>
+                            <option value="1_month">Shopping 1+ Month</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Decision Criteria and Priorities</label>
+                        <textarea name="decision_criteria" rows="2" class="w-full" placeholder="What factors will influence your final decision? (price, quality, service, timeline, etc.)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Requirements -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-2 text-orange-600"></i>
+                    Special Requirements
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Accessibility Considerations</label>
+                        <textarea name="accessibility" rows="2" class="w-full" placeholder="Wheelchair access, grab bars, threshold requirements"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Health Sensitivities</label>
+                        <textarea name="health_sensitivities" rows="2" class="w-full" placeholder="Allergies, asthma, chemical sensitivities, VOC concerns"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Environmental Preferences</label>
+                        <textarea name="environmental_preferences" rows="2" class="w-full" placeholder="Eco-friendly materials, sustainability requirements"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Custom Work Requests</label>
+                        <textarea name="custom_work" rows="2" class="w-full" placeholder="Patterns, borders, inlays, special designs"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Timing Restrictions</label>
+                        <textarea name="timing_restrictions" rows="2" class="w-full" placeholder="Work hours, days of week, noise restrictions, occupancy requirements"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lead Source & Marketing -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-bullhorn mr-2 text-pink-600"></i>
+                    Lead Source & Marketing
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">How Did You Hear About Us? *</label>
+                        <select name="lead_source" class="w-full" required>
+                            <option value="">Select source</option>
+                            <option value="referral">Referral from Customer</option>
+                            <option value="online_search">Online Search (Google, etc.)</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="advertising">Print/Radio/TV Advertising</option>
+                            <option value="yellow_pages">Yellow Pages/Directory</option>
+                            <option value="home_show">Home Show/Trade Show</option>
+                            <option value="website">Company Website</option>
+                            <option value="drive_by">Saw Truck/Signage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Specific Source Details</label>
+                        <input type="text" name="source_details" class="w-full" placeholder="Specific campaign, person, website, etc.">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Referral Source</label>
+                        <input type="text" name="referral_source" class="w-full" placeholder="If referred, who referred you?">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Previous Interactions</label>
+                        <input type="text" name="previous_interactions" class="w-full" placeholder="Previous quotes, showroom visits, etc.">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Marketing Message Effectiveness</label>
+                        <textarea name="message_effectiveness" rows="2" class="w-full" placeholder="What messaging or information attracted you to contact us?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Follow-up Preferences -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-calendar-check mr-2 text-teal-600"></i>
+                    Follow-up Preferences
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Follow-up Timeline</label>
+                        <select name="followup_timeline" class="w-full">
+                            <option value="">Select timeline</option>
+                            <option value="immediately">Immediately</option>
+                            <option value="same_day">Same Day</option>
+                            <option value="next_day">Next Business Day</option>
+                            <option value="2_3_days">2-3 Days</option>
+                            <option value="1_week">Within 1 Week</option>
+                            <option value="when_ready">When I'm Ready</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Information Delivery Preference</label>
+                        <select name="info_delivery" class="w-full">
+                            <option value="">Select preference</option>
+                            <option value="email">Email Information</option>
+                            <option value="phone_call">Phone Discussion</option>
+                            <option value="in_person">In-Person Meeting</option>
+                            <option value="text_links">Text with Links</option>
+                            <option value="mail">Mailed Information</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Appointment Scheduling</label>
+                        <select name="appointment_preference" class="w-full">
+                            <option value="">Select preference</option>
+                            <option value="asap">Schedule ASAP</option>
+                            <option value="this_week">This Week</option>
+                            <option value="next_week">Next Week</option>
+                            <option value="flexible">Flexible Timing</option>
+                            <option value="not_ready">Not Ready Yet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Sample Viewing Interest</label>
+                        <select name="sample_interest" class="w-full">
+                            <option value="">Select interest</option>
+                            <option value="bring_samples">Bring Samples to Home</option>
+                            <option value="showroom_visit">Visit Showroom</option>
+                            <option value="both">Both Options</option>
+                            <option value="online_only">Online/Photos Only</option>
+                            <option value="not_yet">Not Ready for Samples</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Decision Support Needs</label>
+                        <textarea name="decision_support" rows="2" class="w-full" placeholder="What information or support would help you make your decision?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes & Observations -->
+            <div class="form-section bg-gray-50 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-sticky-note mr-2 text-gray-600"></i>
+                    Notes & Observations
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Initial Impression & Personality</label>
+                        <textarea name="initial_impression" rows="2" class="w-full" placeholder="Professional demeanor, friendliness, communication style, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Communication Style Preferences</label>
+                        <textarea name="communication_style" rows="2" class="w-full" placeholder="Detail-oriented, big picture, technical, emotional, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Buying Signals & Readiness Indicators</label>
+                        <textarea name="buying_signals" rows="2" class="w-full" placeholder="Urgency, engagement level, decision-making authority, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Potential Challenges or Concerns</label>
+                        <textarea name="challenges_concerns" rows="2" class="w-full" placeholder="Budget constraints, timeline issues, decision-making complexity, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Opportunity Size & Potential</label>
+                        <textarea name="opportunity_potential" rows="2" class="w-full" placeholder="Project scope, future opportunities, referral potential, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
+                        <textarea name="additional_notes" rows="3" class="w-full" placeholder="Any other relevant information, observations, or special considerations"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Footer -->
+            <div class="border-t pt-6 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Completed By</label>
+                        <input type="text" name="completed_by" class="w-full" placeholder="Staff member name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date Completed</label>
+                        <input type="date" name="date_completed" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Follow-up Date</label>
+                        <input type="date" name="followup_date" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Priority Level</label>
+                        <select name="priority_level" class="w-full">
+                            <option value="">Select priority</option>
+                            <option value="hot">Hot Lead</option>
+                            <option value="warm">Warm Lead</option>
+                            <option value="cold">Cold Lead</option>
+                            <option value="nurture">Nurture Lead</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-100 p-4 rounded-b-lg text-center text-sm text-gray-600">
+            <p><i class="fas fa-shield-alt mr-1"></i> This information is confidential and used solely for providing personalized flooring solutions.</p>
+            <p class="mt-1">FloorPro Business Systems - Professional Customer Intake Form</p>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+        
+        // Auto-fill date completed with today's date
+        document.querySelector('input[name="date_completed"]').value = new Date().toISOString().split('T')[0];
+        
+        // Calculate suggested follow-up date (3 days from today)
+        const followupDate = new Date();
+        followupDate.setDate(followupDate.getDate() + 3);
+        document.querySelector('input[name="followup_date"]').value = followupDate.toISOString().split('T')[0];
+        
+        // Add form validation
+        document.querySelector('form')?.addEventListener('submit', function(e) {
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.border = '2px solid red';
+                    isValid = false;
+                } else {
+                    field.style.border = '1px solid #d1d5db';
+                }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please complete all required fields marked with *');
+            }
+        });
+        
+        // Add input focus styling
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.style.borderColor = '#3b82f6';
+                this.style.boxShadow = '0 0 0 1px #3b82f6';
+            });
+            
+            element.addEventListener('blur', function() {
+                this.style.borderColor = '#d1d5db';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9764f1ec69127608","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmB%2BdC38UVf6BlbjdT31NoH%2F2eu6%2F7gUnFqq416OCSMiOc7MZdFG1uwn4gK%2BeHVIuCfZyKFj2rr8qz8LY1nRkenxk2k3jwl6UMptDy5Z8DSnzcSvCx3LE8dSUxQzl9N%2FEW4A25XOlo48b6HR5jnuHecCF72v9aoaJR2eRci9T4XZUb%2BbASnu7vqA1YivZplDoL4Bea%2B9DeqREnvM5cyI%2BwItMmHx4wEg%2Fw%2BomrTBdXBb6IqvUFvK6UFEs5tdryAzTkHvWE2u6NeawqVUCt45%2FdtqdZSsrhoIoHnjDmYlVBDxPs7mEqthCop5uLRsj%2BA4458D5jVoAxxgDDnGVGuUgQw4MFwowU3Uhfr%2F6ZI2nswxLrxb3oZ%2F%2B%2FfiHcI93Z8nZIdjr54SxUe5f%2BSC7amw4coM9nT0jJSHB8K%2FTNuQrgMktQ%2B5rYWge99M23Abws8J73F6vkzmUVTiOShM03cYwxoH3rIqoHAvyXBqjRqQUHNBOlzS1Mo9LNWOkZDg4npmza7Qy4ri0MhGRaIa3fHwmPndjcYcWx51xTXJRWn%2F8tEf";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmB+dC38UVf6BlbjdT31NoH/2eu6/7gUnFqq416OCSMiOc7MZdFG1uwn4gK+eHVIuCfZyKFj2rr8qz8LY1nRkenxk2k3jwl6UMptDy5Z8DSnzcSvCx3LE8dSUxQzl9N/EW4A25XOlo48b6HR5jnuHecCF72v9aoaJR2eRci9T4XZUb+bASnu7vqA1YivZplDoL4Bea+9DeqREnvM5cyI+wItMmHx4wEg/w+omrTBdXBb6IqvUFvK6UFEs5tdryAzTkHvWE2u6NeawqVUCt45/dtqdZSsrhoIoHnjDmYlVBDxPs7mEqthCop5uLRsj+A4458D5jVoAxxgDDnGVGuUgQw4MFwowU3Uhfr/6ZI2nswxLrxb3oZ/+/fiHcI93Z8nZIdjr54SxUe5f+SC7amw4coM9nT0jJSHB8K/TNuQrgMktQ+5rYWge99M23Abws8J73F6vkzmUVTiOShM03cYwxoH3rIqoHAvyXBqjRqQUHNBOlzS1Mo9LNWOkZDg4npmza7Qy4ri0MhGRaIa3fHwmPndjcYcWx51xTXJRWn/8tEf";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
