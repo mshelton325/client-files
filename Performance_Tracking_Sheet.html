@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Tracking Sheet - FloorPro Business Arsenal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        .rating-scale {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 0.25rem;
+            max-width: 300px;
+        }
+        .rating-box {
+            aspect-ratio: 1;
+            border: 2px solid #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .rating-box:hover {
+            background-color: #f3f4f6;
+        }
+        input[type="text"], input[type="date"], textarea, select {
+            border: 1px solid #d1d5db;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .signature-line {
+            border-bottom: 2px solid #000;
+            min-height: 50px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg">
+        <!-- Header -->
+        <div class="bg-blue-800 text-white p-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold">PERFORMANCE TRACKING SHEET</h1>
+                    <p class="text-blue-200">FloorPro Business Arsenal - Employee Performance Evaluation</p>
+                </div>
+                <div class="text-right">
+                    <i class="fas fa-chart-line text-3xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <!-- Tracking Period Information -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-calendar-alt mr-2"></i>TRACKING PERIOD INFORMATION</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Performance Period:</label>
+                        <select class="w-full">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                            <option>Quarterly</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Start Date:</label>
+                        <input type="date" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">End Date:</label>
+                        <input type="date" class="w-full">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Evaluator Name:</label>
+                        <input type="text" class="w-full" placeholder="Enter evaluator name">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Evaluator Position:</label>
+                        <input type="text" class="w-full" placeholder="Enter position">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Department/Crew:</label>
+                        <input type="text" class="w-full" placeholder="Enter department">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Individual Performance Metrics -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-user mr-2"></i>INDIVIDUAL PERFORMANCE METRICS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Employee Name:</label>
+                            <input type="text" class="w-full" placeholder="Enter employee name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Employee ID:</label>
+                            <input type="text" class="w-full" placeholder="Enter employee ID">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Jobs Completed:</label>
+                            <input type="number" class="w-full" placeholder="Number of jobs">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Square Footage Installed:</label>
+                            <input type="number" class="w-full" placeholder="Total sq ft">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Efficiency Rating (sq ft/hour):</label>
+                            <input type="number" step="0.1" class="w-full" placeholder="0.0">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-semibold mb-1">Quality Score Average (1-10):</label>
+                            <div class="rating-scale">
+                                <div class="rating-box border-red-400 text-red-600">1</div>
+                                <div class="rating-box border-red-400 text-red-600">2</div>
+                                <div class="rating-box border-orange-400 text-orange-600">3</div>
+                                <div class="rating-box border-orange-400 text-orange-600">4</div>
+                                <div class="rating-box border-yellow-400 text-yellow-600">5</div>
+                                <div class="rating-box border-yellow-400 text-yellow-600">6</div>
+                                <div class="rating-box border-green-400 text-green-600">7</div>
+                                <div class="rating-box border-green-400 text-green-600">8</div>
+                                <div class="rating-box border-blue-400 text-blue-600">9</div>
+                                <div class="rating-box border-blue-400 text-blue-600">10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Productivity Measurements -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-tachometer-alt mr-2"></i>PRODUCTIVITY MEASUREMENTS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Time to Completion vs Estimates:</label>
+                            <select class="w-full">
+                                <option>Consistently Under Estimate</option>
+                                <option>Usually Under Estimate</option>
+                                <option>Meets Estimates</option>
+                                <option>Usually Over Estimate</option>
+                                <option>Consistently Over Estimate</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Material Waste Percentage:</label>
+                            <input type="number" step="0.1" class="w-full" placeholder="0.0%">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Setup & Cleanup Efficiency (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Problem Resolution Speed (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Customer Interaction Quality (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quality Assessments -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-award mr-2"></i>QUALITY ASSESSMENTS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Installation Technique Quality (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Attention to Detail Rating (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Customer Satisfaction Scores (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Callback Frequency:</label>
+                            <input type="number" class="w-full" placeholder="Number of callbacks">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Callback Reasons:</label>
+                            <textarea class="w-full h-20" placeholder="Describe callback reasons..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Warranty Claims Related to Work:</label>
+                            <input type="number" class="w-full" placeholder="Number of warranty claims">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Service Performance -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-handshake mr-2"></i>CUSTOMER SERVICE PERFORMANCE</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Communication Effectiveness (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Professional Appearance (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Problem-Solving Adaptability (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Customer Complaints:</label>
+                            <textarea class="w-full h-16" placeholder="Document any complaints..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Customer Compliments:</label>
+                            <textarea class="w-full h-16" placeholder="Document positive feedback..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Referrals Generated:</label>
+                            <input type="number" class="w-full" placeholder="Number of referrals">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety & Compliance -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-hard-hat mr-2"></i>SAFETY & COMPLIANCE</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Safety Protocol Adherence (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Safety Incidents:</label>
+                            <input type="number" class="w-full" placeholder="Number of incidents">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">PPE Compliance (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Workplace Safety Contributions:</label>
+                            <textarea class="w-full h-16" placeholder="Describe safety contributions..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Safety Training Participation:</label>
+                            <select class="w-full">
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Satisfactory</option>
+                                <option>Needs Improvement</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teamwork & Collaboration -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-users mr-2"></i>TEAMWORK & COLLABORATION</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Crew Leadership (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Mentoring Others (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Conflict Resolution (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Support for Team Goals (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Communication with Management (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance & Reliability -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-clock mr-2"></i>ATTENDANCE & RELIABILITY</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Punctuality (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Days Absent:</label>
+                            <input type="number" class="w-full" placeholder="Number of absences">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Overtime Availability:</label>
+                            <select class="w-full">
+                                <option>Always Available</option>
+                                <option>Usually Available</option>
+                                <option>Sometimes Available</option>
+                                <option>Rarely Available</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Advance Notice for Time Off:</label>
+                            <select class="w-full">
+                                <option>Always Adequate Notice</option>
+                                <option>Usually Adequate Notice</option>
+                                <option>Sometimes Short Notice</option>
+                                <option>Often Short Notice</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Overall Dependability (1-10):</label>
+                            <input type="number" min="1" max="10" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skill Development -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-graduation-cap mr-2"></i>SKILL DEVELOPMENT</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">New Skills Acquired:</label>
+                        <textarea class="w-full h-20" placeholder="List new skills and competencies gained..."></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Training Programs Participated:</label>
+                            <textarea class="w-full h-16" placeholder="List training programs..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Certifications Achieved:</label>
+                            <textarea class="w-full h-16" placeholder="List new certifications..."></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Knowledge Sharing Initiative (1-10):</label>
+                        <input type="number" min="1" max="10" class="w-full">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goal Achievement -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-bullseye mr-2"></i>GOAL ACHIEVEMENT</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Performance Goals Met:</label>
+                            <select class="w-full">
+                                <option>Exceeded All Goals</option>
+                                <option>Met All Goals</option>
+                                <option>Met Most Goals</option>
+                                <option>Met Some Goals</option>
+                                <option>Did Not Meet Goals</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Quality Improvement Targets:</label>
+                            <select class="w-full">
+                                <option>Exceeded Targets</option>
+                                <option>Met Targets</option>
+                                <option>Partially Met Targets</option>
+                                <option>Did Not Meet Targets</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Productivity Benchmarks:</label>
+                            <select class="w-full">
+                                <option>Exceeded Benchmarks</option>
+                                <option>Met Benchmarks</option>
+                                <option>Partially Met Benchmarks</option>
+                                <option>Did Not Meet Benchmarks</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Career Advancement Progress:</label>
+                            <textarea class="w-full h-16" placeholder="Describe career development progress..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Areas of Strength -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-green-200 p-3 mb-4"><i class="fas fa-star mr-2"></i>AREAS OF STRENGTH</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Standout Performance Areas:</label>
+                        <textarea class="w-full h-20" placeholder="Describe exceptional performance areas..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Skills & Abilities Recognition:</label>
+                        <textarea class="w-full h-20" placeholder="Highlight special skills and talents..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Positive Customer Feedback Examples:</label>
+                        <textarea class="w-full h-20" placeholder="Include specific customer compliments..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Improvement Opportunities -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-yellow-200 p-3 mb-4"><i class="fas fa-chart-line mr-2"></i>IMPROVEMENT OPPORTUNITIES</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Performance Areas Needing Attention:</label>
+                        <textarea class="w-full h-20" placeholder="Identify areas for improvement..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Skill Gaps Identified:</label>
+                        <textarea class="w-full h-20" placeholder="List skill gaps and training needs..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Support Required for Improvement:</label>
+                        <textarea class="w-full h-20" placeholder="Describe needed resources and support..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Planning -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-blue-200 p-3 mb-4"><i class="fas fa-tasks mr-2"></i>ACTION PLANNING</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Specific Improvement Goals:</label>
+                        <textarea class="w-full h-20" placeholder="Set specific, measurable goals..."></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Training & Development Plan:</label>
+                            <textarea class="w-full h-16" placeholder="Outline training plan..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Timeline for Milestones:</label>
+                            <textarea class="w-full h-16" placeholder="Set timeline and deadlines..."></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Follow-up Review Schedule:</label>
+                        <input type="date" class="w-full">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Supervisor Comments -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-comments mr-2"></i>SUPERVISOR COMMENTS</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Overall Performance Assessment:</label>
+                        <textarea class="w-full h-24" placeholder="Provide comprehensive performance assessment..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Recognition & Achievements:</label>
+                        <textarea class="w-full h-20" placeholder="Highlight accomplishments and recognition..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Career Development Discussions:</label>
+                        <textarea class="w-full h-20" placeholder="Document career planning conversations..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Employee Feedback -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-user-comment mr-2"></i>EMPLOYEE FEEDBACK</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Self-Assessment & Reflection:</label>
+                        <textarea class="w-full h-24" placeholder="Employee self-evaluation and thoughts..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Challenges & Obstacles:</label>
+                        <textarea class="w-full h-20" placeholder="Describe challenges faced..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Career Goals & Interests:</label>
+                        <textarea class="w-full h-20" placeholder="Employee career aspirations..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Rating -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-red-200 p-3 mb-4"><i class="fas fa-trophy mr-2"></i>PERFORMANCE RATING</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Overall Performance Score (1-10):</label>
+                            <div class="rating-scale">
+                                <div class="rating-box border-red-400 text-red-600">1</div>
+                                <div class="rating-box border-red-400 text-red-600">2</div>
+                                <div class="rating-box border-orange-400 text-orange-600">3</div>
+                                <div class="rating-box border-orange-400 text-orange-600">4</div>
+                                <div class="rating-box border-yellow-400 text-yellow-600">5</div>
+                                <div class="rating-box border-yellow-400 text-yellow-600">6</div>
+                                <div class="rating-box border-green-400 text-green-600">7</div>
+                                <div class="rating-box border-green-400 text-green-600">8</div>
+                                <div class="rating-box border-blue-400 text-blue-600">9</div>
+                                <div class="rating-box border-blue-400 text-blue-600">10</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Performance Category:</label>
+                            <select class="w-full">
+                                <option>Exceeds Expectations</option>
+                                <option>Meets Expectations</option>
+                                <option>Below Expectations</option>
+                                <option>Unsatisfactory</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Comparison to Previous Period:</label>
+                            <select class="w-full">
+                                <option>Significant Improvement</option>
+                                <option>Some Improvement</option>
+                                <option>No Change</option>
+                                <option>Some Decline</option>
+                                <option>Significant Decline</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Recommendation:</label>
+                            <select class="w-full">
+                                <option>Promotion/Advancement Ready</option>
+                                <option>Continue Current Role</option>
+                                <option>Additional Training Needed</option>
+                                <option>Performance Improvement Plan</option>
+                                <option>Consider Alternative Role</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signatures -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold bg-gray-200 p-3 mb-4"><i class="fas fa-pen mr-2"></i>SIGNATURES & APPROVALS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block font-semibold mb-2">Supervisor Signature:</label>
+                        <div class="signature-line"></div>
+                        <div class="mt-2">
+                            <label class="block text-sm">Date:</label>
+                            <input type="date" class="w-full mt-1">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-2">Employee Signature:</label>
+                        <div class="signature-line"></div>
+                        <div class="mt-2">
+                            <label class="block text-sm">Date:</label>
+                            <input type="date" class="w-full mt-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="block font-semibold mb-1">HR Review & Acknowledgment:</label>
+                    <div class="signature-line"></div>
+                    <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm">HR Representative Name:</label>
+                            <input type="text" class="w-full mt-1" placeholder="Print name">
+                        </div>
+                        <div>
+                            <label class="block text-sm">Date:</label>
+                            <input type="date" class="w-full mt-1">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div class="bg-gray-100 p-4 text-center text-sm text-gray-600">
+                <p><strong>FloorPro Business Arsenal</strong> - Performance Tracking Sheet</p>
+                <p>This document contains confidential employee information and should be stored securely.</p>
+                <p>For questions about this evaluation, contact HR or your direct supervisor.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity for rating scales
+        document.querySelectorAll('.rating-box').forEach(box => {
+            box.addEventListener('click', function() {
+                const scale = this.parentElement;
+                const boxes = scale.querySelectorAll('.rating-box');
+                const rating = parseInt(this.textContent);
+                
+                boxes.forEach((b, index) => {
+                    if (index < rating) {
+                        b.classList.add('bg-blue-500', 'text-white');
+                        b.classList.remove('bg-white');
+                    } else {
+                        b.classList.remove('bg-blue-500', 'text-white');
+                        b.classList.add('bg-white');
+                    }
+                });
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9765439078bc1697","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmPvz%2FnVTMSeA5NsjoiSLKeu5u1iDl%2BVn5VthnNl%2Bw6TrymsL2vQMzHCDRcklL1KyB%2FootqzF6EDUd9cdg0NwszI4FozyD1J6%2Fb0ieevwWnLqYnluUH97CAXZqjJEwQMuBU2udA5fxDRK%2BwkII62o75nHK8FwtnHHYaU6ecSkY4tcF8xvVv7yiQrdLNnj1L4w9rx6pW9Iwv%2B0Yx4QjefL4DMUZEngzS732tboGlJKDVGx5pkV927THU%2BsZdaTckB2ohz1MXVcOF2Zp%2F7prXCbSX8BlDDHDYEQiAyJSTKcwrDO6HM%2FpDB21Lr2%2FZQDfdIfjEzHtVHSCy4z1OhE08qtq6%2Fk0Au%2FGxOFLYDiRHzaWJgwRm04fQek%2FTNYBs4gZS0nP4eK2IRrGV8JBDEtefRVh5nvoTt42ncffEhIEOtQo7km5lX1WQIWPGg2%2FtuIouMTd0m6a4tyrm1t8WzVmxxgq0Vvs4YB%2FcjyN4H4Jgz52WWVYPY6fdrsnCzLeMLEqsAEO%2BwQp2bwoel8SEVEHglulM%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmPvz/nVTMSeA5NsjoiSLKeu5u1iDl+Vn5VthnNl+w6TrymsL2vQMzHCDRcklL1KyB/ootqzF6EDUd9cdg0NwszI4FozyD1J6/b0ieevwWnLqYnluUH97CAXZqjJEwQMuBU2udA5fxDRK+wkII62o75nHK8FwtnHHYaU6ecSkY4tcF8xvVv7yiQrdLNnj1L4w9rx6pW9Iwv+0Yx4QjefL4DMUZEngzS732tboGlJKDVGx5pkV927THU+sZdaTckB2ohz1MXVcOF2Zp/7prXCbSX8BlDDHDYEQiAyJSTKcwrDO6HM/pDB21Lr2/ZQDfdIfjEzHtVHSCy4z1OhE08qtq6/k0Au/GxOFLYDiRHzaWJgwRm04fQek/TNYBs4gZS0nP4eK2IRrGV8JBDEtefRVh5nvoTt42ncffEhIEOtQo7km5lX1WQIWPGg2/tuIouMTd0m6a4tyrm1t8WzVmxxgq0Vvs4YB/cjyN4H4Jgz52WWVYPY6fdrsnCzLeMLEqsAEO+wQp2bwoel8SEVEHglulM=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

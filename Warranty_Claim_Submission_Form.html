@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Claim Submission Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { -webkit-print-color-adjust: exact; }
+        }
+        .form-section {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-6">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-6">
+            <h1 class="text-3xl font-bold flex items-center">
+                <i class="fas fa-clipboard-check mr-3"></i>
+                Warranty Claim Submission Form
+            </h1>
+            <p class="mt-2 text-blue-100">Comprehensive warranty claim processing for flooring businesses</p>
+        </div>
+
+        <div class="p-8 space-y-8">
+            
+            <!-- Claim Identification -->
+            <div class="form-section bg-gray-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-id-card mr-2 text-blue-600"></i>
+                    Claim Identification
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Claim Number</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="System generated or manual entry">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Submission Date & Time</label>
+                        <input type="datetime-local" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Claim Type</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Select claim type</option>
+                            <option>Material Defect</option>
+                            <option>Installation Issue</option>
+                            <option>Wear/Performance Issue</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Priority Level</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Standard</option>
+                            <option>Urgent</option>
+                            <option>Emergency</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Staff Member Processing Claim</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Name and position">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer & Installation Information -->
+            <div class="form-section bg-blue-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-user mr-2 text-blue-600"></i>
+                    Customer & Installation Information
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Address</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Address (if different)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Original Installation Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Completion Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Original Invoice/Job Number</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Crew/Contractor</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="form-section bg-green-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-cube mr-2 text-green-600"></i>
+                    Product Information
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Contact</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Product Line</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Model Number</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">SKU Number</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Color/Pattern</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Purchase Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Supplier Information</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quantity Purchased</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quantity Installed</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warranty Coverage Details -->
+            <div class="form-section bg-yellow-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-shield-alt mr-2 text-yellow-600"></i>
+                    Warranty Coverage Details
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Type</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Select warranty type</option>
+                            <option>Manufacturer Warranty</option>
+                            <option>Installation Warranty</option>
+                            <option>Extended Warranty</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Period</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 25 years">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Expiration Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Registration Status</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Registered</option>
+                            <option>Not Registered</option>
+                            <option>Unknown</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Coverage Limitations & Exclusions</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Previous Warranty Claims on This Product</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue Description -->
+            <div class="form-section bg-red-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-2 text-red-600"></i>
+                    Issue Description
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Detailed Description of Defect/Problem</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Provide detailed description of the issue"></textarea>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Date Issue First Noticed</label>
+                            <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Area Affected (Room, Sq Ft)</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Environmental Conditions at Discovery</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Temperature, humidity, moisture, etc."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Use & Maintenance History</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentation Requirements -->
+            <div class="form-section bg-purple-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-camera mr-2 text-purple-600"></i>
+                    Documentation Requirements
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600">
+                        <label class="text-sm font-medium text-gray-700">Photo documentation of issue (REQUIRED)</label>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600">
+                        <label class="text-sm font-medium text-gray-700">Original purchase receipts and invoices</label>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600">
+                        <label class="text-sm font-medium text-gray-700">Installation documentation and photos</label>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600">
+                        <label class="text-sm font-medium text-gray-700">Maintenance records (if applicable)</label>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600">
+                        <label class="text-sm font-medium text-gray-700">Previous repair attempts and documentation</label>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Additional Documentation Notes</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manufacturer Submission -->
+            <div class="form-section bg-indigo-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-paper-plane mr-2 text-indigo-600"></i>
+                    Manufacturer Submission
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Claim Form Status</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Not Started</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                            <option>Submitted</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Submission Method</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Online Portal</option>
+                            <option>Email</option>
+                            <option>Mail</option>
+                            <option>Fax</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Claim Reference #</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Expected Response Timeline</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 5-10 business days">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Required Documentation Submitted</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Internal Tracking -->
+            <div class="form-section bg-gray-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-chart-line mr-2 text-gray-600"></i>
+                    Internal Tracking
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Internal Assessment of Claim Validity</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Valid Claim</option>
+                            <option>Invalid Claim</option>
+                            <option>Partial Validity</option>
+                            <option>Under Review</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Cost Impact</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$0.00">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Relationship Impact</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Low Risk</option>
+                            <option>Medium Risk</option>
+                            <option>High Risk</option>
+                            <option>Critical</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Resolution Priority</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Standard</option>
+                            <option>High</option>
+                            <option>Urgent</option>
+                            <option>Critical</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Staff Assigned for Follow-up</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Target Resolution Timeline</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 2-3 weeks">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Log -->
+            <div class="form-section bg-teal-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-comments mr-2 text-teal-600"></i>
+                    Communication Log
+                </h2>
+                <div class="space-y-4">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Customer Notification Date</label>
+                            <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Method</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md">
+                                <option>Phone</option>
+                                <option>Email</option>
+                                <option>In Person</option>
+                                <option>Text</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Response Received</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md">
+                                <option>Yes</option>
+                                <option>No</option>
+                                <option>Partial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Communication Records</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Progress Updates Provided to Customer</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Escalation Communications (if needed)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resolution Tracking -->
+            <div class="form-section bg-green-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-check-circle mr-2 text-green-600"></i>
+                    Resolution Tracking
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer Decision</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Pending</option>
+                            <option>Approved - Full Coverage</option>
+                            <option>Approved - Partial Coverage</option>
+                            <option>Denied</option>
+                            <option>Requires More Information</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Decision Timeline</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Approved Resolution Method & Scope</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Scheduling Requirements</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Materials/Labor Needed</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Approval Status</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Approved</option>
+                            <option>Pending</option>
+                            <option>Declined</option>
+                            <option>Negotiating</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Satisfaction Rating (1-10)</label>
+                        <input type="number" min="1" max="10" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Documentation -->
+            <div class="form-section bg-orange-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-folder-open mr-2 text-orange-600"></i>
+                    Final Documentation
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Resolution Completion Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Final Cost Impact</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$0.00">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Cost Responsibility</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Manufacturer</option>
+                            <option>Company</option>
+                            <option>Customer</option>
+                            <option>Shared</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Satisfaction with Resolution (1-10)</label>
+                        <input type="number" min="1" max="10" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Documentation for Future Reference</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Process Improvement Recommendations</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signatures & Approvals -->
+            <div class="form-section bg-gray-100 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-signature mr-2 text-gray-700"></i>
+                    Signatures & Approvals
+                </h2>
+                <div class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border p-4 rounded">
+                            <h4 class="font-medium text-gray-700 mb-2">Customer Acknowledgment</h4>
+                            <div class="h-16 border-b-2 border-gray-300 mb-2"></div>
+                            <div class="text-sm text-gray-600">
+                                <div>Customer Signature</div>
+                                <div class="mt-2">
+                                    Date: <span class="border-b border-gray-300 inline-block w-24"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border p-4 rounded">
+                            <h4 class="font-medium text-gray-700 mb-2">Staff Processing</h4>
+                            <div class="h-16 border-b-2 border-gray-300 mb-2"></div>
+                            <div class="text-sm text-gray-600">
+                                <div>Staff Signature</div>
+                                <div class="mt-2">
+                                    Date: <span class="border-b border-gray-300 inline-block w-24"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border p-4 rounded">
+                            <h4 class="font-medium text-gray-700 mb-2">Manager Approval (High-Value Claims)</h4>
+                            <div class="h-16 border-b-2 border-gray-300 mb-2"></div>
+                            <div class="text-sm text-gray-600">
+                                <div>Manager Signature</div>
+                                <div class="mt-2">
+                                    Date: <span class="border-b border-gray-300 inline-block w-24"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border p-4 rounded">
+                            <h4 class="font-medium text-gray-700 mb-2">Final Resolution Sign-off</h4>
+                            <div class="h-16 border-b-2 border-gray-300 mb-2"></div>
+                            <div class="text-sm text-gray-600">
+                                <div>Authorized Signature</div>
+                                <div class="mt-2">
+                                    Date: <span class="border-b border-gray-300 inline-block w-24"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center text-gray-500 text-sm pt-6 border-t">
+                <p>FloorPro Business Systems - Warranty Claim Submission Form</p>
+                <p class="mt-1">For internal use only. Maintain confidentiality of customer information.</p>
+            </div>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976548124d6b0847","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmjXYUDynuarYP16hsTUewWS6ODCYPPoObYYDZCbiI%2F8f1AEKnUxGJQPT1fmCaEleRo6MqMgHE7pOcHdSYSiSXBz5nvR%2BCPJPrzf4oCJaR0%2FY%2FogvGbi9wVNfVHpfsIvXfyB4vhJC15EF5dThCfH4MzpHIUkQMY%2BHshkVCr6TE%2B5Rf7QIoAaIkM1Ip9fSeXIVhs9hVZOiCOekGJF6BBOYCU4Pxdcvjd%2BzeBjN5MSKTPGSEKylARW7yq7whFb7eF9TBX4iFKEgZxmwZViKl6HVve0kN3OvhzOKUnp6ENd4lL1%2BFJyU8Q3VFSieOv2r%2BCt7GIecFMqgAhRNF9SgjuhS%2Fhp1Eh1fG1wiWKVjmZemlW3uDRMtGQXVCzNOavHDq0gYsPhD%2BwPOe0t7C0vpECbFu%2BU6tJ4K4pY%2FULIMhYrCnpUL3BYNRdzWiO7C8utTIxZkyqAyTH6w2yoDt4gmh4RYXjFOHKA4E5R%2FQUWjbF2Usha1pMDR37h4xc28Tn9gBbzSfLq288KoQzGhotcdVMQVf6ETooqZyoTe6ll2KRL%2FseooTcvi7Hi3mXeUMJpL%2BmttA%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmjXYUDynuarYP16hsTUewWS6ODCYPPoObYYDZCbiI/8f1AEKnUxGJQPT1fmCaEleRo6MqMgHE7pOcHdSYSiSXBz5nvR+CPJPrzf4oCJaR0/Y/ogvGbi9wVNfVHpfsIvXfyB4vhJC15EF5dThCfH4MzpHIUkQMY+HshkVCr6TE+5Rf7QIoAaIkM1Ip9fSeXIVhs9hVZOiCOekGJF6BBOYCU4Pxdcvjd+zeBjN5MSKTPGSEKylARW7yq7whFb7eF9TBX4iFKEgZxmwZViKl6HVve0kN3OvhzOKUnp6ENd4lL1+FJyU8Q3VFSieOv2r+Ct7GIecFMqgAhRNF9SgjuhS/hp1Eh1fG1wiWKVjmZemlW3uDRMtGQXVCzNOavHDq0gYsPhD+wPOe0t7C0vpECbFu+U6tJ4K4pY/ULIMhYrCnpUL3BYNRdzWiO7C8utTIxZkyqAyTH6w2yoDt4gmh4RYXjFOHKA4E5R/QUWjbF2Usha1pMDR37h4xc28Tn9gBbzSfLq288KoQzGhotcdVMQVf6ETooqZyoTe6ll2KRL/seooTcvi7Hi3mXeUMJpL+mttA==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

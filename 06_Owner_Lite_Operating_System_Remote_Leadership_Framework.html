@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner-Lite Operating System & Remote Leadership Framework</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .toggle-content { display: none; }
+        .toggle-content.active { display: block; }
+        .status-urgent { background-color: #fee2e2; border-left: 4px solid #dc2626; }
+        .status-standard { background-color: #fef3c7; border-left: 4px solid #d97706; }
+        .status-non-urgent { background-color: #d1fae5; border-left: 4px solid #059669; }
+        .time-block { background: #f8fafc; border: 2px dashed #cbd5e1; }
+        .sop-step { counter-increment: step-counter; }
+        .sop-step::before { content: counter(step-counter); background: #3b82f6; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 12px; font-weight: bold; }
+        .sop-container { counter-reset: step-counter; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2">Owner-Lite Operating System</h1>
+                    <p class="text-xl opacity-90">Remote Leadership Framework for 10-15 Hour Work Weeks</p>
+                </div>
+                <div class="text-right">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <i class="fas fa-clock text-3xl mb-2"></i>
+                        <p class="font-semibold">Target: 10-15 hrs/week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Navigation -->
+    <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">System Overview</a>
+                <a href="#leadership-standards" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">Leadership Standards</a>
+                <a href="#escalation-matrix" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">Escalation Rules</a>
+                <a href="#time-management" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">Time Management</a>
+                <a href="#sop-documentation" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">SOP Framework</a>
+                <a href="#communication-protocols" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">Communication</a>
+                <a href="#monitoring-tools" class="nav-link whitespace-nowrap text-gray-600 hover:text-blue-600 font-medium">Monitoring Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        
+        <!-- System Overview -->
+        <section id="overview" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-chart-line text-blue-600 mr-3"></i>
+                    System Overview
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center p-6 bg-blue-50 rounded-lg">
+                        <i class="fas fa-cog text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="font-bold text-lg">System-First Leadership</h3>
+                        <p class="text-gray-600">Processes drive performance, not personalities</p>
+                    </div>
+                    <div class="text-center p-6 bg-green-50 rounded-lg">
+                        <i class="fas fa-clock text-4xl text-green-600 mb-3"></i>
+                        <h3 class="font-bold text-lg">Time Freedom</h3>
+                        <p class="text-gray-600">10-15 hours/week maximum involvement</p>
+                    </div>
+                    <div class="text-center p-6 bg-purple-50 rounded-lg">
+                        <i class="fas fa-wifi text-4xl text-purple-600 mb-3"></i>
+                        <h3 class="font-bold text-lg">Remote Advisory</h3>
+                        <p class="text-gray-600">Manage from anywhere with confidence</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Core Principles</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Urgent-Only Escalations:</strong> Only true emergencies reach you immediately
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Single Source of Truth:</strong> One dashboard, one scorecard, one system
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Automated Accountability:</strong> Systems enforce compliance, not people
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Clear Decision Trees:</strong> Every situation has a defined response path
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Standards -->
+        <section id="leadership-standards" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-star text-yellow-600 mr-3"></i>
+                    Leadership Standards & Values
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Owner Responsibilities</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <i class="fas fa-clipboard-list text-blue-600 mr-3"></i>
+                                <span>Build and maintain SOPs</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <i class="fas fa-chart-bar text-blue-600 mr-3"></i>
+                                <span>Review dashboards and metrics</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <i class="fas fa-calendar-check text-blue-600 mr-3"></i>
+                                <span>Monthly strategic reviews</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <i class="fas fa-exclamation-triangle text-blue-600 mr-3"></i>
+                                <span>Handle urgent escalations only</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-green-600">Manager/Team Responsibilities</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <i class="fas fa-users text-green-600 mr-3"></i>
+                                <span>Daily team management</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <i class="fas fa-tasks text-green-600 mr-3"></i>
+                                <span>SOP execution and compliance</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <i class="fas fa-file-alt text-green-600 mr-3"></i>
+                                <span>Regular reporting and updates</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <i class="fas fa-wrench text-green-600 mr-3"></i>
+                                <span>First-level problem resolution</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400">
+                    <h4 class="font-bold text-lg mb-3">Walk-Through Checklist Ownership</h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <strong>Daily Checks:</strong>
+                            <ul class="mt-2 space-y-1 text-sm">
+                                <li>• Compliance tracker review</li>
+                                <li>• Morning huddle completion</li>
+                                <li>• Priority escalations</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Weekly Reviews:</strong>
+                            <ul class="mt-2 space-y-1 text-sm">
+                                <li>• Scorecard analysis</li>
+                                <li>• 1:1 meeting notes</li>
+                                <li>• Training completion</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Monthly Assessments:</strong>
+                            <ul class="mt-2 space-y-1 text-sm">
+                                <li>• Performance trends</li>
+                                <li>• System improvements</li>
+                                <li>• Strategy adjustments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Escalation Rule Matrix -->
+        <section id="escalation-matrix" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-exclamation-triangle text-red-600 mr-3"></i>
+                    Escalation Rule Matrix
+                </h2>
+
+                <div class="mb-8">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="status-urgent p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-red-700 mb-3">
+                                <i class="fas fa-fire mr-2"></i>URGENT - Immediate Escalation
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Safety incidents or injuries</li>
+                                <li>• Legal threats or issues</li>
+                                <li>• Major customer complaints (>$10K impact)</li>
+                                <li>• System failures affecting operations</li>
+                                <li>• Employee misconduct (serious)</li>
+                                <li>• Cash flow emergencies</li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-red-100 rounded">
+                                <strong>Response Time:</strong> Immediate (call/text)
+                            </div>
+                        </div>
+
+                        <div class="status-standard p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-orange-700 mb-3">
+                                <i class="fas fa-clock mr-2"></i>STANDARD - Same Day
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Performance issues requiring intervention</li>
+                                <li>• Customer complaints ($1K-$10K impact)</li>
+                                <li>• Scheduling conflicts</li>
+                                <li>• Vendor/supplier issues</li>
+                                <li>• Team conflict resolution</li>
+                                <li>• Process clarifications</li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-orange-100 rounded">
+                                <strong>Response Time:</strong> Within 4 hours (email/message)
+                            </div>
+                        </div>
+
+                        <div class="status-non-urgent p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-green-700 mb-3">
+                                <i class="fas fa-calendar mr-2"></i>NON-URGENT - Monthly Log
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Process improvement suggestions</li>
+                                <li>• Training requests</li>
+                                <li>• Minor customer feedback</li>
+                                <li>• Equipment maintenance needs</li>
+                                <li>• Team development opportunities</li>
+                                <li>• Administrative updates</li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-green-100 rounded">
+                                <strong>Response Time:</strong> Monthly review meeting
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Monthly Non-Urgent Log Template</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-gray-300 p-2 text-left">Date</th>
+                                    <th class="border border-gray-300 p-2 text-left">Category</th>
+                                    <th class="border border-gray-300 p-2 text-left">Description</th>
+                                    <th class="border border-gray-300 p-2 text-left">Submitted By</th>
+                                    <th class="border border-gray-300 p-2 text-left">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-2">
+                                        <input type="date" class="w-full border-none bg-transparent">
+                                    </td>
+                                    <td class="border border-gray-300 p-2">
+                                        <select class="w-full border-none bg-transparent">
+                                            <option>Process Improvement</option>
+                                            <option>Training Request</option>
+                                            <option>Equipment</option>
+                                            <option>Team Development</option>
+                                            <option>Administrative</option>
+                                        </select>
+                                    </td>
+                                    <td class="border border-gray-300 p-2">
+                                        <input type="text" class="w-full border-none bg-transparent" placeholder="Description...">
+                                    </td>
+                                    <td class="border border-gray-300 p-2">
+                                        <input type="text" class="w-full border-none bg-transparent" placeholder="Name">
+                                    </td>
+                                    <td class="border border-gray-300 p-2">
+                                        <select class="w-full border-none bg-transparent">
+                                            <option>Pending Review</option>
+                                            <option>In Progress</option>
+                                            <option>Completed</option>
+                                            <option>Deferred</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Management & Capping -->
+        <section id="time-management" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-hourglass-half text-blue-600 mr-3"></i>
+                    Owner Time Management & Capping Strategies
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Weekly Time Allocation (15 Hours Max)</h3>
+                        <div class="space-y-4">
+                            <div class="time-block p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong>Strategic Planning</strong>
+                                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">3 hours</span>
+                                </div>
+                                <ul class="text-sm text-gray-600">
+                                    <li>• Review dashboards and metrics</li>
+                                    <li>• Analyze performance trends</li>
+                                    <li>• Plan system improvements</li>
+                                </ul>
+                            </div>
+
+                            <div class="time-block p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong>SOP Development</strong>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">4 hours</span>
+                                </div>
+                                <ul class="text-sm text-gray-600">
+                                    <li>• Create/update procedures</li>
+                                    <li>• Document best practices</li>
+                                    <li>• Build training materials</li>
+                                </ul>
+                            </div>
+
+                            <div class="time-block p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong>Team Development</strong>
+                                    <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">3 hours</span>
+                                </div>
+                                <ul class="text-sm text-gray-600">
+                                    <li>• Manager coaching sessions</li>
+                                    <li>• Performance reviews</li>
+                                    <li>• Skill development planning</li>
+                                </ul>
+                            </div>
+
+                            <div class="time-block p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong>Escalation Handling</strong>
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded">3 hours</span>
+                                </div>
+                                <ul class="text-sm text-gray-600">
+                                    <li>• Urgent issue resolution</li>
+                                    <li>• Critical decision making</li>
+                                    <li>• Crisis management</li>
+                                </ul>
+                            </div>
+
+                            <div class="time-block p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong>Business Development</strong>
+                                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">2 hours</span>
+                                </div>
+                                <ul class="text-sm text-gray-600">
+                                    <li>• Consulting business growth</li>
+                                    <li>• Strategic partnerships</li>
+                                    <li>• Market opportunities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-green-600">Time Protection Strategies</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <h4 class="font-bold mb-2">
+                                    <i class="fas fa-shield-alt text-green-600 mr-2"></i>Boundary Setting
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Set specific "office hours" for availability</li>
+                                    <li>• Use separate phone/email for urgent vs. routine</li>
+                                    <li>• Implement 24-hour rule for non-urgent responses</li>
+                                    <li>• Schedule "deep work" blocks for SOP development</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <h4 class="font-bold mb-2">
+                                    <i class="fas fa-robot text-blue-600 mr-2"></i>Automation Priorities
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Automated reporting and dashboards</li>
+                                    <li>• Rule-based escalation systems</li>
+                                    <li>• Template-based communication</li>
+                                    <li>• Self-service training resources</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <h4 class="font-bold mb-2">
+                                    <i class="fas fa-users text-purple-600 mr-2"></i>Delegation Framework
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Clear decision-making authority levels</li>
+                                    <li>• Documented approval processes</li>
+                                    <li>• Regular manager empowerment training</li>
+                                    <li>• Performance-based autonomy increases</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-4 bg-yellow-50 rounded-lg">
+                                <h4 class="font-bold mb-2">
+                                    <i class="fas fa-calendar-check text-yellow-600 mr-2"></i>Scheduled Reviews
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Weekly 30-minute dashboard review</li>
+                                    <li>• Bi-weekly manager check-ins</li>
+                                    <li>• Monthly strategic planning sessions</li>
+                                    <li>• Quarterly system optimization reviews</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-stopwatch mr-2"></i>Time Tracking Template
+                    </h3>
+                    <div class="grid md:grid-cols-7 gap-2 text-sm">
+                        <div class="text-center font-bold">Monday</div>
+                        <div class="text-center font-bold">Tuesday</div>
+                        <div class="text-center font-bold">Wednesday</div>
+                        <div class="text-center font-bold">Thursday</div>
+                        <div class="text-center font-bold">Friday</div>
+                        <div class="text-center font-bold">Saturday</div>
+                        <div class="text-center font-bold">Sunday</div>
+                        
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-2 rounded">
+                            <input type="number" placeholder="Hours" class="w-full bg-transparent text-white placeholder-gray-300 border-none text-center">
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-lg">Weekly Total: </span>
+                        <span id="weekly-total" class="text-2xl font-bold text-yellow-300">0</span>
+                        <span class="text-lg"> hours</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOP Documentation Framework -->
+        <section id="sop-documentation" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-file-alt text-green-600 mr-3"></i>
+                    SOP Documentation Framework
+                </h2>
+
+                <div class="mb-8">
+                    <div class="sop-container space-y-4">
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Identify Process</h4>
+                                <p class="text-gray-600">Document current workflow and identify pain points</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Define Standards</h4>
+                                <p class="text-gray-600">Establish clear quality and performance standards</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Create Step-by-Step</h4>
+                                <p class="text-gray-600">Write detailed, actionable procedures</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Add Decision Points</h4>
+                                <p class="text-gray-600">Include decision trees and exception handling</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Test & Refine</h4>
+                                <p class="text-gray-600">Trial with team and gather feedback</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sop-step flex items-start p-4 bg-blue-50 rounded-lg">
+                            <div class="flex-1 ml-2">
+                                <h4 class="font-bold">Implement & Monitor</h4>
+                                <p class="text-gray-600">Roll out with tracking and continuous improvement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">SOP Template Structure</h3>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="space-y-4">
+                                <div class="border-b pb-2">
+                                    <strong>1. Process Title & Code</strong>
+                                    <p class="text-sm text-gray-600">Clear identification and version control</p>
+                                </div>
+                                <div class="border-b pb-2">
+                                    <strong>2. Purpose & Scope</strong>
+                                    <p class="text-sm text-gray-600">Why this exists and what it covers</p>
+                                </div>
+                                <div class="border-b pb-2">
+                                    <strong>3. Roles & Responsibilities</strong>
+                                    <p class="text-sm text-gray-600">Who does what in this process</p>
+                                </div>
+                                <div class="border-b pb-2">
+                                    <strong>4. Step-by-Step Procedures</strong>
+                                    <p class="text-sm text-gray-600">Detailed action items and sequence</p>
+                                </div>
+                                <div class="border-b pb-2">
+                                    <strong>5. Quality Standards</strong>
+                                    <p class="text-sm text-gray-600">Success criteria and checkpoints</p>
+                                </div>
+                                <div class="border-b pb-2">
+                                    <strong>6. Exception Handling</strong>
+                                    <p class="text-sm text-gray-600">What to do when things go wrong</p>
+                                </div>
+                                <div>
+                                    <strong>7. Review & Updates</strong>
+                                    <p class="text-sm text-gray-600">Maintenance schedule and approval process</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Priority SOPs to Create</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <div>
+                                    <strong>Daily Huddle Process</strong>
+                                    <p class="text-sm text-gray-600">Morning team alignment</p>
+                                </div>
+                                <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">HIGH</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <div>
+                                    <strong>Escalation Procedures</strong>
+                                    <p class="text-sm text-gray-600">When and how to escalate issues</p>
+                                </div>
+                                <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">HIGH</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                                <div>
+                                    <strong>Performance Review Process</strong>
+                                    <p class="text-sm text-gray-600">Regular evaluation procedures</p>
+                                </div>
+                                <span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">MEDIUM</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                                <div>
+                                    <strong>Training Module Delivery</strong>
+                                    <p class="text-sm text-gray-600">Consistent skill development</p>
+                                </div>
+                                <span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">MEDIUM</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                <div>
+                                    <strong>Monthly Review Meetings</strong>
+                                    <p class="text-sm text-gray-600">Strategic assessment sessions</p>
+                                </div>
+                                <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">LOW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Communication Protocols -->
+        <section id="communication-protocols" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-comments text-purple-600 mr-3"></i>
+                    Remote Communication Protocols
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-purple-600">Communication Channels</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 border-l-4 border-red-500 bg-red-50">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-phone text-red-600 mr-2"></i>
+                                    <strong>Emergency Phone Line</strong>
+                                </div>
+                                <p class="text-sm">For urgent escalations requiring immediate attention</p>
+                            </div>
+                            
+                            <div class="p-4 border-l-4 border-orange-500 bg-orange-50">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-envelope text-orange-600 mr-2"></i>
+                                    <strong>Priority Email</strong>
+                                </div>
+                                <p class="text-sm">For same-day response items and updates</p>
+                            </div>
+                            
+                            <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-comment-dots text-blue-600 mr-2"></i>
+                                    <strong>Team Messaging</strong>
+                                </div>
+                                <p class="text-sm">For routine coordination and quick questions</p>
+                            </div>
+                            
+                            <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-clipboard-list text-green-600 mr-2"></i>
+                                    <strong>Monthly Reports</strong>
+                                </div>
+                                <p class="text-sm">For comprehensive updates and non-urgent items</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-green-600">Response Time Standards</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-red-100 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong class="text-red-700">Emergency</strong>
+                                    <span class="bg-red-200 text-red-800 px-2 py-1 rounded text-sm">15 minutes</span>
+                                </div>
+                                <p class="text-sm text-red-600">Safety, legal, or critical operational issues</p>
+                            </div>
+                            
+                            <div class="p-4 bg-orange-100 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong class="text-orange-700">High Priority</strong>
+                                    <span class="bg-orange-200 text-orange-800 px-2 py-1 rounded text-sm">4 hours</span>
+                                </div>
+                                <p class="text-sm text-orange-600">Performance issues and customer complaints</p>
+                            </div>
+                            
+                            <div class="p-4 bg-blue-100 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong class="text-blue-700">Standard</strong>
+                                    <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm">24 hours</span>
+                                </div>
+                                <p class="text-sm text-blue-600">Routine questions and process clarifications</p>
+                            </div>
+                            
+                            <div class="p-4 bg-green-100 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <strong class="text-green-700">Low Priority</strong>
+                                    <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-sm">Weekly</span>
+                                </div>
+                                <p class="text-sm text-green-600">Process improvements and administrative items</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Communication Templates</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-2">Daily Update Template</h4>
+                            <div class="bg-white p-4 rounded border text-sm">
+                                <strong>Subject:</strong> Daily Update - [Date]<br>
+                                <strong>Team Status:</strong> [Present/Absent]<br>
+                                <strong>Key Metrics:</strong> [Performance highlights]<br>
+                                <strong>Issues:</strong> [Any problems or concerns]<br>
+                                <strong>Actions Needed:</strong> [Owner input required]<br>
+                                <strong>Tomorrow's Focus:</strong> [Priorities]
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold mb-2">Escalation Template</h4>
+                            <div class="bg-white p-4 rounded border text-sm">
+                                <strong>Subject:</strong> [URGENT/STANDARD] - [Brief Description]<br>
+                                <strong>Situation:</strong> [What happened]<br>
+                                <strong>Impact:</strong> [Business/customer effect]<br>
+                                <strong>Actions Taken:</strong> [Steps already tried]<br>
+                                <strong>Recommendation:</strong> [Proposed solution]<br>
+                                <strong>Timeline:</strong> [When response needed]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring & Dashboard Tools -->
+        <section id="monitoring-tools" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-chart-bar text-blue-600 mr-3"></i>
+                    Remote Monitoring & Dashboard Tools
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="card-hover bg-blue-50 p-6 rounded-lg">
+                        <i class="fas fa-tachometer-alt text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Performance Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time metrics and KPI tracking</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• Sales conversion rates</li>
+                            <li>• Average ticket values</li>
+                            <li>• Team productivity metrics</li>
+                            <li>• Customer satisfaction scores</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-hover bg-green-50 p-6 rounded-lg">
+                        <i class="fas fa-clipboard-check text-4xl text-green-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Compliance Monitor</h3>
+                        <p class="text-gray-600 mb-4">Automated compliance tracking</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• Daily form submissions</li>
+                            <li>• CRM update compliance</li>
+                            <li>• Follow-up completions</li>
+                            <li>• Training progress</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-hover bg-purple-50 p-6 rounded-lg">
+                        <i class="fas fa-exclamation-triangle text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Alert System</h3>
+                        <p class="text-gray-600 mb-4">Proactive issue identification</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• Performance drops</li>
+                            <li>• Compliance violations</li>
+                            <li>• Customer complaints</li>
+                            <li>• System failures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4">Weekly Owner Dashboard Checklist</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-3">Performance Metrics Review</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Close rate vs. target</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Average ticket trends</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Outbound activity levels</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Compliance scores</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Customer satisfaction</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold mb-3">System Health Check</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">CRM data quality</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Process adherence</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Training completion</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Escalation patterns</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Manager effectiveness</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-trophy mr-2"></i>Success Metrics for Owner-Lite System
+                    </h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">10-15</div>
+                            <div class="text-sm">Hours/Week Max</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">90%+</div>
+                            <div class="text-sm">Process Compliance</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">&lt;24hr</div>
+                            <div class="text-sm">Issue Resolution</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">80%+</div>
+                            <div class="text-sm">Manager Autonomy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Owner-Lite Operating System</h3>
+            <p class="text-gray-400">System-First Leadership • Remote Advisory • Time Freedom</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>10-15 Hours/Week</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    <span>Performance Maintained</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>System-Protected</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Time tracking calculator
+        function updateWeeklyTotal() {
+            const inputs = document.querySelectorAll('#weekly-total').parentNode.parentNode.querySelectorAll('input[type="number"]');
+            let total = 0;
+            inputs.forEach(input => {
+                total += parseFloat(input.value) || 0;
+            });
+            document.getElementById('weekly-total').textContent = total.toFixed(1);
+            
+            // Color coding based on target
+            const totalElement = document.getElementById('weekly-total');
+            if (total > 15) {
+                totalElement.className = 'text-2xl font-bold text-red-300';
+            } else if (total > 12) {
+                totalElement.className = 'text-2xl font-bold text-yellow-300';
+            } else {
+                totalElement.className = 'text-2xl font-bold text-green-300';
+            }
+        }
+
+        // Add event listeners to time tracking inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeInputs = document.querySelectorAll('input[type="number"]');
+            timeInputs.forEach(input => {
+                input.addEventListener('input', updateWeeklyTotal);
+            });
+        });
+
+        // Toggle functionality for expandable sections
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const isActive = section.classList.contains('active');
+            
+            // Close all sections
+            document.querySelectorAll('.toggle-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Open clicked section if it wasn't active
+            if (!isActive) {
+                section.classList.add('active');
+            }
+        }
+
+        // Print functionality
+        function printSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Owner-Lite Operating System - ${sectionId}</title>
+                        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+                    </head>
+                    <body class="p-8">
+                        ${section.outerHTML}
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Export functionality for templates
+        function exportTemplate(templateName) {
+            // This would integrate with actual export functionality
+            alert(`Exporting ${templateName} template...`);
+        }
+
+        // Dynamic form validation
+        function validateEscalation(form) {
+            const urgencyLevel = form.querySelector('select[name="urgency"]').value;
+            const description = form.querySelector('textarea[name="description"]').value;
+            
+            if (urgencyLevel === 'urgent' && description.length < 50) {
+                alert('Urgent escalations require detailed descriptions (minimum 50 characters)');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Auto-save functionality for forms
+        function autoSave(formId) {
+            const form = document.getElementById(formId);
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            localStorage.setItem(`ownerLite_${formId}`, JSON.stringify(data));
+            
+            // Show save indicator
+            const saveIndicator = document.createElement('div');
+            saveIndicator.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg';
+            saveIndicator.textContent = 'Auto-saved';
+            document.body.appendChild(saveIndicator);
+            
+            setTimeout(() => {
+                document.body.removeChild(saveIndicator);
+            }, 2000);
+        }
+
+        // Load saved data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load any saved form data
+            const forms = document.querySelectorAll('form[id]');
+            forms.forEach(form => {
+                const savedData = localStorage.getItem(`ownerLite_${form.id}`);
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    Object.keys(data).forEach(key => {
+                        const input = form.querySelector(`[name="${key}"]`);
+                        if (input) {
+                            input.value = data[key];
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976577f1de4d0568","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhdkBnKUC0bcK98pi2aTBHea9WpDtk0q9iwuIio%2FEh54VqZgCDReAqHtuWKptO1PFw0IxMSEp8mbjSx%2FpgeAm5wFIZ2BVMvk4xGx%2Fqk8%2BPnpn7by8CENUcw%2FzNZRFDNCSi2Wg04BFFkE6xj4BJb8eZIinmZgHnOGirbxIFq3UmCAAZViIZ8A%2FqJbsex8L%2BUhSBEaT33wigmKb8Yof5bHhu2lzalwZjyWBarjR3OAAABvk252kt%2FGEOCkoGpbmqJtamm0Skno1SDWHD%2BZA3v36d0w87Gr1myH2hSG4mZxva7T6aNsRoQ242DaY6WtadF5gPpo3cnCbJ8nUxtSa3dnG2Up4injIWG3hPlXMJSpHZvB2KECYBgewGRyKEhwPJOYwImRZFK6E1HleevVfq6g1yjNT4f6n4R15LhkP2FyulTSwbk7yy4rhAJhM4x9N%2FDjVYnEvc9pGlCHDOyrstKhOewX1fAC4FvQhATwR%2BvVJ1Rly5mVTu1wHLeBdqayBn%2FEEQYP5ymQY8Fvh%2BjVLY75mIVNIZRp8zCVkzoBlUwZzlHEuiWkQSmpoqC83BalDgbpFbMMNvv3NlkzBt0TXbrjno0UQ1nvHoRa0WtxyV7oSiyAt7KMQX9GUlMHmulew0X%2FQQ%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhdkBnKUC0bcK98pi2aTBHea9WpDtk0q9iwuIio/Eh54VqZgCDReAqHtuWKptO1PFw0IxMSEp8mbjSx/pgeAm5wFIZ2BVMvk4xGx/qk8+Pnpn7by8CENUcw/zNZRFDNCSi2Wg04BFFkE6xj4BJb8eZIinmZgHnOGirbxIFq3UmCAAZViIZ8A/qJbsex8L+UhSBEaT33wigmKb8Yof5bHhu2lzalwZjyWBarjR3OAAABvk252kt/GEOCkoGpbmqJtamm0Skno1SDWHD+ZA3v36d0w87Gr1myH2hSG4mZxva7T6aNsRoQ242DaY6WtadF5gPpo3cnCbJ8nUxtSa3dnG2Up4injIWG3hPlXMJSpHZvB2KECYBgewGRyKEhwPJOYwImRZFK6E1HleevVfq6g1yjNT4f6n4R15LhkP2FyulTSwbk7yy4rhAJhM4x9N/DjVYnEvc9pGlCHDOyrstKhOewX1fAC4FvQhATwR+vVJ1Rly5mVTu1wHLeBdqayBn/EEQYP5ymQY8Fvh+jVLY75mIVNIZRp8zCVkzoBlUwZzlHEuiWkQSmpoqC83BalDgbpFbMMNvv3NlkzBt0TXbrjno0UQ1nvHoRa0WtxyV7oSiyAt7KMQX9GUlMHmulew0X/QQ==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

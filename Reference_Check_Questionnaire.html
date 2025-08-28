@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Check Questionnaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg">
+        <!-- Header -->
+        <div class="text-center mb-8 border-b pb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-clipboard-check text-blue-600 mr-3"></i>
+                Reference Check Questionnaire
+            </h1>
+            <p class="text-gray-600">Comprehensive Candidate Verification and Validation</p>
+        </div>
+
+        <form class="space-y-8">
+            <!-- Reference Contact Information -->
+            <section class="bg-blue-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-blue-800 mb-4 border-b border-blue-200 pb-2">
+                    <i class="fas fa-address-book mr-2"></i>Reference Contact Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Reference Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Title/Position</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Relationship to Candidate</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Best Times to Contact</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Length of Working Relationship</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Reference Check Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Interviewer Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Employment Verification -->
+            <section class="bg-green-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-green-800 mb-4 border-b border-green-200 pb-2">
+                    <i class="fas fa-briefcase mr-2"></i>Employment Verification
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Candidate's Position Title</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Employment Start Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Employment End Date</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Salary/Wage Information</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="If permitted to disclose">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Job Responsibilities</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Reason for Leaving (if applicable)</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Eligible for Rehire?</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="with_conditions">Yes, with conditions</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Job Performance Evaluation -->
+            <section class="bg-purple-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-purple-800 mb-4 border-b border-purple-200 pb-2">
+                    <i class="fas fa-chart-line mr-2"></i>Job Performance Evaluation
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Overall Job Performance (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Exceptional</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unacceptable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quality of Work (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Exceptional</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unacceptable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Productivity Level (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Exceptional</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unacceptable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Meeting Deadlines (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Always</option>
+                            <option value="9">9 - Almost Always</option>
+                            <option value="8">8 - Usually</option>
+                            <option value="7">7 - Often</option>
+                            <option value="6">6 - Sometimes</option>
+                            <option value="5">5 - Occasionally</option>
+                            <option value="4">4 - Rarely</option>
+                            <option value="3">3 - Seldom</option>
+                            <option value="2">2 - Almost Never</option>
+                            <option value="1">1 - Never</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Problem-Solving and Decision-Making Skills</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="Please provide specific examples..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work Habits & Reliability -->
+            <section class="bg-yellow-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-yellow-800 mb-4 border-b border-yellow-200 pb-2">
+                    <i class="fas fa-clock mr-2"></i>Work Habits & Reliability
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Attendance Record</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="satisfactory">Satisfactory</option>
+                            <option value="needs_improvement">Needs Improvement</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Punctuality</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="always_on_time">Always On Time</option>
+                            <option value="usually_on_time">Usually On Time</option>
+                            <option value="sometimes_late">Sometimes Late</option>
+                            <option value="often_late">Often Late</option>
+                            <option value="consistently_late">Consistently Late</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Dependability (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Completely Dependable</option>
+                            <option value="9">9 - Very Dependable</option>
+                            <option value="8">8 - Dependable</option>
+                            <option value="7">7 - Mostly Dependable</option>
+                            <option value="6">6 - Somewhat Dependable</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Somewhat Unreliable</option>
+                            <option value="3">3 - Often Unreliable</option>
+                            <option value="2">2 - Very Unreliable</option>
+                            <option value="1">1 - Completely Unreliable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Initiative Level</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="high">High - Takes initiative regularly</option>
+                            <option value="moderate">Moderate - Takes initiative sometimes</option>
+                            <option value="low">Low - Rarely takes initiative</option>
+                            <option value="none">Requires constant direction</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ability to Work Independently</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="Describe their self-direction capabilities..."></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Response to Supervision and Feedback</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="How did they handle direction and constructive criticism?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interpersonal Skills -->
+            <section class="bg-indigo-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-indigo-800 mb-4 border-b border-indigo-200 pb-2">
+                    <i class="fas fa-users mr-2"></i>Interpersonal Skills
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Communication Skills (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Exceptional</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unacceptable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Teamwork Ability (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Exceptional Team Player</option>
+                            <option value="9">9 - Excellent Team Player</option>
+                            <option value="8">8 - Very Good Team Player</option>
+                            <option value="7">7 - Good Team Player</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor Team Player</option>
+                            <option value="2">2 - Very Poor Team Player</option>
+                            <option value="1">1 - Disruptive to Team</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Service Skills (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Outstanding</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unacceptable</option>
+                            <option value="na">N/A - No Customer Contact</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Leadership Potential</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="high">High - Natural leader</option>
+                            <option value="moderate">Moderate - Shows potential</option>
+                            <option value="some">Some - With development</option>
+                            <option value="limited">Limited - Prefers to follow</option>
+                            <option value="none">None - Not leadership material</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Conflict Resolution and Diplomacy</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="How did they handle conflicts or difficult situations with colleagues or customers?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character & Integrity -->
+            <section class="bg-red-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-red-800 mb-4 border-b border-red-200 pb-2">
+                    <i class="fas fa-shield-alt mr-2"></i>Character & Integrity
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Honesty and Trustworthiness</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="completely_trustworthy">Completely Trustworthy</option>
+                            <option value="very_trustworthy">Very Trustworthy</option>
+                            <option value="trustworthy">Trustworthy</option>
+                            <option value="mostly_trustworthy">Mostly Trustworthy</option>
+                            <option value="questionable">Questionable</option>
+                            <option value="untrustworthy">Untrustworthy</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ethical Behavior</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="exemplary">Exemplary</option>
+                            <option value="high_standards">High Standards</option>
+                            <option value="good">Good</option>
+                            <option value="adequate">Adequate</option>
+                            <option value="questionable">Questionable</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Respect for Company Property</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="satisfactory">Satisfactory</option>
+                            <option value="needs_improvement">Needs Improvement</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Professional Conduct</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="exemplary">Exemplary</option>
+                            <option value="professional">Professional</option>
+                            <option value="acceptable">Acceptable</option>
+                            <option value="inconsistent">Inconsistent</option>
+                            <option value="unprofessional">Unprofessional</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Confidentiality and Discretion</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="How did they handle sensitive information or confidential matters?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Competence -->
+            <section class="bg-teal-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-teal-800 mb-4 border-b border-teal-200 pb-2">
+                    <i class="fas fa-tools mr-2"></i>Technical Competence
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Job-Specific Skills (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Expert Level</option>
+                            <option value="9">9 - Advanced</option>
+                            <option value="8">8 - Proficient</option>
+                            <option value="7">7 - Competent</option>
+                            <option value="6">6 - Above Basic</option>
+                            <option value="5">5 - Basic</option>
+                            <option value="4">4 - Below Basic</option>
+                            <option value="3">3 - Minimal Skills</option>
+                            <option value="2">2 - Very Limited</option>
+                            <option value="1">1 - No Skills</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Learning Ability</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="quick_learner">Quick Learner</option>
+                            <option value="good_learner">Good Learner</option>
+                            <option value="average_learner">Average Learner</option>
+                            <option value="slow_learner">Slow Learner</option>
+                            <option value="difficulty_learning">Difficulty Learning</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Safety Awareness (1-10)</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Rate 1-10...</option>
+                            <option value="10">10 - Safety Champion</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Above Average</option>
+                            <option value="5">5 - Average</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Safety Risk</option>
+                            <option value="1">1 - Dangerous</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quality Standards Adherence</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="exceeds">Exceeds Standards</option>
+                            <option value="meets">Meets Standards</option>
+                            <option value="usually_meets">Usually Meets Standards</option>
+                            <option value="sometimes_meets">Sometimes Meets Standards</option>
+                            <option value="below_standards">Below Standards</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Equipment and Tool Proficiency</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-16" placeholder="Describe their technical skills and equipment handling abilities..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Areas for Improvement -->
+            <section class="bg-orange-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-orange-800 mb-4 border-b border-orange-200 pb-2">
+                    <i class="fas fa-arrow-up mr-2"></i>Areas for Improvement
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Identified Weaknesses or Development Needs</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What areas needed improvement during their employment?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Training or Support Requirements</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What additional training or support was needed?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Performance Challenges Encountered</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Describe any performance issues or challenges..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Progress and Improvement Over Time</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Did they show improvement? How did they respond to development efforts?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Specific Situational Questions -->
+            <section class="bg-pink-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-pink-800 mb-4 border-b border-pink-200 pb-2">
+                    <i class="fas fa-question-circle mr-2"></i>Specific Situational Questions
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">How did the candidate handle difficult or stressful situations?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Provide specific examples..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Examples of exceptional performance or achievements</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Describe times when they went above and beyond..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Times when candidate exceeded expectations</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Specific instances of outstanding work..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Significant challenges or problems encountered</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Major issues and how they were handled..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Leadership or initiative demonstrations</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Examples of leadership behavior or taking initiative..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Assessment -->
+            <section class="bg-gray-100 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-300 pb-2">
+                    <i class="fas fa-clipboard-list mr-2"></i>Final Assessment
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Would you rehire this candidate?</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="definitely_yes">Definitely Yes</option>
+                            <option value="probably_yes">Probably Yes</option>
+                            <option value="maybe">Maybe</option>
+                            <option value="probably_no">Probably No</option>
+                            <option value="definitely_no">Definitely No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Would you recommend for this position?</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select...</option>
+                            <option value="highly_recommend">Highly Recommend</option>
+                            <option value="recommend">Recommend</option>
+                            <option value="recommend_with_reservations">Recommend with Reservations</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="do_not_recommend">Do Not Recommend</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Overall fit assessment for role</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="How well suited are they for this type of position?"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Strengths that make candidate valuable</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What are their greatest strengths and assets?"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Any concerns or reservations</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What concerns should the hiring manager be aware of?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Insights -->
+            <section class="bg-blue-100 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-blue-800 mb-4 border-b border-blue-300 pb-2">
+                    <i class="fas fa-lightbulb mr-2"></i>Additional Insights
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Information not covered in other questions</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Any additional relevant information about the candidate..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Context or circumstances affecting performance</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Were there any external factors that impacted their work?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Candidate's growth and development during employment</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="How did they develop and grow professionally?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Unique qualities or characteristics</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What makes this candidate stand out from others?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Advice for successful management of this candidate</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="What advice would you give to their new manager?"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signature Section -->
+            <section class="bg-gray-50 p-6 rounded-lg border-2 border-gray-300">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-300 pb-2">
+                    <i class="fas fa-signature mr-2"></i>Reference Check Completion
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Reference Signature</label>
+                        <div class="w-full p-8 border border-gray-300 rounded-md bg-white">
+                            <p class="text-gray-400 text-center">Signature Area</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date Completed</label>
+                        <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Interviewer Signature</label>
+                        <div class="w-full p-8 border border-gray-300 rounded-md bg-white">
+                            <p class="text-gray-400 text-center">Signature Area</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Time of Completion</label>
+                        <input type="time" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes or Comments</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-20" placeholder="Any additional notes about this reference check..."></textarea>
+                </div>
+            </section>
+        </form>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center text-sm text-gray-500 border-t pt-4">
+            <p><strong>FloorPro Business Arsenal</strong> - Professional Reference Check Questionnaire</p>
+            <p>Comprehensive Candidate Verification and Validation System</p>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976508fd4d15343f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmpEQG5ubjFP%2F6YwLGoF6gmZ5s8tb43Y8pX2Rkcy%2FLik5KJtzyHpR5VzYj1M1R8MN5jorOs3BDiQfCLXqR7brEaanPacCV3RdeORQTL6D0df9oY%2BXwn1b7BtQUUgcMek3LAph2ioquldxokknWiHjNjj%2FZGi9nS9fX4YmbNx1X%2FcqJGH2NfplEOEW8pNcag6nLAcdpRwetQl3pyt10g5bRHiN6PnAB66AZPCNVcpX6rlQqdRIZ3hvn%2BetJOho%2Fh9bKIBDeywUm87bgvHbiUcSwvufpnV%2BRC5O%2F5DUO7kh%2BF3IA30e8IOPT31Fb4hI%2Br1%2Fb2uj%2FjFh2k9DDIV7I49DWPIVMxJPXuhgo1Fam8g6n1OqQCoJaaLiDTZlkc8Ya%2ByUtc%2FFKqCmEpQDqy31GJeSmz1HUzrCrCp0piVQ9XrVR7sq%2FGItPOuHzwWo%2FveFPHQmZwsmK6qSEWrvXq9EyUldhlXNvxwa9vZrWbggc47sBd00UUE0PtxZ6Uf8hbOCWsUFXEGCwXlUz4Z2ctKCrUITE8%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmpEQG5ubjFP/6YwLGoF6gmZ5s8tb43Y8pX2Rkcy/Lik5KJtzyHpR5VzYj1M1R8MN5jorOs3BDiQfCLXqR7brEaanPacCV3RdeORQTL6D0df9oY+Xwn1b7BtQUUgcMek3LAph2ioquldxokknWiHjNjj/ZGi9nS9fX4YmbNx1X/cqJGH2NfplEOEW8pNcag6nLAcdpRwetQl3pyt10g5bRHiN6PnAB66AZPCNVcpX6rlQqdRIZ3hvn+etJOho/h9bKIBDeywUm87bgvHbiUcSwvufpnV+RC5O/5DUO7kh+F3IA30e8IOPT31Fb4hI+r1/b2uj/jFh2k9DDIV7I49DWPIVMxJPXuhgo1Fam8g6n1OqQCoJaaLiDTZlkc8Ya+yUtc/FKqCmEpQDqy31GJeSmz1HUzrCrCp0piVQ9XrVR7sq/GItPOuHzwWo/veFPHQmZwsmK6qSEWrvXq9EyUldhlXNvxwa9vZrWbggc47sBd00UUE0PtxZ6Uf8hbOCWsUFXEGCwXlUz4Z2ctKCrUITE8=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

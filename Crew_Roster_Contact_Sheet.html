@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Roster & Contact Sheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { font-size: 12px; }
+            .no-print { display: none; }
+        }
+        .section-header {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-5xl mx-auto p-6 bg-white shadow-lg">
+        <!-- Header -->
+        <div class="text-center mb-8 pb-6 border-b-4 border-blue-600">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-users text-blue-600 mr-3"></i>
+                FloorPro Crew Roster & Contact Sheet
+            </h1>
+            <p class="text-gray-600 text-lg">Comprehensive Employee Information Management System</p>
+            <div class="mt-4 text-sm text-gray-500">
+                Date: _____________ | Updated By: _____________ | Employee ID: _____________
+            </div>
+        </div>
+
+        <!-- Crew Member Identification -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-id-card mr-3"></i>
+                    Crew Member Identification
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Employee ID Number</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="EMP-001">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Hire Date</label>
+                        <input type="date" class="w-full p-2 border rounded-md">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Full Legal Name</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="John Michael Smith">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Preferred Name/Nickname</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Mike">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Position/Role</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Lead Installer</option>
+                            <option>Senior Installer</option>
+                            <option>Installer</option>
+                            <option>Helper</option>
+                            <option>Apprentice</option>
+                            <option>Trainee</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Years in Flooring</label>
+                        <input type="number" class="w-full p-2 border rounded-md" placeholder="5.5" step="0.5">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Employment Status</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Full-Time</option>
+                            <option>Part-Time</option>
+                            <option>Contract</option>
+                            <option>Seasonal</option>
+                            <option>On-Call</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Current Availability</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Available</option>
+                            <option>Limited Availability</option>
+                            <option>Temporarily Unavailable</option>
+                            <option>On Leave</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-phone mr-3"></i>
+                    Contact Information
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Primary Phone</label>
+                        <input type="tel" class="w-full p-2 border rounded-md" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Backup Phone</label>
+                        <input type="tel" class="w-full p-2 border rounded-md" placeholder="(555) 987-6543">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Email Address</label>
+                        <input type="email" class="w-full p-2 border rounded-md" placeholder="john.smith@email.com">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Preferred Contact Method</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Phone Call</option>
+                            <option>Text Message</option>
+                            <option>Email</option>
+                            <option>In Person</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Home Address</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="123 Main Street&#10;City, State ZIP Code"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Emergency Contact Name</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Jane Smith">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Emergency Contact Phone</label>
+                        <input type="tel" class="w-full p-2 border rounded-md" placeholder="(555) 999-8888">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Relationship</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Spouse">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Best Times to Contact</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="8 AM - 6 PM weekdays">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills & Certifications -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-certificate mr-3"></i>
+                    Skills & Certifications
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Flooring Expertise (Check All)</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Hardwood</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> LVT/LVP</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Carpet</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Tile</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Laminate</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Natural Stone</label>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Specialized Skills</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="Pattern matching, stairs installation, custom borders, etc."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Manufacturer Certifications</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="Shaw Industries Certified, Mohawk Master Installer, etc."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Tool Proficiency Level (1-10)</label>
+                        <input type="range" class="w-full" min="1" max="10" value="8">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Beginner</span>
+                            <span>Expert</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Safety Training & Certifications</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> OSHA 10</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> OSHA 30</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> First Aid</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> CPR</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Forklift</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Scissor Lift</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Fall Protection</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Confined Space</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Availability & Scheduling -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    Availability & Scheduling
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Regular Work Schedule</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Monday-Friday, 7 AM - 4 PM">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Days Available Per Week</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>5 days</option>
+                            <option>4 days</option>
+                            <option>3 days</option>
+                            <option>6 days</option>
+                            <option>Varies</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Overtime Availability</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Always Available</option>
+                            <option>Usually Available</option>
+                            <option>Limited Availability</option>
+                            <option>Rarely Available</option>
+                            <option>Not Available</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Transportation Range (Miles)</label>
+                        <input type="number" class="w-full p-2 border rounded-md" placeholder="50">
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Vacation & Time-Off Requests</label>
+                        <textarea class="w-full p-2 border rounded-md h-16" placeholder="List upcoming vacation dates, recurring time-off needs, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compensation & Performance -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-dollar-sign mr-3"></i>
+                    Compensation & Performance
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Current Pay Rate</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="$25.00/hour">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Payment Method</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Hourly</option>
+                            <option>Salary</option>
+                            <option>Per Square Foot</option>
+                            <option>Commission</option>
+                            <option>Hybrid</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Performance Rating (1-10)</label>
+                        <input type="number" class="w-full p-2 border rounded-md" min="1" max="10" placeholder="8">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Bonus Eligibility</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Eligible</option>
+                            <option>Not Eligible</option>
+                            <option>Probationary Period</option>
+                            <option>Performance Dependent</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Last Review Date</label>
+                        <input type="date" class="w-full p-2 border rounded-md">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Achievement Level</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Exceeds Expectations</option>
+                            <option>Meets Expectations</option>
+                            <option>Below Expectations</option>
+                            <option>Needs Improvement</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Assignments -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-tasks mr-3"></i>
+                    Work Assignments
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Current Project Assignments</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="List current active projects"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Preferred Crew Partners</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="Names of preferred team members"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Customer Feedback Rating (1-10)</label>
+                        <input type="number" class="w-full p-2 border rounded-md" min="1" max="10" placeholder="9">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Leadership Capability</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Strong Leader</option>
+                            <option>Developing Leader</option>
+                            <option>Team Member</option>
+                            <option>Requires Guidance</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Project Types & Complexity Handled</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Basic Installs</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Complex Patterns</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Stairs</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Commercial</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Luxury/High-End</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Problem Solving</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Multi-Story</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Emergency Repairs</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training & Development -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-graduation-cap mr-3"></i>
+                    Training & Development
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Completed Training Programs</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="List completed training programs and dates"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Ongoing Training Requirements</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="List required training and due dates"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Career Development Goals</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Employee's career aspirations and interests"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Mentoring Relationships</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Current mentor/mentee relationships and status"></textarea>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Skills Development Priorities</label>
+                        <textarea class="w-full p-2 border rounded-md h-20" placeholder="Areas of focus for skill improvement and development plan"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment & Tools -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-tools mr-3"></i>
+                    Equipment & Tools
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Personal Tools Owned</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="List personal tools owned and maintained by employee"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Company Equipment Assigned</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="List company equipment assigned to employee"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Vehicle Information</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Vehicle type, capacity, condition">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Technology Access</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Company Phone</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Tablet</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> GPS Device</label>
+                            <label class="flex items-center"><input type="checkbox" class="mr-2"> Apps Access</label>
+                        </div>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Uniform & Safety Equipment Issued</label>
+                        <textarea class="w-full p-2 border rounded-md h-16" placeholder="List uniform items and safety equipment provided"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Tracking -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    Performance Tracking
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Jobs Completed YTD</label>
+                        <input type="number" class="w-full p-2 border rounded-md" placeholder="127">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Quality Rating (1-10)</label>
+                        <input type="number" class="w-full p-2 border rounded-md" min="1" max="10" placeholder="8.7">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Efficiency Score (1-10)</label>
+                        <input type="number" class="w-full p-2 border rounded-md" min="1" max="10" placeholder="9.1">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Safety Incident-Free Days</label>
+                        <input type="number" class="w-full p-2 border rounded-md" placeholder="365">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Customer Satisfaction Score</label>
+                        <input type="number" class="w-full p-2 border rounded-md" min="1" max="10" step="0.1" placeholder="9.3">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Professional Development Progress</label>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>Exceeding Goals</option>
+                            <option>On Track</option>
+                            <option>Needs Focus</option>
+                            <option>Behind Schedule</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes & Comments -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-sticky-note mr-3"></i>
+                    Notes & Comments
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Special Skills & Unique Capabilities</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Unique strengths, special talents, exceptional abilities"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Customer Service Strengths</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Communication skills, customer rapport, problem resolution"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Areas for Improvement</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Development opportunities, skills to strengthen"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Personal Interests Relevant to Work</label>
+                        <textarea class="w-full p-2 border rounded-md h-24" placeholder="Hobbies, interests that relate to work performance"></textarea>
+                    </div>
+                    <div class="space-y-2 col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700">Manager Notes & Observations</label>
+                        <textarea class="w-full p-2 border rounded-md h-32" placeholder="Supervisor observations, performance notes, development recommendations"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signatures & Approvals -->
+        <div class="mb-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-pen-fancy mr-3"></i>
+                    Signatures & Approvals
+                </h2>
+            </div>
+            <div class="border border-t-0 rounded-b-lg p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="text-center">
+                            <div class="border-b-2 border-gray-400 mb-2 pb-8"></div>
+                            <p class="text-sm font-semibold">Employee Signature</p>
+                            <p class="text-xs text-gray-600">Date: _____________</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-center">
+                            <div class="border-b-2 border-gray-400 mb-2 pb-8"></div>
+                            <p class="text-sm font-semibold">Manager/HR Signature</p>
+                            <p class="text-xs text-gray-600">Date: _____________</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 text-center text-xs text-gray-500 mt-6">
+                        <p>This form contains confidential employee information and should be stored securely in accordance with company privacy policies.</p>
+                        <p class="mt-2">Last Updated: _____________ | Next Review Due: _____________</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-gray-500 text-sm border-t pt-4">
+            <p><strong>FloorPro Business Arsenal</strong> - Professional Crew Management System</p>
+            <p>© 2024 - Confidential Employee Information</p>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976543eabf0fd6ad","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDgYT7fOPPBvAkqtLIfQHEe3b%2BH4N19dnNAu1uOPdJ%2Br15MMHLzEpWIk07ZLm7b7rP73JoJdq955p971lvZ4uDQi0hOJwXMpf0jpbC0aAg%2Fzjm%2FwOuVnWecRMBydkj0N9n%2B0l083puMyTtJQs8gMEcrVujJ6GYNLfel3rENNm694Y7afmqmG1Z759GOiXQamsG1bo7%2Bu9cauUnjubOtNJUR8tR0vT65PyX3HPsDez8wekKMevPO41uheqQ%2FPqj7b6SNShpV2Y9Gwx94f7OfPKMUnzc%2FSftgv28suKjqjWE7sO2L%2BzWZKFPmSeiqtSh9wmXDJiT7ArEEVD26xJU%2FT5f44SSbNegho0iukH739F%2B4n27DZpxW3q4o7PPHkXll7j95nnl9WW0kMxCliZHb6tkZ6qZRnXBGfo6WjFh8kU9RipWhhApl%2FXxPEbtjZlguYKDmLWxPX6R2ZYH4XYe6YOykbCaIG5vhE0pkLot9ruBHZEZl4uoUpEhuvI1Qf%2F7hyvHAaMNaV48RYL7y%2BAwQMlrEI%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDgYT7fOPPBvAkqtLIfQHEe3b+H4N19dnNAu1uOPdJ+r15MMHLzEpWIk07ZLm7b7rP73JoJdq955p971lvZ4uDQi0hOJwXMpf0jpbC0aAg/zjm/wOuVnWecRMBydkj0N9n+0l083puMyTtJQs8gMEcrVujJ6GYNLfel3rENNm694Y7afmqmG1Z759GOiXQamsG1bo7+u9cauUnjubOtNJUR8tR0vT65PyX3HPsDez8wekKMevPO41uheqQ/Pqj7b6SNShpV2Y9Gwx94f7OfPKMUnzc/Sftgv28suKjqjWE7sO2L+zWZKFPmSeiqtSh9wmXDJiT7ArEEVD26xJU/T5f44SSbNegho0iukH739F+4n27DZpxW3q4o7PPHkXll7j95nnl9WW0kMxCliZHb6tkZ6qZRnXBGfo6WjFh8kU9RipWhhApl/XxPEbtjZlguYKDmLWxPX6R2ZYH4XYe6YOykbCaIG5vhE0pkLot9ruBHZEZl4uoUpEhuvI1Qf/7hyvHAaMNaV48RYL7y+AwQMlrEI=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

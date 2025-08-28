@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Cost Tracking Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { font-size: 12px; }
+            .no-print { display: none; }
+        }
+        .form-section { break-inside: avoid; }
+        input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            border-bottom: 1px solid #374151;
+            background: transparent;
+        }
+        .signature-line {
+            border-bottom: 1px solid #374151;
+            min-width: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-white p-6">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8 border-b-2 border-blue-600 pb-4">
+            <h1 class="text-3xl font-bold text-blue-800 mb-2">
+                <i class="fas fa-box mr-3"></i>Material Cost Tracking Form
+            </h1>
+            <p class="text-gray-600 text-lg">Comprehensive Material Management & Profitability Analysis</p>
+        </div>
+
+        <!-- Project & Material Identification -->
+        <div class="form-section mb-8 bg-blue-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-blue-800 mb-4 border-b border-blue-300 pb-2">
+                <i class="fas fa-info-circle mr-2"></i>Project & Material Identification
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Job Number:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Customer Name:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Project Address:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Material Type:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Select Material Type</option>
+                        <option>Hardwood</option>
+                        <option>Laminate</option>
+                        <option>LVT/LVP</option>
+                        <option>Carpet</option>
+                        <option>Tile</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Manufacturer:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Product Line/Model:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Specifications/Color:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Order Date:</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Supplier/Vendor:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                </div>
+            </div>
+        </div>
+
+        <!-- Material Ordering -->
+        <div class="form-section mb-8 bg-green-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-green-800 mb-4 border-b border-green-300 pb-2">
+                <i class="fas fa-shopping-cart mr-2"></i>Material Ordering
+            </h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Square Footage Required:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Square Footage Ordered:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Overage Percentage:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.1">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Unit Cost per Sq Ft:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Total Material Cost:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Shipping & Delivery:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Tax Amount:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Additional Fees:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Total Order Cost:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-yellow-100" step="0.01" readonly>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-semibold mb-1">Overage Reasoning:</label>
+                <textarea class="w-full p-2 rounded border" rows="2" placeholder="Explain reasoning for overage percentage..."></textarea>
+            </div>
+        </div>
+
+        <!-- Material Receipt & Inspection -->
+        <div class="form-section mb-8 bg-purple-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-purple-800 mb-4 border-b border-purple-300 pb-2">
+                <i class="fas fa-clipboard-check mr-2"></i>Material Receipt & Inspection
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Delivery Date:</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Quantity Received:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Condition Assessment:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor - Defects Noted</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Storage Location:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Quality Inspection Results:</label>
+                    <textarea class="w-full p-2 rounded border" rows="3" placeholder="Note any defects, damage, or quality issues..."></textarea>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Storage Conditions:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="Temperature, humidity, protection, etc."></textarea>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Received By:</label>
+                    <div class="signature-line h-8 border-b border-gray-400"></div>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Date:</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+            </div>
+        </div>
+
+        <!-- Installation Tracking -->
+        <div class="form-section mb-8 bg-orange-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-orange-800 mb-4 border-b border-orange-300 pb-2">
+                <i class="fas fa-hammer mr-2"></i>Installation Tracking
+            </h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Square Footage Installed:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Installation Start Date:</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Installation End Date:</label>
+                    <input type="date" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Installation Efficiency:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Above Expected)</option>
+                        <option>Good (As Expected)</option>
+                        <option>Fair (Below Expected)</option>
+                        <option>Poor (Significantly Delayed)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Quality During Install:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Customer Satisfaction:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Very Satisfied</option>
+                        <option>Satisfied</option>
+                        <option>Neutral</option>
+                        <option>Dissatisfied</option>
+                        <option>Very Dissatisfied</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-semibold mb-1">Material Usage by Room/Area:</label>
+                <textarea class="w-full p-2 rounded border" rows="3" placeholder="Room 1: 150 sq ft, Room 2: 200 sq ft, etc."></textarea>
+            </div>
+        </div>
+
+        <!-- Waste Calculation -->
+        <div class="form-section mb-8 bg-red-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-red-800 mb-4 border-b border-red-300 pb-2">
+                <i class="fas fa-trash-alt mr-2"></i>Waste Calculation
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Total Material Waste (Sq Ft):</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Waste Percentage:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-red-100" step="0.1" readonly>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Defective Material (Sq Ft):</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Cutting Waste (Sq Ft):</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Excess Material (Sq Ft):</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Disposal Method:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Returned to Customer</option>
+                        <option>Company Stock</option>
+                        <option>Disposal/Trash</option>
+                        <option>Return to Supplier</option>
+                        <option>Other</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Disposal Cost:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-semibold mb-1">Waste Reduction Opportunities:</label>
+                <textarea class="w-full p-2 rounded border" rows="2" placeholder="Ideas for reducing waste on future jobs..."></textarea>
+            </div>
+        </div>
+
+        <!-- Cost Analysis -->
+        <div class="form-section mb-8 bg-indigo-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-indigo-800 mb-4 border-b border-indigo-300 pb-2">
+                <i class="fas fa-calculator mr-2"></i>Cost Analysis
+            </h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Material Cost per Sq Ft Installed:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-indigo-100" step="0.01" readonly>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Waste Cost Impact:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-indigo-100" step="0.01" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Labor Efficiency Rating:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Fast Install)</option>
+                        <option>Good (Normal Speed)</option>
+                        <option>Fair (Slow Install)</option>
+                        <option>Poor (Very Difficult)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Overall Material Rating:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Would Reorder)</option>
+                        <option>Good (Satisfactory)</option>
+                        <option>Fair (Acceptable)</option>
+                        <option>Poor (Avoid Future Use)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Alternative Material Cost:</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Cost Difference:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-indigo-100" step="0.01" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leftover Management -->
+        <div class="form-section mb-8 bg-teal-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-teal-800 mb-4 border-b border-teal-300 pb-2">
+                <i class="fas fa-boxes mr-2"></i>Leftover Management
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Leftover Quantity (Sq Ft):</label>
+                    <input type="number" class="w-full p-2 rounded border" step="0.01">
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Condition of Leftovers:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Perfect (Usable)</option>
+                        <option>Good (Minor Handling)</option>
+                        <option>Fair (Some Damage)</option>
+                        <option>Poor (Scrap Only)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Storage Location:</label>
+                    <input type="text" class="w-full p-2 rounded border">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Future Use Applications:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="Repairs, small projects, samples, etc."></textarea>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Customer Retention for Repairs:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Yes - Customer Kept Material</option>
+                        <option>No - Company Retained</option>
+                        <option>Partial - Split Between Both</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Disposal/Return Option:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Keep for Future Use</option>
+                        <option>Return to Supplier</option>
+                        <option>Sell to Other Customer</option>
+                        <option>Dispose/Discard</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier Performance -->
+        <div class="form-section mb-8 bg-pink-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-pink-800 mb-4 border-b border-pink-300 pb-2">
+                <i class="fas fa-truck mr-2"></i>Supplier Performance
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Delivery Timeliness:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Early (Better than Expected)</option>
+                        <option>On Time (As Promised)</option>
+                        <option>Slightly Late (1-2 Days)</option>
+                        <option>Late (3+ Days)</option>
+                        <option>Very Late (Week+ Delay)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Order Accuracy:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Perfect (100% Correct)</option>
+                        <option>Excellent (Minor Variance)</option>
+                        <option>Good (Acceptable Variance)</option>
+                        <option>Poor (Significant Issues)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Material Quality:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Exceeds Standards)</option>
+                        <option>Good (Meets Standards)</option>
+                        <option>Fair (Acceptable Quality)</option>
+                        <option>Poor (Below Standards)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Customer Service:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Very Responsive)</option>
+                        <option>Good (Responsive)</option>
+                        <option>Fair (Adequate)</option>
+                        <option>Poor (Unresponsive)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Pricing Competitiveness:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Best Price)</option>
+                        <option>Good (Competitive)</option>
+                        <option>Fair (Market Rate)</option>
+                        <option>Poor (Overpriced)</option>
+                    </select>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Overall Supplier Rating:</label>
+                    <select class="w-full p-2 rounded border">
+                        <option>Excellent (Preferred Supplier)</option>
+                        <option>Good (Recommended)</option>
+                        <option>Fair (Acceptable)</option>
+                        <option>Poor (Avoid Future Use)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="form-section mb-8 bg-yellow-50 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-yellow-800 mb-4 border-b border-yellow-300 pb-2">
+                <i class="fas fa-lightbulb mr-2"></i>Lessons Learned
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Material Performance Insights:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="How did this material perform during installation and for customer satisfaction?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Installation Challenges Encountered:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="What difficulties were encountered with this material?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Customer Feedback and Preferences:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="What did the customer like/dislike about the material choice?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Cost Efficiency Opportunities:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="How could costs be reduced while maintaining quality?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Future Ordering Improvements:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="What would you do differently when ordering this material again?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Impact -->
+        <div class="form-section mb-8 bg-gray-50 p-6 rounded-lg border-2 border-gray-400">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-400 pb-2">
+                <i class="fas fa-chart-line mr-2"></i>Financial Impact Summary
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Total Material Cost Impact:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-gray-100 font-bold" step="0.01" readonly>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Profit Margin Effect (%):</label>
+                    <input type="number" class="w-full p-2 rounded border bg-gray-100 font-bold" step="0.1" readonly>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">Waste Cost as % of Job:</label>
+                    <input type="number" class="w-full p-2 rounded border bg-gray-100 font-bold" step="0.1" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Future Pricing Adjustments Needed:</label>
+                    <textarea class="w-full p-2 rounded border" rows="2" placeholder="Should pricing be adjusted for this material type?"></textarea>
+                    
+                    <label class="block text-sm font-semibold mb-1 mt-3">ROI Analysis & Recommendations:</label>
+                    <textarea class="w-full p-2 rounded border" rows="3" placeholder="Overall financial performance and recommendations for future jobs..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="form-section mt-8 pt-6 border-t-2 border-gray-400">
+            <div class="grid grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="signature-line h-8 border-b-2 border-gray-600 mb-2"></div>
+                    <p class="text-sm font-semibold">Project Manager Signature</p>
+                    <p class="text-xs text-gray-600 mt-1">Date: ___________</p>
+                </div>
+                <div>
+                    <div class="signature-line h-8 border-b-2 border-gray-600 mb-2"></div>
+                    <p class="text-sm font-semibold">Installation Supervisor Signature</p>
+                    <p class="text-xs text-gray-600 mt-1">Date: ___________</p>
+                </div>
+                <div>
+                    <div class="signature-line h-8 border-b-2 border-gray-600 mb-2"></div>
+                    <p class="text-sm font-semibold">Management Review</p>
+                    <p class="text-xs text-gray-600 mt-1">Date: ___________</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-xs text-gray-500 border-t pt-4">
+            <p>© 2024 FloorPro Business Arsenal - Material Cost Tracking Form</p>
+            <p>For comprehensive material management and profitability optimization</p>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976500d1bbf43c77","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmMIo9YdRyr0ExLHjvYTvCGQ%2FUm%2FS2yKUmiuuZRWYTibG1be%2BT%2BsRLZV1zVBRe2mZwdLvdkL4HBoN%2BMmlBTOYh4dvYMcCpmsnfxsbaG6u1ZFPO7tSIkRUJJZRf%2F7oR4cdF9Rjlxv6GD5b3BYsg9UXqbtzDKdiwIKtaY0P2U7IrofSwZ0nGbh4BqUpcWpXV%2FZraxhEFA7CDHTSqBS1gu7aIoqMWK6KjzrKy%2F71fOLBnc38eucM7L%2BFxMGNQyGOy%2FKsS51CSECiTFAnHCgm%2BEPjZV8dHVRqu9ErO3yKHnAqbuIGuSHoAhzFITonQN4mfkn1m5cwI2hKMENeWci4v2O52r%2Bt%2BTIa9Q1igxPdAxokK8yYP%2Fqj5s0C7LXjYrcQviexFhJ0pPIrhMGMrx5u7ISaakXYKeOvpmfBS6bRTRfjqhKpQmV9bsJmPz28y%2F6cp9SffXL8qKbaaMLCr9zoyi%2FBm8rPAC%2FdL%2FO13UI6uYLBJbOsC%2FNZQyyBOPxtZ2ClY4gtiFW199EFqekakJwogMsV%2FubIX9OjdzTaMShNu5orJDivTs94ktaXLKVYxEx8saeDQ%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmMIo9YdRyr0ExLHjvYTvCGQ/Um/S2yKUmiuuZRWYTibG1be+T+sRLZV1zVBRe2mZwdLvdkL4HBoN+MmlBTOYh4dvYMcCpmsnfxsbaG6u1ZFPO7tSIkRUJJZRf/7oR4cdF9Rjlxv6GD5b3BYsg9UXqbtzDKdiwIKtaY0P2U7IrofSwZ0nGbh4BqUpcWpXV/ZraxhEFA7CDHTSqBS1gu7aIoqMWK6KjzrKy/71fOLBnc38eucM7L+FxMGNQyGOy/KsS51CSECiTFAnHCgm+EPjZV8dHVRqu9ErO3yKHnAqbuIGuSHoAhzFITonQN4mfkn1m5cwI2hKMENeWci4v2O52r+t+TIa9Q1igxPdAxokK8yYP/qj5s0C7LXjYrcQviexFhJ0pPIrhMGMrx5u7ISaakXYKeOvpmfBS6bRTRfjqhKpQmV9bsJmPz28y/6cp9SffXL8qKbaaMLCr9zoyi/Bm8rPAC/dL/O13UI6uYLBJbOsC/NZQyyBOPxtZ2ClY4gtiFW199EFqekakJwogMsV/ubIX9OjdzTaMShNu5orJDivTs94ktaXLKVYxEx8saeDQ==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

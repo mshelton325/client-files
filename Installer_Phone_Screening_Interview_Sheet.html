@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Screening Interview Sheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { font-size: 12px; }
+            .no-print { display: none; }
+        }
+        .form-section {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            background: #f8fafc;
+        }
+        .input-field {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 8px;
+            width: 100%;
+            background: white;
+        }
+        .checkbox-field {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body class="bg-white p-4 max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center mb-6 border-b-2 border-blue-600 pb-4">
+        <h1 class="text-3xl font-bold text-blue-800 mb-2">
+            <i class="fas fa-phone mr-3"></i>Phone Screening Interview Sheet
+        </h1>
+        <p class="text-gray-600">Initial Candidate Evaluation and Assessment</p>
+    </div>
+
+    <!-- Candidate Information -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-user mr-2"></i>Candidate Information
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Candidate Name:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Position Applied For:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Application Source:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Interview Date & Time:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Interviewer Name:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Interview Duration:</label>
+                <input type="text" class="input-field" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Basic Qualifications Screening -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>Basic Qualifications Screening
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Relevant Work Experience (Years):</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Education Level:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> High School/GED</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Trade School</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Associates Degree</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Bachelor's Degree</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Other</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Certifications/Licenses:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Work Schedule Availability:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Full-time</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Part-time</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Weekends</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Evenings</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Travel Required</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Transportation Method:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Salary Expectations:</label>
+                <input type="text" class="input-field" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience & Skills Assessment -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-tools mr-2"></i>Experience & Skills Assessment
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Flooring Experience (Check all that apply):</label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Hardwood</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Laminate</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> LVT/LVP</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Tile</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Carpet</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Sheet Vinyl</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Natural Stone</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Epoxy/Polished Concrete</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Years of Flooring Experience:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Own Tools? (List main tools owned):</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Physical Capabilities Assessment:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Lift 50+ lbs</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Kneel/Crawl</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Stand 8+ hours</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Use power tools</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Customer Service Experience:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Availability & Logistics -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-calendar-alt mr-2"></i>Availability & Logistics
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Available Start Date:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Schedule:</label>
+                <input type="text" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Overtime Availability:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Yes, always</option>
+                    <option>Yes, sometimes</option>
+                    <option>Limited availability</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Travel Requirements Acceptable:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Yes</option>
+                    <option>With limitations</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Background Check Consent:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Has concerns</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Drug Test Consent:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Behavioral Indicators -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-comments mr-2"></i>Behavioral Indicators
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Communication Skills (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Enthusiasm Level (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Professionalism (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Questions Asked About Position:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Reliability Indicators:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Red Flags Identification -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-red-700 mb-4 flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i>Red Flags Identification
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Employment Gaps (Explanation):</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Job Change Frequency Concerns:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> No concerns</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Some concern</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Major concern</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Negative Comments About Previous Employers:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Unrealistic Expectations:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Communication/Attitude Concerns:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Screening -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-hard-hat mr-2"></i>Technical Screening
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Safety Knowledge (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Quality Standards Understanding (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Problem-Solving Approach:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Learning Willingness (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Team Collaboration Indicators:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screening Results -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-green-700 mb-4 flex items-center">
+            <i class="fas fa-chart-line mr-2"></i>Screening Results
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Overall Impression (1-10):</label>
+                <input type="number" min="1" max="10" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Key Strengths:</label>
+                <textarea class="input-field" rows="3"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Concerns/Areas for Clarification:</label>
+                <textarea class="input-field" rows="3"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Position Fit Assessment:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Excellent fit</option>
+                    <option>Good fit</option>
+                    <option>Moderate fit</option>
+                    <option>Poor fit</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Final Recommendation:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Strong recommend for in-person interview</option>
+                    <option>Recommend for in-person interview</option>
+                    <option>Consider with reservations</option>
+                    <option>Do not recommend</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Recommendation Reasoning:</label>
+                <textarea class="input-field" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Next Steps Determination -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-purple-700 mb-4 flex items-center">
+            <i class="fas fa-arrow-right mr-2"></i>Next Steps Determination
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">In-Person Interview Recommended:</label>
+                <select class="input-field">
+                    <option>Select...</option>
+                    <option>Yes - High Priority</option>
+                    <option>Yes - Standard Priority</option>
+                    <option>Maybe - Need more info</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Additional Information Needed:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Reference Check Requirements:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Previous supervisor</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Recent employer</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Character reference</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Skills Testing Recommended:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Practical skills test</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Safety knowledge test</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Tool proficiency test</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Follow-up Timeline:</label>
+                <input type="text" class="input-field" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow-up Actions -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-tasks mr-2"></i>Follow-up Actions
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Candidate Notification Date:</label>
+                <input type="date" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Next Interview Scheduling:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Additional Screening Required:</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Documentation Filed:</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Application</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Resume</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Interview notes</label>
+                    <label class="flex items-center"><input type="checkbox" class="checkbox-field"> Scorecard</label>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Rejection Communication Plan (if applicable):</label>
+                <textarea class="input-field" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Notes -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+            <i class="fas fa-sticky-note mr-2"></i>Additional Notes
+        </h2>
+        <textarea class="input-field" rows="4" placeholder="Any additional observations, concerns, or information about the candidate..."></textarea>
+    </div>
+
+    <!-- Signatures -->
+    <div class="form-section">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+            <i class="fas fa-signature mr-2"></i>Approval & Sign-off
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Interviewer Signature:</label>
+                <div class="border-b-2 border-gray-400 h-12 mb-2"></div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Date:</label>
+                <input type="date" class="input-field" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Supervisor Review/Approval:</label>
+                <div class="border-b-2 border-gray-400 h-12 mb-2"></div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Date:</label>
+                <input type="date" class="input-field" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-gray-500 text-sm mt-8 pt-4 border-t">
+        <p>© FloorPro Business Systems - Phone Screening Interview Sheet</p>
+        <p>Confidential - For Internal Use Only</p>
+    </div>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9765119e2aa9489c","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhJyEFHWBLtQrd00xiqUcWIt16ChpYePeGYWqx6Iq3QZwGaTeh4FmOIlD0SZ6Rtae9JpgyzL7KxKW1KmSsXamg0tTDL8ThL9DZh1mY4tpFb5l1mt4%2BZNWy5FJDMhLZjiByMShSIJbbQdQlXWBGXN86U%2FuBnfHtQtw5tyyaNMbVaWGITnimGj4HyonZdH%2FNoT%2B8RXTNxpmcp05ONU1iYPG0EDCvvP7Br0PT8UqeYbrhnfqRswpPEazBf4ZSIqUnzlzbwKwxv03YRd3SS%2F7MsD7k6M6rf2QzOIPY2yv229B93cOlXi4a5fTO4Gy6fZk9QkSQ6SVqAvukbdGpbi6oZGhiMbiB5D7kWkyu%2F1DXLRBUal0RWdMs%2F5y3Yy2knE5g2Z8ZqjRMW9nfcspDvcXt1Yf3k9ski2SjpizTCBKwMZVvZYFj22ovP%2B4cCjfMq8cuxrUMI1L%2B84kBqXsb8nY5M0Bv0p6PzUYfYiUEcyM0gi%2FMdlxM3kZmkt9RB5iYYmtVBRVwc7LbGbLxOCPKm%2F1V2qKrH6ug89hDos1qfpfldmADvYUxsaPWxQCdn%2BYPA6SRlU1Q%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhJyEFHWBLtQrd00xiqUcWIt16ChpYePeGYWqx6Iq3QZwGaTeh4FmOIlD0SZ6Rtae9JpgyzL7KxKW1KmSsXamg0tTDL8ThL9DZh1mY4tpFb5l1mt4+ZNWy5FJDMhLZjiByMShSIJbbQdQlXWBGXN86U/uBnfHtQtw5tyyaNMbVaWGITnimGj4HyonZdH/NoT+8RXTNxpmcp05ONU1iYPG0EDCvvP7Br0PT8UqeYbrhnfqRswpPEazBf4ZSIqUnzlzbwKwxv03YRd3SS/7MsD7k6M6rf2QzOIPY2yv229B93cOlXi4a5fTO4Gy6fZk9QkSQ6SVqAvukbdGpbi6oZGhiMbiB5D7kWkyu/1DXLRBUal0RWdMs/5y3Yy2knE5g2Z8ZqjRMW9nfcspDvcXt1Yf3k9ski2SjpizTCBKwMZVvZYFj22ovP+4cCjfMq8cuxrUMI1L+84kBqXsb8nY5M0Bv0p6PzUYfYiUEcyM0gi/MdlxM3kZmkt9RB5iYYmtVBRVwc7LbGbLxOCPKm/1V2qKrH6ug89hDos1qfpfldmADvYUxsaPWxQCdn+YPA6SRlU1Q==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

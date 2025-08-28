@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Job Costing Sheet - FloorPro Business Arsenal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .print-section {
+            page-break-inside: avoid;
+        }
+        .calculation-field {
+            background-color: #f0f9ff;
+            font-weight: bold;
+        }
+        input[type="number"]:focus, input[type="text"]:focus, textarea:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <!-- Header -->
+        <div class="section-header text-white p-6">
+            <h1 class="text-3xl font-bold text-center">
+                <i class="fas fa-calculator mr-3"></i>
+                Basic Job Costing Sheet
+            </h1>
+            <p class="text-center text-blue-100 mt-2">Project Cost Tracking & Profitability Analysis</p>
+        </div>
+
+        <!-- Project Identification -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-info-circle mr-2 text-blue-600"></i>
+                Project Identification
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Job Number</label>
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter job number">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter customer name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Manager/Supervisor</label>
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter supervisor name">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Address</label>
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter project address">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                    <input type="number" id="totalSqFt" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0" onchange="calculatePerSqFt()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                    <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Completion Date</label>
+                    <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div class="md:col-span-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Description & Room Details</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Enter project description and room details"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labor Costs -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-users mr-2 text-blue-600"></i>
+                Labor Costs
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border border-gray-300">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="border border-gray-300 p-2 text-left">Crew Member Name</th>
+                            <th class="border border-gray-300 p-2 text-center">Hourly Rate</th>
+                            <th class="border border-gray-300 p-2 text-center">Regular Hours</th>
+                            <th class="border border-gray-300 p-2 text-center">Overtime Hours</th>
+                            <th class="border border-gray-300 p-2 text-center">Total Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Crew Member 1">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center labor-rate" placeholder="0.00" step="0.01" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center regular-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center overtime-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2 calculation-field text-center labor-total">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Crew Member 2">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center labor-rate" placeholder="0.00" step="0.01" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center regular-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center overtime-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2 calculation-field text-center labor-total">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Crew Member 3">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center labor-rate" placeholder="0.00" step="0.01" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center regular-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center overtime-hours" placeholder="0" onchange="calculateLabor(this)">
+                            </td>
+                            <td class="border border-gray-300 p-2 calculation-field text-center labor-total">$0.00</td>
+                        </tr>
+                        <tr class="bg-blue-50">
+                            <td colspan="4" class="border border-gray-300 p-2 font-bold text-right">Total Labor Costs:</td>
+                            <td id="totalLaborCost" class="border border-gray-300 p-2 calculation-field text-center font-bold">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Labor Hours</label>
+                    <input type="number" id="totalLaborHours" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Labor Cost per Square Foot</label>
+                    <input type="text" id="laborCostPerSqFt" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Material Costs -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-cube mr-2 text-blue-600"></i>
+                Material Costs
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Flooring Materials</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Adhesives & Underlayment</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Transition Strips & Moldings</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Delivery Charges</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tax</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Other Materials</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md material-cost" placeholder="0.00" step="0.01" onchange="calculateMaterialCosts()">
+                </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Material Costs</label>
+                    <input type="text" id="totalMaterialCost" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Material Cost per Square Foot</label>
+                    <input type="text" id="materialCostPerSqFt" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment & Tool Costs -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-tools mr-2 text-blue-600"></i>
+                Equipment & Tool Costs
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Equipment Rental Charges</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tool Purchases/Replacements</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Vehicle Expenses & Mileage</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fuel Costs</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Maintenance Costs</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Other Equipment Costs</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md equipment-cost" placeholder="0.00" step="0.01" onchange="calculateEquipmentCosts()">
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Total Equipment & Tool Costs</label>
+                <input type="text" id="totalEquipmentCost" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+            </div>
+        </div>
+
+        <!-- Subcontractor Costs -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-handshake mr-2 text-blue-600"></i>
+                Subcontractor Costs
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border border-gray-300">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="border border-gray-300 p-2 text-left">Subcontractor/Service</th>
+                            <th class="border border-gray-300 p-2 text-center">Description</th>
+                            <th class="border border-gray-300 p-2 text-center">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Subcontractor 1">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Service description">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center subcontractor-cost" placeholder="0.00" step="0.01" onchange="calculateSubcontractorCosts()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Subcontractor 2">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Service description">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center subcontractor-cost" placeholder="0.00" step="0.01" onchange="calculateSubcontractorCosts()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Subcontractor 3">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="text" class="w-full p-1 border-0" placeholder="Service description">
+                            </td>
+                            <td class="border border-gray-300 p-2">
+                                <input type="number" class="w-full p-1 border-0 text-center subcontractor-cost" placeholder="0.00" step="0.01" onchange="calculateSubcontractorCosts()">
+                            </td>
+                        </tr>
+                        <tr class="bg-blue-50">
+                            <td colspan="2" class="border border-gray-300 p-2 font-bold text-right">Total Subcontractor Costs:</td>
+                            <td id="totalSubcontractorCost" class="border border-gray-300 p-2 calculation-field text-center font-bold">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Overhead Allocation -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-percentage mr-2 text-blue-600"></i>
+                Overhead Allocation
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Administrative Cost %</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md overhead-percent" placeholder="0" step="0.1" onchange="calculateOverhead()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Insurance & Bonding</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md overhead-cost" placeholder="0.00" step="0.01" onchange="calculateOverhead()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Office Overhead</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md overhead-cost" placeholder="0.00" step="0.01" onchange="calculateOverhead()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Marketing & Sales</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md overhead-cost" placeholder="0.00" step="0.01" onchange="calculateOverhead()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">General Business Expenses</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md overhead-cost" placeholder="0.00" step="0.01" onchange="calculateOverhead()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Overhead Costs</label>
+                    <input type="text" id="totalOverheadCost" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Revenue -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-dollar-sign mr-2 text-blue-600"></i>
+                Project Revenue
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contract Amount</label>
+                    <input type="number" id="contractAmount" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0.00" step="0.01" onchange="calculateRevenue()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Change Order Revenue</label>
+                    <input type="number" id="changeOrderRevenue" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0.00" step="0.01" onchange="calculateRevenue()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Additional Services Revenue</label>
+                    <input type="number" id="additionalRevenue" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0.00" step="0.01" onchange="calculateRevenue()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Project Revenue</label>
+                    <input type="text" id="totalRevenue" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Revenue per Square Foot</label>
+                    <input type="text" id="revenuePerSqFt" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Payment Terms & Schedule</label>
+                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Enter payment terms and schedule details"></textarea>
+            </div>
+        </div>
+
+        <!-- Profitability Analysis -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-chart-line mr-2 text-blue-600"></i>
+                Profitability Analysis
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Project Costs</label>
+                    <input type="text" id="totalProjectCosts" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Gross Profit</label>
+                    <input type="text" id="grossProfit" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Profit Margin %</label>
+                    <input type="text" id="profitMargin" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Profit per Square Foot</label>
+                    <input type="text" id="profitPerSqFt" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variance Analysis -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-balance-scale mr-2 text-blue-600"></i>
+                Variance Analysis
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Project Cost</label>
+                    <input type="number" id="estimatedCost" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0.00" step="0.01" onchange="calculateVariance()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Cost Variance</label>
+                    <input type="text" id="costVariance" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Completion Time (Hours)</label>
+                    <input type="number" id="estimatedTime" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0" onchange="calculateVariance()">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Time Variance</label>
+                    <input type="text" id="timeVariance" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Material Waste Percentage</label>
+                <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="0" step="0.1">
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Variance Explanation</label>
+                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain reasons for cost and time variances"></textarea>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="p-6 border-b border-gray-200 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-lightbulb mr-2 text-blue-600"></i>
+                Lessons Learned
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Cost Overrun Causes</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Identify what caused cost overruns"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Efficiency Improvement Opportunities</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Areas where efficiency can be improved"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Estimation Accuracy Assessment</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="How accurate were the original estimates?"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Process Improvement Recommendations</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Recommendations for improving processes"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer Satisfaction Impact</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="How did cost and time factors affect customer satisfaction?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Project Summary -->
+        <div class="p-6 print-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-clipboard-check mr-2 text-blue-600"></i>
+                Final Project Summary
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total Project Profitability</label>
+                    <input type="text" id="finalProfitability" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Return on Investment %</label>
+                    <input type="text" id="roi" class="w-full p-2 border border-gray-300 rounded-md calculation-field" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer Payment Status</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                        <option>Select status</option>
+                        <option>Paid in Full</option>
+                        <option>Partial Payment</option>
+                        <option>Payment Pending</option>
+                        <option>Payment Overdue</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Completion Satisfaction (1-10)</label>
+                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" min="1" max="10" placeholder="0">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Future Opportunity Potential</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                        <option>Select potential</option>
+                        <option>High - Referrals likely</option>
+                        <option>Medium - Some potential</option>
+                        <option>Low - Limited opportunity</option>
+                        <option>None - No future business expected</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Overall Project Notes</label>
+                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Additional notes about the project"></textarea>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-100 p-4 text-center text-sm text-gray-600">
+            <p><strong>FloorPro Business Arsenal</strong> - Professional Job Costing Sheet</p>
+            <p>Completed by: ___________________ Date: ___________</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateLabor(element) {
+            const row = element.closest('tr');
+            const rate = parseFloat(row.querySelector('.labor-rate').value) || 0;
+            const regularHours = parseFloat(row.querySelector('.regular-hours').value) || 0;
+            const overtimeHours = parseFloat(row.querySelector('.overtime-hours').value) || 0;
+            
+            const regularPay = rate * regularHours;
+            const overtimePay = rate * 1.5 * overtimeHours;
+            const total = regularPay + overtimePay;
+            
+            row.querySelector('.labor-total').textContent = '$' + total.toFixed(2);
+            
+            calculateTotalLabor();
+        }
+        
+        function calculateTotalLabor() {
+            const laborTotals = document.querySelectorAll('.labor-total');
+            let total = 0;
+            let totalHours = 0;
+            
+            laborTotals.forEach(element => {
+                const value = parseFloat(element.textContent.replace('$', '')) || 0;
+                total += value;
+            });
+            
+            document.querySelectorAll('.regular-hours, .overtime-hours').forEach(element => {
+                totalHours += parseFloat(element.value) || 0;
+            });
+            
+            document.getElementById('totalLaborCost').textContent = '$' + total.toFixed(2);
+            document.getElementById('totalLaborHours').value = totalHours;
+            
+            calculatePerSqFt();
+            calculateTotalCosts();
+        }
+        
+        function calculateMaterialCosts() {
+            const materialCosts = document.querySelectorAll('.material-cost');
+            let total = 0;
+            
+            materialCosts.forEach(element => {
+                total += parseFloat(element.value) || 0;
+            });
+            
+            document.getElementById('totalMaterialCost').value = '$' + total.toFixed(2);
+            calculatePerSqFt();
+            calculateTotalCosts();
+        }
+        
+        function calculateEquipmentCosts() {
+            const equipmentCosts = document.querySelectorAll('.equipment-cost');
+            let total = 0;
+            
+            equipmentCosts.forEach(element => {
+                total += parseFloat(element.value) || 0;
+            });
+            
+            document.getElementById('totalEquipmentCost').value = '$' + total.toFixed(2);
+            calculateTotalCosts();
+        }
+        
+        function calculateSubcontractorCosts() {
+            const subcontractorCosts = document.querySelectorAll('.subcontractor-cost');
+            let total = 0;
+            
+            subcontractorCosts.forEach(element => {
+                total += parseFloat(element.value) || 0;
+            });
+            
+            document.getElementById('totalSubcontractorCost').textContent = '$' + total.toFixed(2);
+            calculateTotalCosts();
+        }
+        
+        function calculateOverhead() {
+            const overheadCosts = document.querySelectorAll('.overhead-cost');
+            const overheadPercent = parseFloat(document.querySelector('.overhead-percent').value) || 0;
+            
+            let total = 0;
+            overheadCosts.forEach(element => {
+                total += parseFloat(element.value) || 0;
+            });
+            
+            // Add percentage-based overhead
+            const totalDirectCosts = getTotalDirectCosts();
+            const percentageOverhead = (totalDirectCosts * overheadPercent) / 100;
+            total += percentageOverhead;
+            
+            document.getElementById('totalOverheadCost').value = '$' + total.toFixed(2);
+            calculateTotalCosts();
+        }
+        
+        function calculateRevenue() {
+            const contract = parseFloat(document.getElementById('contractAmount').value) || 0;
+            const changeOrder = parseFloat(document.getElementById('changeOrderRevenue').value) || 0;
+            const additional = parseFloat(document.getElementById('additionalRevenue').value) || 0;
+            
+            const total = contract + changeOrder + additional;
+            document.getElementById('totalRevenue').value = '$' + total.toFixed(2);
+            
+            calculatePerSqFt();
+            calculateProfitability();
+        }
+        
+        function calculatePerSqFt() {
+            const sqFt = parseFloat(document.getElementById('totalSqFt').value) || 0;
+            if (sqFt === 0) return;
+            
+            const laborCost = parseFloat(document.getElementById('totalLaborCost').textContent.replace('$', '')) || 0;
+            const materialCost = parseFloat(document.getElementById('totalMaterialCost').value.replace('$', '')) || 0;
+            const revenue = parseFloat(document.getElementById('totalRevenue').value.replace('$', '')) || 0;
+            
+            document.getElementById('laborCostPerSqFt').value = '$' + (laborCost / sqFt).toFixed(2);
+            document.getElementById('materialCostPerSqFt').value = '$' + (materialCost / sqFt).toFixed(2);
+            document.getElementById('revenuePerSqFt').value = '$' + (revenue / sqFt).toFixed(2);
+            
+            const totalCosts = getTotalProjectCosts();
+            const profit = revenue - totalCosts;
+            document.getElementById('profitPerSqFt').value = '$' + (profit / sqFt).toFixed(2);
+        }
+        
+        function getTotalDirectCosts() {
+            const labor = parseFloat(document.getElementById('totalLaborCost').textContent.replace('$', '')) || 0;
+            const material = parseFloat(document.getElementById('totalMaterialCost').value.replace('$', '')) || 0;
+            const equipment = parseFloat(document.getElementById('totalEquipmentCost').value.replace('$', '')) || 0;
+            const subcontractor = parseFloat(document.getElementById('totalSubcontractorCost').textContent.replace('$', '')) || 0;
+            
+            return labor + material + equipment + subcontractor;
+        }
+        
+        function getTotalProjectCosts() {
+            const directCosts = getTotalDirectCosts();
+            const overhead = parseFloat(document.getElementById('totalOverheadCost').value.replace('$', '')) || 0;
+            
+            return directCosts + overhead;
+        }
+        
+        function calculateTotalCosts() {
+            const total = getTotalProjectCosts();
+            document.getElementById('totalProjectCosts').value = '$' + total.toFixed(2);
+            calculateProfitability();
+        }
+        
+        function calculateProfitability() {
+            const revenue = parseFloat(document.getElementById('totalRevenue').value.replace('$', '')) || 0;
+            const costs = getTotalProjectCosts();
+            
+            const profit = revenue - costs;
+            const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
+            
+            document.getElementById('grossProfit').value = '$' + profit.toFixed(2);
+            document.getElementById('profitMargin').value = margin.toFixed(2) + '%';
+            document.getElementById('finalProfitability').value = '$' + profit.toFixed(2);
+            
+            const roi = costs > 0 ? (profit / costs) * 100 : 0;
+            document.getElementById('roi').value = roi.toFixed(2) + '%';
+            
+            calculatePerSqFt();
+        }
+        
+        function calculateVariance() {
+            const estimatedCost = parseFloat(document.getElementById('estimatedCost').value) || 0;
+            const actualCost = getTotalProjectCosts();
+            const estimatedTime = parseFloat(document.getElementById('estimatedTime').value) || 0;
+            const actualTime = parseFloat(document.getElementById('totalLaborHours').value) || 0;
+            
+            const costVariance = actualCost - estimatedCost;
+            const timeVariance = actualTime - estimatedTime;
+            
+            document.getElementById('costVariance').value = '$' + costVariance.toFixed(2);
+            document.getElementById('timeVariance').value = timeVariance.toFixed(1) + ' hrs';
+        }
+        
+        // Initialize calculations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateTotalLabor();
+            calculateMaterialCosts();
+            calculateEquipmentCosts();
+            calculateSubcontractorCosts();
+            calculateOverhead();
+            calculateRevenue();
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976502163ecf07cc","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmpEQG5ubjFP%2F6YwLGoF6gmZ5s8tb43Y8pX2Rkcy%2FLik5KJtzyHpR5VzYj1M1R8MN5jorOs3BDiQfCLXqR7brEaanPacCV3RdeORQTL6D0df9oY%2BXwn1b7BtQUUgcMek3LAph2ioquldxokknWiHjNjj%2FZGi9nS9fX4YmbNx1X%2FcqJGH2NfplEOEW8pNcag6nLAcdpRwetQl3pyt10g5bREW6WhtGV%2BaWM3ouosfZh9JceheBsBtUAie4XAHaQVT0EG8AcAhmK2SZn0%2BM5mYf0J1LjneKKZUMISdwsy8CPZ2YHdaDbyQmHEZb8yPjwNcTJCkTFKqlbLS3Mdr%2B1ou%2FNN4kqB8Ryg2ppemQWq1d2xnLbz9WHkQwbAgp2c4C2II1he81lbTBjOj2fQuFc0t5YxxUA4vRAP6KhwMZd%2FfBnaFYB7%2Fn0AaapPXzuNV4yzeNQmd8rbGaFtZ%2BFA4oBbRC%2FVKcL0ksinoqWqEMWXAQdVn7jSlWBPFRFWWAG1Guf6oe%2B%2Frf3pIvFuvIZ625%2F9k8fIoOWvzLd7D8lVv8SyIcixj";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmpEQG5ubjFP/6YwLGoF6gmZ5s8tb43Y8pX2Rkcy/Lik5KJtzyHpR5VzYj1M1R8MN5jorOs3BDiQfCLXqR7brEaanPacCV3RdeORQTL6D0df9oY+Xwn1b7BtQUUgcMek3LAph2ioquldxokknWiHjNjj/ZGi9nS9fX4YmbNx1X/cqJGH2NfplEOEW8pNcag6nLAcdpRwetQl3pyt10g5bREW6WhtGV+aWM3ouosfZh9JceheBsBtUAie4XAHaQVT0EG8AcAhmK2SZn0+M5mYf0J1LjneKKZUMISdwsy8CPZ2YHdaDbyQmHEZb8yPjwNcTJCkTFKqlbLS3Mdr+1ou/NN4kqB8Ryg2ppemQWq1d2xnLbz9WHkQwbAgp2c4C2II1he81lbTBjOj2fQuFc0t5YxxUA4vRAP6KhwMZd/fBnaFYB7/n0AaapPXzuNV4yzeNQmd8rbGaFtZ+FA4oBbRC/VKcL0ksinoqWqEMWXAQdVn7jSlWBPFRFWWAG1Guf6oe+/rf3pIvFuvIZ625/9k8fIoOWvzLd7D8lVv8SyIcixj";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

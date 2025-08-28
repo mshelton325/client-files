@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Complaint Log Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        .form-section {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+        }
+        .form-input {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        .signature-box {
+            border: 1px solid #000;
+            height: 60px;
+            padding: 0.5rem;
+            background: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        
+        <!-- Header -->
+        <div class="text-center border-b-2 border-blue-600 pb-4 mb-6">
+            <h1 class="text-3xl font-bold text-blue-800">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+                Customer Complaint Log Form
+            </h1>
+            <p class="text-gray-600 mt-2">Professional Complaint Management & Tracking System</p>
+        </div>
+
+        <form id="complaintForm">
+            <!-- Complaint Identification -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-id-card mr-2"></i>Complaint Identification
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Complaint ID</label>
+                        <input type="text" class="form-input" id="complaintId" placeholder="AUTO-001" readonly>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date Received</label>
+                        <input type="datetime-local" class="form-input" id="dateReceived">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Method of Complaint</label>
+                        <select class="form-input" id="complaintMethod">
+                            <option value="">Select Method</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="online">Online Form</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Urgency Level</label>
+                        <select class="form-input" id="urgencyLevel">
+                            <option value="">Select Urgency</option>
+                            <option value="low" class="text-green-600">Low</option>
+                            <option value="medium" class="text-yellow-600">Medium</option>
+                            <option value="high" class="text-orange-600">High</option>
+                            <option value="critical" class="text-red-600">Critical</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Staff Member Receiving</label>
+                        <input type="text" class="form-input" id="staffMember" placeholder="Staff member name">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Information -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-user mr-2"></i>Customer Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                        <input type="text" class="form-input" id="customerName" placeholder="Full customer name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" class="form-input" id="customerPhone" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" class="form-input" id="customerEmail" placeholder="customer@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Contact Method</label>
+                        <select class="form-input" id="preferredContact">
+                            <option value="">Select Preference</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="text">Text Message</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Address</label>
+                        <textarea class="form-input" id="installationAddress" rows="2" placeholder="Full installation address"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Original Installation Date</label>
+                        <input type="date" class="form-input" id="installationDate">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Invoice/Job Number</label>
+                        <input type="text" class="form-input" id="jobNumber" placeholder="INV-2024-001">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation Details -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-tools mr-2"></i>Installation Details
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Flooring Type & Brand</label>
+                        <input type="text" class="form-input" id="flooringType" placeholder="e.g., Shaw Hardwood, LVT">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                        <input type="number" class="form-input" id="squareFootage" placeholder="1200">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Rooms Affected</label>
+                        <input type="text" class="form-input" id="roomsAffected" placeholder="Living room, Kitchen, Hallway">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Installation Crew</label>
+                        <input type="text" class="form-input" id="installationCrew" placeholder="Crew leader name">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Warranty Coverage Information</label>
+                        <textarea class="form-input" id="warrantyInfo" rows="2" placeholder="Warranty terms and coverage details"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complaint Description -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-file-alt mr-2"></i>Complaint Description
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Complaint Category</label>
+                        <select class="form-input" id="complaintCategory">
+                            <option value="">Select Category</option>
+                            <option value="quality">Quality Issues</option>
+                            <option value="service">Service Problems</option>
+                            <option value="timeline">Timeline Delays</option>
+                            <option value="communication">Communication</option>
+                            <option value="billing">Billing/Payment</option>
+                            <option value="warranty">Warranty Claims</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Photos/Documentation Provided</label>
+                        <select class="form-input" id="documentationProvided">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Detailed Description of Issue</label>
+                        <textarea class="form-input" id="issueDescription" rows="4" placeholder="Provide detailed description of the complaint..."></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer's Desired Resolution</label>
+                        <textarea class="form-input" id="desiredResolution" rows="3" placeholder="What does the customer want as a resolution?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initial Assessment -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-clipboard-check mr-2"></i>Initial Assessment
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Legitimacy of Complaint</label>
+                        <select class="form-input" id="complaintLegitimacy">
+                            <option value="">Select Assessment</option>
+                            <option value="valid">Valid</option>
+                            <option value="invalid">Invalid</option>
+                            <option value="partial">Partially Valid</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Resolution Difficulty</label>
+                        <select class="form-input" id="resolutionDifficulty">
+                            <option value="">Select Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="complex">Complex</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Timeline for Initial Response</label>
+                        <input type="datetime-local" class="form-input" id="responseTimeline">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Assigned To</label>
+                        <input type="text" class="form-input" id="assignedTo" placeholder="Personnel assigned">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Resources Required</label>
+                        <textarea class="form-input" id="resourcesRequired" rows="3" placeholder="Materials, personnel, time, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resolution Planning & Tracking Combined -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-project-diagram mr-2"></i>Resolution Planning & Tracking
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Proposed Resolution Method</label>
+                        <textarea class="form-input" id="proposedResolution" rows="3" placeholder="Detailed resolution plan..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Cost</label>
+                        <input type="number" class="form-input" id="estimatedCost" placeholder="0.00" step="0.01">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Actual Cost</label>
+                        <input type="number" class="form-input" id="actualCost" placeholder="0.00" step="0.01">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Completion Date</label>
+                        <input type="date" class="form-input" id="estimatedCompletion">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Actual Completion Date</label>
+                        <input type="date" class="form-input" id="actualCompletion">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Actions Taken & Materials Used</label>
+                        <textarea class="form-input" id="actionsTaken" rows="4" placeholder="Document all actions taken, materials used, and timeline..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication & Follow-up -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-comments mr-2"></i>Communication & Follow-up
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Initial Acknowledgment Sent</label>
+                        <input type="datetime-local" class="form-input" id="acknowledgmentSent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Satisfaction Rating</label>
+                        <select class="form-input" id="satisfactionRating">
+                            <option value="">Select Rating</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Communication Log</label>
+                        <textarea class="form-input" id="communicationLog" rows="4" placeholder="Document all communications with customer (dates, methods, outcomes)..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Final Status</label>
+                        <select class="form-input" id="finalStatus">
+                            <option value="">Select Status</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="closed">Closed</option>
+                            <option value="pending">Pending</option>
+                            <option value="escalated">Escalated</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Customer Retention Outcome</label>
+                        <select class="form-input" id="retentionOutcome">
+                            <option value="">Select Outcome</option>
+                            <option value="retained">Customer Retained</option>
+                            <option value="lost">Customer Lost</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Lessons Learned & Process Improvements</label>
+                        <textarea class="form-input" id="lessonsLearned" rows="3" placeholder="What can be improved for future situations?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signatures & Approvals -->
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <i class="fas fa-signature mr-2"></i>Signatures & Approvals
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Staff Signature</label>
+                        <div class="signature-box">
+                            <div class="text-xs text-gray-500">Staff member signature and date</div>
+                        </div>
+                        <input type="date" class="form-input mt-2" id="staffSignatureDate">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Supervisor Approval</label>
+                        <div class="signature-box">
+                            <div class="text-xs text-gray-500">Supervisor signature and date</div>
+                        </div>
+                        <input type="date" class="form-input mt-2" id="supervisorApprovalDate">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Customer Acknowledgment</label>
+                        <div class="signature-box">
+                            <div class="text-xs text-gray-500">Customer signature acknowledging resolution</div>
+                        </div>
+                        <input type="date" class="form-input mt-2" id="customerAcknowledgmentDate">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Final Authorization</label>
+                        <div class="signature-box">
+                            <div class="text-xs text-gray-500">Final closure authorization signature</div>
+                        </div>
+                        <input type="date" class="form-input mt-2" id="finalAuthorizationDate">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-center space-x-4 mt-8 no-print">
+                <button type="button" onclick="generateComplaintId()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-refresh mr-2"></i>Generate New ID
+                </button>
+                <button type="button" onclick="saveForm()" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                    <i class="fas fa-save mr-2"></i>Save Form
+                </button>
+                <button type="button" onclick="clearForm()" class="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-times mr-2"></i>Clear Form
+                </button>
+            </div>
+
+        </form>
+
+        <!-- Footer -->
+        <div class="text-center text-sm text-gray-500 mt-8 border-t pt-4">
+            <p><strong>FloorPro Business Arsenal</strong> - Customer Complaint Management System</p>
+            <p>Form ID: <span id="formId">CCL-2024-001</span> | Generated: <span id="currentDate"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-generate complaint ID
+        function generateComplaintId() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const time = String(date.getHours()).padStart(2, '0') + String(date.getMinutes()).padStart(2, '0');
+            const id = `CC-${year}${month}${day}-${time}`;
+            document.getElementById('complaintId').value = id;
+            document.getElementById('formId').textContent = id;
+        }
+
+        // Set current date
+        function setCurrentDate() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            document.getElementById('dateReceived').value = now.toISOString().slice(0, 16);
+        }
+
+        // Save form data to localStorage
+        function saveForm() {
+            const formData = new FormData(document.getElementById('complaintForm'));
+            const data = Object.fromEntries(formData);
+            localStorage.setItem('complaintForm_' + document.getElementById('complaintId').value, JSON.stringify(data));
+            alert('Form saved successfully!');
+        }
+
+        // Clear form
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all form data?')) {
+                document.getElementById('complaintForm').reset();
+                generateComplaintId();
+                setCurrentDate();
+            }
+        }
+
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            generateComplaintId();
+            setCurrentDate();
+        });
+
+        // Auto-save functionality (every 2 minutes)
+        setInterval(function() {
+            if (document.getElementById('customerName').value) {
+                saveForm();
+                console.log('Form auto-saved');
+            }
+        }, 120000); // 2 minutes
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976542cb0ebded75","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDj4EpioO2Fl8Xc2%2FIGjqaiIVC5rwkQztPvGdWDnWhDVa9yR8ldshXvyaEhphXp5RZfxnNMh2OTGxH1wteLrBP869bdeXkMaw2Jmfb7wIpbTkOUhmlMwxJ1BO%2FIgK%2FIT2CceDLqwTdrHXZujlzct5iQ5SlkZ8FbthlPGXp300dVaai%2B%2BoWVo6OhX6GuWoA1KrGS1HmV%2FJHaV%2FI0rMwS7u%2FcplPLAXLbOXkb%2BxSh8Lea2m7K19MMxADc%2FSrnI5RZK3O3XzvDPWwES2n%2Fw8W%2Fx3hDwTYVI5xIiGNLqa95L041Kvu0SpUoFSJ9dsD8bwGXSXSQrISkuEvqKrab1yv%2FmptQSvddYd0GQECTn3X%2F4fFqq27%2BMZUxAiI9g6XWahus%2BCCnfmGk9AqX2qYcCMgB%2FOXuvkA5%2F8%2BqLg7TjH0g2%2B%2F9irAb64rFz6BhwbEYtCY4Qf5aGTEN4sBhe6OPOxb12NfJSC8UW8dbFiIs7jqiwmiPXn3BNB7ezV5%2Bao52%2FSLniP%2BIEAOw%2FuJWEwCmSwrb1ZVvU%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDj4EpioO2Fl8Xc2/IGjqaiIVC5rwkQztPvGdWDnWhDVa9yR8ldshXvyaEhphXp5RZfxnNMh2OTGxH1wteLrBP869bdeXkMaw2Jmfb7wIpbTkOUhmlMwxJ1BO/IgK/IT2CceDLqwTdrHXZujlzct5iQ5SlkZ8FbthlPGXp300dVaai++oWVo6OhX6GuWoA1KrGS1HmV/JHaV/I0rMwS7u/cplPLAXLbOXkb+xSh8Lea2m7K19MMxADc/SrnI5RZK3O3XzvDPWwES2n/w8W/x3hDwTYVI5xIiGNLqa95L041Kvu0SpUoFSJ9dsD8bwGXSXSQrISkuEvqKrab1yv/mptQSvddYd0GQECTn3X/4fFqq27+MZUxAiI9g6XWahus+CCnfmGk9AqX2qYcCMgB/OXuvkA5/8+qLg7TjH0g2+/9irAb64rFz6BhwbEYtCY4Qf5aGTEN4sBhe6OPOxb12NfJSC8UW8dbFiIs7jqiwmiPXn3BNB7ezV5+ao52/SLniP+IEAOw/uJWEwCmSwrb1ZVvU=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

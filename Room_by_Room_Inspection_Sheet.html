@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room-by-Room Inspection Sheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            .no-print { display: none !important; }
+            body { font-size: 12px; }
+        }
+        .signature-box {
+            border-bottom: 2px solid #000;
+            min-height: 60px;
+            display: flex;
+            align-items: end;
+            padding-bottom: 5px;
+        }
+        .rating-scale {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .rating-circle {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .rating-circle:hover, .rating-circle.selected {
+            background-color: #3B82F6;
+            color: white;
+            border-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-white p-6 max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center mb-8 border-b-4 border-blue-600 pb-4">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+            <i class="fas fa-clipboard-check text-blue-600"></i>
+            Room-by-Room Inspection Sheet
+        </h1>
+        <p class="text-gray-600">Flooring Installation Quality Control Document</p>
+    </div>
+
+    <!-- Room Identification Section -->
+    <div class="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-200">
+        <h2 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+            <i class="fas fa-home mr-2"></i>Room Identification
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Room Name/Location</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="e.g., Master Bedroom, Living Room">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Installation Date</label>
+                <input type="date" class="w-full p-3 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Room Dimensions (L x W)</label>
+                <div class="flex gap-2">
+                    <input type="number" step="0.1" class="flex-1 p-3 border border-gray-300 rounded-md" placeholder="Length">
+                    <span class="self-center">×</span>
+                    <input type="number" step="0.1" class="flex-1 p-3 border border-gray-300 rounded-md" placeholder="Width">
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                <input type="number" step="0.1" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Total sq ft">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Flooring Type & Pattern</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="e.g., LVT Herringbone">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Installation Crew</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Installer names">
+            </div>
+        </div>
+    </div>
+
+    <!-- Quality Assessment Checklist -->
+    <div class="mb-8 bg-green-50 p-6 rounded-lg border border-green-200">
+        <h2 class="text-xl font-semibold text-green-800 mb-4 flex items-center">
+            <i class="fas fa-star mr-2"></i>Quality Assessment Checklist
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Overall Visual Appearance (1-10 Rating)</label>
+                <div class="rating-scale">
+                    <span class="text-sm text-gray-600">Poor</span>
+                    <div class="flex gap-2">
+                        <div class="rating-circle" data-rating="1">1</div>
+                        <div class="rating-circle" data-rating="2">2</div>
+                        <div class="rating-circle" data-rating="3">3</div>
+                        <div class="rating-circle" data-rating="4">4</div>
+                        <div class="rating-circle" data-rating="5">5</div>
+                        <div class="rating-circle" data-rating="6">6</div>
+                        <div class="rating-circle" data-rating="7">7</div>
+                        <div class="rating-circle" data-rating="8">8</div>
+                        <div class="rating-circle" data-rating="9">9</div>
+                        <div class="rating-circle" data-rating="10">10</div>
+                    </div>
+                    <span class="text-sm text-gray-600">Excellent</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" class="mr-2 w-4 h-4">
+                        <label class="text-sm text-gray-700">Pattern alignment and consistency</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" class="mr-2 w-4 h-4">
+                        <label class="text-sm text-gray-700">Joint quality and spacing uniformity</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" class="mr-2 w-4 h-4">
+                        <label class="text-sm text-gray-700">Edge work and trimming quality</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" class="mr-2 w-4 h-4">
+                        <label class="text-sm text-gray-700">Transition connections (if applicable)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Inspection Points -->
+    <div class="mb-8 bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+        <h2 class="text-xl font-semibold text-yellow-800 mb-4 flex items-center">
+            <i class="fas fa-search mr-2"></i>Detailed Inspection Points
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Subfloor preparation adequacy</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Material cutting and fitting precision</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Adhesive application quality (if applicable)</label>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Moisture barrier installation (if required)</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Expansion gap maintenance at perimeter</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Identification -->
+    <div class="mb-8 bg-red-50 p-6 rounded-lg border border-red-200">
+        <h2 class="text-xl font-semibold text-red-800 mb-4 flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i>Problem Identification
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Defects or imperfections noted</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Describe any defects or imperfections found"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Areas requiring touch-up or repair</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="List areas that need additional work"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Customer concerns or complaints</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Document any customer feedback or concerns"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Installation challenges encountered</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Challenges faced during installation"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Resolution methods applied</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="How challenges were resolved"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Functional Verification -->
+    <div class="mb-8 bg-purple-50 p-6 rounded-lg border border-purple-200">
+        <h2 class="text-xl font-semibold text-purple-800 mb-4 flex items-center">
+            <i class="fas fa-cogs mr-2"></i>Functional Verification
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Door clearances and operation</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">HVAC register alignment and function</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Electrical outlet and fixture clearances</label>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Plumbing fixture integration</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Built-in furniture/cabinet interfaces</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Measurements & Specifications -->
+    <div class="mb-8 bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+        <h2 class="text-xl font-semibold text-indigo-800 mb-4 flex items-center">
+            <i class="fas fa-ruler mr-2"></i>Measurements & Specifications
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Actual square footage installed</label>
+                <input type="number" step="0.1" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Actual sq ft">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Waste percentage for this room</label>
+                <input type="number" step="0.1" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Waste %">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Installation time for completion</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Hours/Days">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Manufacturer specification compliance</label>
+                <select class="w-full p-3 border border-gray-300 rounded-md">
+                    <option value="">Select compliance status</option>
+                    <option value="full">Full Compliance</option>
+                    <option value="minor">Minor Deviations</option>
+                    <option value="major">Major Deviations</option>
+                </select>
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Special techniques or materials used</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Describe any special techniques or materials"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photographic Documentation -->
+    <div class="mb-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <i class="fas fa-camera mr-2"></i>Photographic Documentation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Overall room completion photo</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Detail shots of quality points</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Problem area documentation (if any)</label>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Before installation comparison</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" class="mr-2 w-4 h-4">
+                    <label class="text-sm text-gray-700">Customer approval moments</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Interaction -->
+    <div class="mb-8 bg-teal-50 p-6 rounded-lg border border-teal-200">
+        <h2 class="text-xl font-semibold text-teal-800 mb-4 flex items-center">
+            <i class="fas fa-users mr-2"></i>Customer Interaction
+        </h2>
+        <div class="space-y-4">
+            <div class="flex items-center space-x-4">
+                <label class="text-sm font-medium text-gray-700">Customer present during inspection:</label>
+                <label class="flex items-center">
+                    <input type="radio" name="customer_present" value="yes" class="mr-1">
+                    <span class="text-sm">Yes</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="customer_present" value="no" class="mr-1">
+                    <span class="text-sm">No</span>
+                </label>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Customer satisfaction with room (1-10)</label>
+                <div class="rating-scale">
+                    <span class="text-sm text-gray-600">Poor</span>
+                    <div class="flex gap-2">
+                        <div class="rating-circle" data-rating="1">1</div>
+                        <div class="rating-circle" data-rating="2">2</div>
+                        <div class="rating-circle" data-rating="3">3</div>
+                        <div class="rating-circle" data-rating="4">4</div>
+                        <div class="rating-circle" data-rating="5">5</div>
+                        <div class="rating-circle" data-rating="6">6</div>
+                        <div class="rating-circle" data-rating="7">7</div>
+                        <div class="rating-circle" data-rating="8">8</div>
+                        <div class="rating-circle" data-rating="9">9</div>
+                        <div class="rating-circle" data-rating="10">10</div>
+                    </div>
+                    <span class="text-sm text-gray-600">Excellent</span>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Specific customer comments or feedback</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Record customer comments and feedback"></textarea>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Customer questions and responses</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Document questions asked and responses provided"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Status -->
+    <div class="mb-8 bg-orange-50 p-6 rounded-lg border border-orange-200">
+        <h2 class="text-xl font-semibold text-orange-800 mb-4 flex items-center">
+            <i class="fas fa-tasks mr-2"></i>Completion Status
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Room completion percentage</label>
+                <select class="w-full p-3 border border-gray-300 rounded-md">
+                    <option value="">Select completion status</option>
+                    <option value="100">100% Complete</option>
+                    <option value="95">95% Complete</option>
+                    <option value="90">90% Complete</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Final approval status</label>
+                <select class="w-full p-3 border border-gray-300 rounded-md">
+                    <option value="">Select approval status</option>
+                    <option value="approved">Approved</option>
+                    <option value="conditional">Conditional Approval</option>
+                    <option value="pending">Pending Approval</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Outstanding items or punch list</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="List any remaining items to complete"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Follow-up requirements</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Describe any follow-up actions needed"></textarea>
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Next steps or actions needed</label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" placeholder="Outline next steps and action items"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signatures & Approvals -->
+    <div class="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-200">
+        <h2 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+            <i class="fas fa-signature mr-2"></i>Signatures & Approvals
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Installer Signature</label>
+                <div class="signature-box mb-2"></div>
+                <div class="flex gap-4">
+                    <input type="text" class="flex-1 p-2 border border-gray-300 rounded text-sm" placeholder="Print Name">
+                    <input type="date" class="p-2 border border-gray-300 rounded text-sm">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Customer Signature</label>
+                <div class="signature-box mb-2"></div>
+                <div class="flex gap-4">
+                    <input type="text" class="flex-1 p-2 border border-gray-300 rounded text-sm" placeholder="Print Name">
+                    <input type="date" class="p-2 border border-gray-300 rounded text-sm">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Quality Control Supervisor</label>
+                <div class="signature-box mb-2"></div>
+                <div class="flex gap-4">
+                    <input type="text" class="flex-1 p-2 border border-gray-300 rounded text-sm" placeholder="Print Name">
+                    <input type="date" class="p-2 border border-gray-300 rounded text-sm">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Final Approval</label>
+                <div class="signature-box mb-2"></div>
+                <div class="flex gap-4">
+                    <input type="text" class="flex-1 p-2 border border-gray-300 rounded text-sm" placeholder="Print Name">
+                    <input type="datetime-local" class="p-2 border border-gray-300 rounded text-sm">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-sm text-gray-500 mt-8 pt-4 border-t border-gray-200">
+        <p>FloorPro Business Arsenal - Room-by-Room Inspection Sheet</p>
+        <p>© 2024 Matt Shelton Consulting - Professional Flooring Business Systems</p>
+    </div>
+
+    <script>
+        // Rating scale functionality
+        document.querySelectorAll('.rating-circle').forEach(circle => {
+            circle.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.rating-circle').forEach(c => c.classList.remove('selected'));
+                // Add selected class to clicked circle
+                this.classList.add('selected');
+            });
+        });
+
+        // Auto-calculate square footage
+        const lengthInput = document.querySelector('input[placeholder="Length"]');
+        const widthInput = document.querySelector('input[placeholder="Width"]');
+        const sqftInput = document.querySelector('input[placeholder="Total sq ft"]');
+
+        function calculateSquareFootage() {
+            const length = parseFloat(lengthInput.value) || 0;
+            const width = parseFloat(widthInput.value) || 0;
+            const sqft = length * width;
+            if (sqft > 0) {
+                sqftInput.value = sqft.toFixed(1);
+            }
+        }
+
+        lengthInput?.addEventListener('input', calculateSquareFootage);
+        widthInput?.addEventListener('input', calculateSquareFootage);
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976554a58907780e","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvi4VjJOltn%2BSxRLBcM2hn6mslAM%2F78ji5tokugKJHuk3vLIJaKoF%2F8HhMRjRPyQIlpRvbAplV2rlRP5vNLNHaynTfCPLd8WsNv1PG9SgjYujneTxeokCewPJa3SH%2BDU%2FIF8kEHw%2Bv7%2FQBKkNsOTNY4DHhqizNw00xaZNIRuweKz8mGox8VOJ2%2FRCDVje2%2BmWndqT8Sxs1VqaY%2FJKJJbn9%2Bjx6yRQgc63vkmetqzrC5KEYcrAMhoYqXKv6V0S6uY8J%2FIgtJzmiMTHpmhbTM%2F9Jynqugf37VX2Wr%2BlFBXUn%2FwqnYYZ3wRJqt17PipeEVZFzXnSYdm2JioFlsOXb%2BTNujv835tKWgWahM5dG5mt%2F%2Br0a8xfPX4MLNGsvvwnnY0zQolfjF5trhACZb4VSkfzRYzwQCAXAEo%2FybZ4s62DCLuvxHOqZfhckxY1mtURt1f6L4mtE5QV6GyT%2BnMHQXEFGrUFzgds8zoH3t781IWbZSVCjWsC1TpwQKLtGW7UcMEgwwSxAu4YEqeCYRlVPgJga%2F%2FxJf5Gtz0DtYSCJ7hCFSN5bPZzSMTql1nZZPxLF9DAg%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvi4VjJOltn+SxRLBcM2hn6mslAM/78ji5tokugKJHuk3vLIJaKoF/8HhMRjRPyQIlpRvbAplV2rlRP5vNLNHaynTfCPLd8WsNv1PG9SgjYujneTxeokCewPJa3SH+DU/IF8kEHw+v7/QBKkNsOTNY4DHhqizNw00xaZNIRuweKz8mGox8VOJ2/RCDVje2+mWndqT8Sxs1VqaY/JKJJbn9+jx6yRQgc63vkmetqzrC5KEYcrAMhoYqXKv6V0S6uY8J/IgtJzmiMTHpmhbTM/9Jynqugf37VX2Wr+lFBXUn/wqnYYZ3wRJqt17PipeEVZFzXnSYdm2JioFlsOXb+TNujv835tKWgWahM5dG5mt/+r0a8xfPX4MLNGsvvwnnY0zQolfjF5trhACZb4VSkfzRYzwQCAXAEo/ybZ4s62DCLuvxHOqZfhckxY1mtURt1f6L4mtE5QV6GyT+nMHQXEFGrUFzgds8zoH3t781IWbZSVCjWsC1TpwQKLtGW7UcMEgwwSxAu4YEqeCYRlVPgJga//xJf5Gtz0DtYSCJ7hCFSN5bPZzSMTql1nZZPxLF9DAg==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

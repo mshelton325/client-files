@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Employee Onboarding Checklist</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { font-size: 12px; }
+            .no-print { display: none; }
+        }
+        .checkbox-item:hover { background-color: #f3f4f6; }
+        .completed { background-color: #f0fdf4; border-color: #16a34a; }
+        .progress-bar { transition: width 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg">
+        <!-- Header -->
+        <div class="text-center mb-8 border-b-2 border-blue-600 pb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-user-plus text-blue-600 mr-3"></i>
+                New Employee Onboarding Checklist
+            </h1>
+            <p class="text-gray-600 text-lg">Comprehensive Integration and Training Program</p>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-6 bg-gray-200 rounded-full h-3 max-w-md mx-auto">
+                <div id="progressBar" class="progress-bar bg-blue-600 h-3 rounded-full" style="width: 0%"></div>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">
+                Progress: <span id="progressText">0% Complete (0 of <span id="totalItems">0</span> items)</span>
+            </p>
+        </div>
+
+        <!-- Employee Information -->
+        <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <h3 class="font-semibold text-blue-800 mb-3"><i class="fas fa-user mr-2"></i>Employee Information</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div>
+                    <label class="block font-medium text-gray-700">Employee Name:</label>
+                    <input type="text" class="w-full p-2 border rounded mt-1" placeholder="Full Name">
+                </div>
+                <div>
+                    <label class="block font-medium text-gray-700">Position:</label>
+                    <input type="text" class="w-full p-2 border rounded mt-1" placeholder="Job Title">
+                </div>
+                <div>
+                    <label class="block font-medium text-gray-700">Start Date:</label>
+                    <input type="date" class="w-full p-2 border rounded mt-1">
+                </div>
+            </div>
+        </div>
+
+        <!-- PRE-ARRIVAL PREPARATION -->
+        <div class="mb-8">
+            <div class="bg-green-100 border-l-4 border-green-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-green-800 mb-2">
+                    <i class="fas fa-calendar-check mr-2"></i>PRE-ARRIVAL PREPARATION
+                </h2>
+                <p class="text-green-700 text-sm">Complete these items before the employee's first day</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Welcome email sent with first day details</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-envelope mr-1"></i>Communications
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Workspace, equipment, and tools prepared</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-tools mr-1"></i>Setup
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Access credentials and accounts created</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-key mr-1"></i>IT Setup
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Training materials and resources ready</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-book mr-1"></i>Training
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Mentor/buddy assignment completed</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-handshake mr-1"></i>Support
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIRST DAY ESSENTIALS -->
+        <div class="mb-8">
+            <div class="bg-orange-100 border-l-4 border-orange-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-orange-800 mb-2">
+                    <i class="fas fa-star mr-2"></i>FIRST DAY ESSENTIALS
+                </h2>
+                <p class="text-orange-700 text-sm">Critical activities for the employee's first day</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Welcome and introduction to team</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-users mr-1"></i>Team
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Facility tour and safety orientation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-map mr-1"></i>Orientation
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Company handbook and policies review</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-book-open mr-1"></i>Policies
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Emergency procedures and contacts</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>Safety
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Uniform, PPE, and equipment issued</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-hard-hat mr-1"></i>Equipment
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMINISTRATIVE SETUP -->
+        <div class="mb-8">
+            <div class="bg-blue-100 border-l-4 border-blue-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-blue-800 mb-2">
+                    <i class="fas fa-clipboard-list mr-2"></i>ADMINISTRATIVE SETUP
+                </h2>
+                <p class="text-blue-700 text-sm">Complete all administrative and legal requirements</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Employment paperwork completion</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-file-contract mr-1"></i>Legal
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Tax forms and benefit enrollment</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-calculator mr-1"></i>Benefits
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Direct deposit and payroll setup</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-credit-card mr-1"></i>Payroll
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Emergency contact information</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-phone mr-1"></i>Contacts
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Background check and drug testing</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-shield-alt mr-1"></i>Screening
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAFETY & COMPLIANCE TRAINING -->
+        <div class="mb-8">
+            <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-red-800 mb-2">
+                    <i class="fas fa-shield-alt mr-2"></i>SAFETY & COMPLIANCE TRAINING
+                </h2>
+                <p class="text-red-700 text-sm">Essential safety training and compliance requirements</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">OSHA safety requirements overview</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-hard-hat mr-1"></i>OSHA
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Company safety policies and procedures</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-clipboard-check mr-1"></i>Policies
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Personal protective equipment training</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-safety-vest mr-1"></i>PPE
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Hazard communication and chemical safety</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-flask mr-1"></i>HazCom
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Emergency response procedures</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-ambulance mr-1"></i>Emergency
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JOB-SPECIFIC ORIENTATION -->
+        <div class="mb-8">
+            <div class="bg-purple-100 border-l-4 border-purple-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">
+                    <i class="fas fa-cogs mr-2"></i>JOB-SPECIFIC ORIENTATION
+                </h2>
+                <p class="text-purple-700 text-sm">Position-specific training and expectations</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Position duties and responsibilities</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-tasks mr-1"></i>Duties
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Performance standards and expectations</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-chart-line mr-1"></i>Performance
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Tools, equipment, and technology training</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-wrench mr-1"></i>Tools
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Quality standards and procedures</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-award mr-1"></i>Quality
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Customer service requirements</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-user-friends mr-1"></i>Service
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPANY CULTURE INTEGRATION -->
+        <div class="mb-8">
+            <div class="bg-indigo-100 border-l-4 border-indigo-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-indigo-800 mb-2">
+                    <i class="fas fa-building mr-2"></i>COMPANY CULTURE INTEGRATION
+                </h2>
+                <p class="text-indigo-700 text-sm">Understanding company culture and values</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Company mission, vision, and values</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-compass mr-1"></i>Mission
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">History and background information</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-history mr-1"></i>History
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Organizational chart and key personnel</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-sitemap mr-1"></i>Structure
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Communication protocols and expectations</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-comments mr-1"></i>Communication
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Professional development opportunities</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-graduation-cap mr-1"></i>Development
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRAINING SCHEDULE -->
+        <div class="mb-8">
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-yellow-800 mb-2">
+                    <i class="fas fa-calendar-alt mr-2"></i>TRAINING SCHEDULE
+                </h2>
+                <p class="text-yellow-700 text-sm">Structured training timeline and milestones</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Week 1 training objectives and activities</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-calendar-week mr-1"></i>Week 1
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Week 2-4 skill development milestones</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-calendar mr-1"></i>Weeks 2-4
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">30-60-90 day progress checkpoints</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-milestone mr-1"></i>Checkpoints
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Certification and competency requirements</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-certificate mr-1"></i>Certification
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Ongoing training and development plan</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-infinity mr-1"></i>Ongoing
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENTOR/BUDDY SYSTEM -->
+        <div class="mb-8">
+            <div class="bg-pink-100 border-l-4 border-pink-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-pink-800 mb-2">
+                    <i class="fas fa-user-friends mr-2"></i>MENTOR/BUDDY SYSTEM
+                </h2>
+                <p class="text-pink-700 text-sm">Support system and mentoring relationships</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Mentor assignment and introduction</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-handshake mr-1"></i>Assignment
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Initial meeting and relationship establishment</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-coffee mr-1"></i>Meeting
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Regular check-in schedule</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-clock mr-1"></i>Schedule
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Questions and support availability</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-question-circle mr-1"></i>Support
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Feedback and progress discussions</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-comment-dots mr-1"></i>Feedback
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERFORMANCE EXPECTATIONS -->
+        <div class="mb-8">
+            <div class="bg-gray-100 border-l-4 border-gray-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">
+                    <i class="fas fa-target mr-2"></i>PERFORMANCE EXPECTATIONS
+                </h2>
+                <p class="text-gray-700 text-sm">Clear performance standards and evaluation criteria</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Job description review and clarification</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-file-alt mr-1"></i>Description
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Performance metrics and measurement</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-chart-bar mr-1"></i>Metrics
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Goal setting for probationary period</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-bullseye mr-1"></i>Goals
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Feedback and coaching schedule</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-calendar-check mr-1"></i>Coaching
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Evaluation timeline and criteria</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-stopwatch mr-1"></i>Timeline
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCE ACCESS -->
+        <div class="mb-8">
+            <div class="bg-teal-100 border-l-4 border-teal-500 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-teal-800 mb-2">
+                    <i class="fas fa-database mr-2"></i>RESOURCE ACCESS
+                </h2>
+                <p class="text-teal-700 text-sm">Access to systems, resources, and support materials</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">System access and login credentials</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-lock mr-1"></i>Access
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Reference materials and documentation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-folder mr-1"></i>Materials
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Contact lists and organizational resources</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-address-book mr-1"></i>Contacts
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Professional development resources</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-brain mr-1"></i>Development
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Employee assistance programs</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-life-ring mr-1"></i>Assistance
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 30-DAY INTEGRATION MILESTONES -->
+        <div class="mb-8">
+            <div class="bg-green-200 border-l-4 border-green-600 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-green-800 mb-2">
+                    <i class="fas fa-calendar-day mr-2"></i>30-DAY INTEGRATION MILESTONES
+                </h2>
+                <p class="text-green-700 text-sm">First month evaluation and milestone achievement</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Technical competency assessment</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-cog mr-1"></i>Technical
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Safety compliance verification</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-shield-check mr-1"></i>Safety
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Customer interaction readiness</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-user-check mr-1"></i>Customer
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Team integration evaluation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-users-cog mr-1"></i>Team
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Performance standard achievement</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-trophy mr-1"></i>Performance
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 60-DAY PROGRESS EVALUATION -->
+        <div class="mb-8">
+            <div class="bg-blue-200 border-l-4 border-blue-600 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-blue-800 mb-2">
+                    <i class="fas fa-calendar-times mr-2"></i>60-DAY PROGRESS EVALUATION
+                </h2>
+                <p class="text-blue-700 text-sm">Mid-probationary period assessment and development planning</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Job performance assessment</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-clipboard-check mr-1"></i>Assessment
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Training completion verification</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-check-circle mr-1"></i>Training
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Goal achievement review</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-flag-checkered mr-1"></i>Goals
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Development needs identification</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-search mr-1"></i>Development
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Retention and satisfaction discussion</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-heart mr-1"></i>Retention
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 90-DAY PROBATIONARY REVIEW -->
+        <div class="mb-8">
+            <div class="bg-purple-200 border-l-4 border-purple-600 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">
+                    <i class="fas fa-award mr-2"></i>90-DAY PROBATIONARY REVIEW
+                </h2>
+                <p class="text-purple-700 text-sm">Final probationary evaluation and employment decision</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Comprehensive performance evaluation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-list-alt mr-1"></i>Evaluation
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Cultural fit and team integration</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-puzzle-piece mr-1"></i>Culture
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Full competency demonstration</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-star mr-1"></i>Competency
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Permanent employment recommendation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-thumbs-up mr-1"></i>Recommendation
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Career development planning</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-route mr-1"></i>Planning
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEEDBACK & IMPROVEMENT -->
+        <div class="mb-8">
+            <div class="bg-gray-200 border-l-4 border-gray-600 p-4 mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">
+                    <i class="fas fa-comments mr-2"></i>FEEDBACK & IMPROVEMENT
+                </h2>
+                <p class="text-gray-700 text-sm">Continuous improvement and process enhancement</p>
+            </div>
+            
+            <div class="space-y-2">
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">New hire experience evaluation</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-user-graduate mr-1"></i>Experience
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Onboarding process effectiveness</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-chart-pie mr-1"></i>Process
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Training program improvements</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-arrow-up mr-1"></i>Training
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Mentor program feedback</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-handshake mr-1"></i>Mentor
+                    </div>
+                </div>
+                
+                <div class="checkbox-item flex items-center p-3 border rounded-lg cursor-pointer">
+                    <input type="checkbox" class="mr-3 h-5 w-5 text-blue-600">
+                    <span class="flex-1">Retention and satisfaction metrics</span>
+                    <div class="text-xs text-gray-500">
+                        <i class="fas fa-chart-line mr-1"></i>Metrics
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="mb-8">
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <h3 class="font-semibold text-yellow-800 mb-3"><i class="fas fa-sticky-note mr-2"></i>Notes & Comments</h3>
+                <textarea class="w-full p-3 border rounded-lg h-32" placeholder="Add any additional notes, observations, or special considerations for this employee's onboarding process..."></textarea>
+            </div>
+        </div>
+
+        <!-- Signatures Section -->
+        <div class="border-t-2 border-gray-300 pt-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                <i class="fas fa-signature mr-2"></i>Signatures & Approvals
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-2">HR Representative</label>
+                        <input type="text" class="w-full p-2 border-b-2 border-gray-300" placeholder="Signature">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Print Name</span>
+                            <span>Date</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-2">Supervisor/Manager</label>
+                        <input type="text" class="w-full p-2 border-b-2 border-gray-300" placeholder="Signature">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Print Name</span>
+                            <span>Date</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-2">Employee</label>
+                        <input type="text" class="w-full p-2 border-b-2 border-gray-300" placeholder="Signature">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Print Name</span>
+                            <span>Date</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-2">Department Head</label>
+                        <input type="text" class="w-full p-2 border-b-2 border-gray-300" placeholder="Signature">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Print Name</span>
+                            <span>Date</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 pt-6 border-t border-gray-200">
+            <p class="text-sm text-gray-600">
+                <i class="fas fa-info-circle mr-1"></i>
+                This onboarding checklist ensures systematic integration and sets the foundation for employee success.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Progress tracking functionality
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+            const checkedBoxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:checked');
+            const total = checkboxes.length;
+            const completed = checkedBoxes.length;
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').innerHTML = `${percentage}% Complete (${completed} of ${total} items)`;
+            document.getElementById('totalItems').textContent = total;
+        }
+
+        // Add event listeners to checkboxes
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const item = this.closest('.checkbox-item');
+                if (this.checked) {
+                    item.classList.add('completed');
+                } else {
+                    item.classList.remove('completed');
+                }
+                updateProgress();
+            });
+        });
+
+        // Make checkbox items clickable
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.type !== 'checkbox') {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    checkbox.dispatchEvent(new Event('change'));
+                }
+            });
+        });
+
+        // Initialize progress
+        updateProgress();
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9764fcbe9ac34f21","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrAsJWSEb%2Bxk8OSS8WsD2kZYLA6F2hJodExViO7fzAYebpYTvoo2zRtF4q19kFrk9a0PV4Onp3wKssuU5EpHHzX6HALRloyzVAyHJgHlOyJWZvbxCsmCDNvIdx3BeaU9pFW0t6Z3w0m3GrHcnSDzFVDg3%2F9guX0cFLVXPomO%2F25gVYQstPMFuBNQUq1LQ9VKybchlJKd%2B3%2F%2FK5c4P%2FeuxhZ1%2FFDg1okr1GvNNYfQk%2BBIaBS1TEvryUucNG7I0tDt2500KiT47UwzEE5NLyPdDElxnmy7ZE1e1jSkrNWlsVSldB%2Foy3DpDDc5PklvvDURYGX13BsPJcPMaNeHGa%2Fv%2F947waOzRR5jgQJ59BpFv5aTLwal33qi%2FNb75M7MIDD2l%2BCsfQDrYBw%2BqpfzFU09MVVfCOnblByKI8qn6ySpWl5MbA%2F%2F%2FZ1jFI21QALeCNLNS4VcumQ3hG1J06lEFH1e2ZXihuuNs0yEBcABPaQVp0791r8DIWeLlX%2F%2BmPbkUYChjFJNorKMFDN6M3BE5wESWWYLcuOQf2hV8Tz0qfqFMYSymuMppngYhU8xsTJ4%2BQbX1Q%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrAsJWSEb+xk8OSS8WsD2kZYLA6F2hJodExViO7fzAYebpYTvoo2zRtF4q19kFrk9a0PV4Onp3wKssuU5EpHHzX6HALRloyzVAyHJgHlOyJWZvbxCsmCDNvIdx3BeaU9pFW0t6Z3w0m3GrHcnSDzFVDg3/9guX0cFLVXPomO/25gVYQstPMFuBNQUq1LQ9VKybchlJKd+3//K5c4P/euxhZ1/FDg1okr1GvNNYfQk+BIaBS1TEvryUucNG7I0tDt2500KiT47UwzEE5NLyPdDElxnmy7ZE1e1jSkrNWlsVSldB/oy3DpDDc5PklvvDURYGX13BsPJcPMaNeHGa/v/947waOzRR5jgQJ59BpFv5aTLwal33qi/Nb75M7MIDD2l+CsfQDrYBw+qpfzFU09MVVfCOnblByKI8qn6ySpWl5MbA///Z1jFI21QALeCNLNS4VcumQ3hG1J06lEFH1e2ZXihuuNs0yEBcABPaQVp0791r8DIWeLlX/+mPbkUYChjFJNorKMFDN6M3BE5wESWWYLcuOQf2hV8Tz0qfqFMYSymuMppngYhU8xsTJ4+QbX1Q==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

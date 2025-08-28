@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Screening Scorecard - Candidate Evaluation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+        .score-input { width: 60px; text-align: center; }
+        .section-border { border-left: 4px solid #3B82F6; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg">
+        <!-- Header -->
+        <div class="text-center mb-8 border-b-2 border-blue-600 pb-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-user-check text-blue-600 mr-3"></i>
+                Pre-Screening Scorecard
+            </h1>
+            <p class="text-gray-600 text-lg">Standardized Candidate Evaluation & Ranking</p>
+        </div>
+
+        <!-- Candidate Identification -->
+        <div class="mb-6 bg-blue-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-id-card text-blue-600 mr-2"></i>
+                Candidate Identification
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Candidate Name:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter candidate name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Application Date:</label>
+                    <input type="date" class="w-full border border-gray-300 rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Position Applied For:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Position and level">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Recruiter/Interviewer:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Interviewer name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Screening Date:</label>
+                    <input type="date" class="w-full border border-gray-300 rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Screening Method:</label>
+                    <select class="w-full border border-gray-300 rounded px-3 py-2">
+                        <option>Phone Interview</option>
+                        <option>Video Interview</option>
+                        <option>In-Person</option>
+                        <option>Application Review</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Evaluation -->
+        <div class="mb-6 bg-green-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-briefcase text-green-600 mr-2"></i>
+                Experience Evaluation (25 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Relevant Industry Experience (0-10 points):</label>
+                    <input type="number" min="0" max="10" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Similar Position Experience (0-10 points):</label>
+                    <input type="number" min="0" max="10" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Skill Level and Proficiency (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="mt-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Experience Quality Notes:</label>
+                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-20" placeholder="Experience quality, depth, and learning curve assessment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Qualifications Assessment -->
+        <div class="mb-6 bg-purple-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-graduation-cap text-purple-600 mr-2"></i>
+                Qualifications Assessment (20 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Education and Training Requirements (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Certifications and Licenses (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Technical Skills and Knowledge (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Physical Capability Requirements (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="mt-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tool and Equipment Familiarity:</label>
+                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-20" placeholder="Tool ownership, equipment experience, familiarity assessment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Availability & Logistics -->
+        <div class="mb-6 bg-yellow-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-calendar-alt text-yellow-600 mr-2"></i>
+                Availability & Logistics (15 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Schedule Availability Match (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Start Date Flexibility (0-3 points):</label>
+                    <input type="number" min="0" max="3" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Transportation Reliability (0-3 points):</label>
+                    <input type="number" min="0" max="3" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Overtime Availability (0-2 points):</label>
+                    <input type="number" min="0" max="2" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Geographic Location Suitability (0-2 points):</label>
+                    <input type="number" min="0" max="2" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+            </div>
+        </div>
+
+        <!-- Communication Skills -->
+        <div class="mb-6 bg-indigo-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-comments text-indigo-600 mr-2"></i>
+                Communication Skills (15 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Verbal Communication Clarity (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Listening and Comprehension (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Professional Presentation (0-3 points):</label>
+                    <input type="number" min="0" max="3" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Question Quality and Engagement (0-2 points):</label>
+                    <input type="number" min="0" max="2" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="mt-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Language Proficiency Notes:</label>
+                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-16" placeholder="Language proficiency adequacy assessment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attitude & Motivation -->
+        <div class="mb-6 bg-pink-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-heart text-pink-600 mr-2"></i>
+                Attitude & Motivation (15 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Enthusiasm for Position (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Work Ethic Indicators (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Team Collaboration Potential (0-3 points):</label>
+                    <input type="number" min="0" max="3" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Learning Willingness (0-2 points):</label>
+                    <input type="number" min="0" max="2" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="mt-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Professional Growth Interest:</label>
+                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-16" placeholder="Professional growth interest and career development indicators"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stability & Reliability -->
+        <div class="mb-6 bg-red-50 p-4 rounded-lg section-border">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-anchor text-red-600 mr-2"></i>
+                Stability & Reliability (10 Points)
+            </h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Employment History Stability (0-5 points):</label>
+                    <input type="number" min="0" max="5" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Attendance and Punctuality Indicators (0-3 points):</label>
+                    <input type="number" min="0" max="3" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="flex justify-between items-center">
+                    <label class="text-sm font-medium text-gray-700">Commitment Potential Assessment (0-2 points):</label>
+                    <input type="number" min="0" max="2" class="score-input border border-gray-300 rounded px-2 py-1" onchange="calculateTotal()">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Reference Quality Expectations:</label>
+                        <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-16" placeholder="Reference quality assessment"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Background Check Concerns:</label>
+                        <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-16" placeholder="Potential background check issues"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scoring Summary -->
+        <div class="mb-6 bg-blue-100 p-6 rounded-lg border-2 border-blue-600">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                <i class="fas fa-calculator text-blue-600 mr-2"></i>
+                Scoring Summary
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Total Possible Points:</span>
+                        <span class="text-xl font-bold">100</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Candidate Total Score:</span>
+                        <span id="totalScore" class="text-2xl font-bold text-blue-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Percentage Score:</span>
+                        <span id="percentageScore" class="text-2xl font-bold text-green-600">0%</span>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Performance Category:</span>
+                        <span id="performanceCategory" class="text-xl font-bold"></span>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ranking Among Current Candidates:</label>
+                        <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="e.g., 3rd out of 10 candidates">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendation Matrix -->
+        <div class="mb-6 bg-gray-100 p-4 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-chart-bar text-gray-600 mr-2"></i>
+                Recommendation Matrix
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+                <div class="bg-green-200 p-3 rounded">
+                    <strong>90-100 points:</strong> Strong Recommend
+                </div>
+                <div class="bg-blue-200 p-3 rounded">
+                    <strong>80-89 points:</strong> Recommend
+                </div>
+                <div class="bg-yellow-200 p-3 rounded">
+                    <strong>70-79 points:</strong> Consider with reservations
+                </div>
+                <div class="bg-orange-200 p-3 rounded">
+                    <strong>60-69 points:</strong> Marginal candidate
+                </div>
+                <div class="bg-red-200 p-3 rounded md:col-span-2 lg:col-span-2">
+                    <strong>Below 60 points:</strong> Not recommended
+                </div>
+            </div>
+        </div>
+
+        <!-- Decision & Next Steps -->
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg border-2 border-gray-300">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-clipboard-check text-gray-600 mr-2"></i>
+                Decision & Next Steps
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Overall Recommendation and Reasoning:</label>
+                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-20" placeholder="Provide overall recommendation with detailed reasoning"></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Strengths and Competitive Advantages:</label>
+                        <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-24" placeholder="Key strengths that make this candidate competitive"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Concerns and Areas Needing Clarification:</label>
+                        <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-24" placeholder="Areas of concern or items needing further clarification"></textarea>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Next Interview Recommendation:</label>
+                        <select class="w-full border border-gray-300 rounded px-3 py-2">
+                            <option>Proceed to in-person interview</option>
+                            <option>Conduct additional phone screening</option>
+                            <option>Skills testing required</option>
+                            <option>Reference check first</option>
+                            <option>Do not proceed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Additional Screening Requirements:</label>
+                        <textarea class="w-full border border-gray-300 rounded px-3 py-2 h-12" placeholder="Skills tests, references, background checks, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-sm text-gray-500 border-t pt-4">
+            <p>© FloorPro Business Arsenal - Pre-Screening Scorecard</p>
+            <p>Completed on: <span id="currentDate"></span> | Evaluator Signature: _______________________</p>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+
+        // Calculate total score
+        function calculateTotal() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            let total = 0;
+            
+            inputs.forEach(input => {
+                const value = parseInt(input.value) || 0;
+                total += value;
+            });
+
+            document.getElementById('totalScore').textContent = total;
+            
+            const percentage = Math.round((total / 100) * 100);
+            document.getElementById('percentageScore').textContent = percentage + '%';
+            
+            // Update performance category
+            const categoryElement = document.getElementById('performanceCategory');
+            let category = '';
+            let color = '';
+            
+            if (total >= 90) {
+                category = 'Excellent';
+                color = 'text-green-600';
+            } else if (total >= 80) {
+                category = 'Good';
+                color = 'text-blue-600';
+            } else if (total >= 70) {
+                category = 'Fair';
+                color = 'text-yellow-600';
+            } else {
+                category = 'Poor';
+                color = 'text-red-600';
+            }
+            
+            categoryElement.textContent = category;
+            categoryElement.className = `text-xl font-bold ${color}`;
+        }
+
+        // Initialize calculation
+        calculateTotal();
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"97650a93e9b38cf9","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhJyEFHWBLtQrd00xiqUcWIt16ChpYePeGYWqx6Iq3QZwGaTeh4FmOIlD0SZ6Rtae9JpgyzL7KxKW1KmSsXamg0tTDL8ThL9DZh1mY4tpFb5l1mt4%2BZNWy5FJDMhLZjiByMShSIJbbQdQlXWBGXN86U%2FuBnfHtQtw5tyyaNMbVaWGITnimGj4HyonZdH%2FNoT%2B8RXTNxpmcp05ONU1iYPG0GwpkjRsxoRSLqg2ioM6SdsakOhP1OzbNCm96mIGuaNAoLY6MOSX3UOLZFyZ9YRIf5SD5q1IELLnOjKSFq2GabrihRI3Js9lSFsCxnTruJ2G%2FmwY7NA40zvxCEhgYgLU7VwmTPMKknpePQ%2BmbctaOYJia%2FoeMZMjWOS3jKtNsrNd2XOeruBK6BEISbVTwSS8wwbOSa%2Fa0Jg%2FkHqe8w%2FUaF%2BwiDeR%2FSaizq6ALm1%2F180%2BQLWszLuSLG9CEBgWf3I05qdiKJNWT2LN%2Bt%2FON9IV%2FHYGpAPamcpwPoLJ0jOaFh%2FdA%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhJyEFHWBLtQrd00xiqUcWIt16ChpYePeGYWqx6Iq3QZwGaTeh4FmOIlD0SZ6Rtae9JpgyzL7KxKW1KmSsXamg0tTDL8ThL9DZh1mY4tpFb5l1mt4+ZNWy5FJDMhLZjiByMShSIJbbQdQlXWBGXN86U/uBnfHtQtw5tyyaNMbVaWGITnimGj4HyonZdH/NoT+8RXTNxpmcp05ONU1iYPG0GwpkjRsxoRSLqg2ioM6SdsakOhP1OzbNCm96mIGuaNAoLY6MOSX3UOLZFyZ9YRIf5SD5q1IELLnOjKSFq2GabrihRI3Js9lSFsCxnTruJ2G/mwY7NA40zvxCEhgYgLU7VwmTPMKknpePQ+mbctaOYJia/oeMZMjWOS3jKtNsrNd2XOeruBK6BEISbVTwSS8wwbOSa/a0Jg/kHqe8w/UaF+wiDeR/Saizq6ALm1/180+QLWszLuSLG9CEBgWf3I05qdiKJNWT2LN+t/ON9IV/HYGpAPamcpwPoLJ0jOaFh/dA==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

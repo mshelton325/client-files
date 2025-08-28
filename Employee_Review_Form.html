@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Performance Review Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { font-size: 12px; }
+            .no-print { display: none; }
+        }
+        .rating-scale {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .rating-scale input[type="radio"] {
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-6 text-center">
+            <h1 class="text-3xl font-bold"><i class="fas fa-clipboard-check mr-3"></i>Employee Performance Review Form</h1>
+            <p class="mt-2 text-blue-100">Comprehensive Performance Evaluation</p>
+        </div>
+
+        <!-- Form Content -->
+        <div class="p-6 space-y-6">
+            <!-- Employee Information -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-user mr-2"></i>Employee Information
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium mb-1">Employee Name:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Employee ID:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Position Title:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Department:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Hire Date:</label>
+                        <input type="date" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Review Period:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded" placeholder="e.g., Jan 2024 - Dec 2024">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Supervisor/Reviewer:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Review Date:</label>
+                        <input type="date" class="w-full border border-gray-300 p-2 rounded">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Job Performance Evaluation -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-chart-line mr-2"></i>Job Performance Evaluation
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Quality of work and attention to detail:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="quality" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="quality" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="quality" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="quality" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="quality" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Productivity and efficiency levels:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="productivity" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="productivity" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="productivity" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="productivity" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="productivity" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Job knowledge and technical skills:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="knowledge" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="knowledge" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="knowledge" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="knowledge" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="knowledge" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Problem-solving and decision-making ability:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="problem_solving" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="problem_solving" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="problem_solving" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="problem_solving" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="problem_solving" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Initiative and self-motivation:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="initiative" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="initiative" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="initiative" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="initiative" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="initiative" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Competencies Assessment -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-cogs mr-2"></i>Core Competencies Assessment
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Communication skills (verbal and written):</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="communication" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="communication" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="communication" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="communication" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="communication" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Teamwork and collaboration:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="teamwork" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="teamwork" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="teamwork" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="teamwork" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="teamwork" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Customer service orientation:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="customer_service" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="customer_service" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="customer_service" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="customer_service" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="customer_service" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Adaptability and flexibility:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="adaptability" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="adaptability" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="adaptability" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="adaptability" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="adaptability" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Time management and organization:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="time_management" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="time_management" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="time_management" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="time_management" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="time_management" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Position-Specific Performance -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-tools mr-2"></i>Position-Specific Performance
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Technical skills relevant to position:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="technical_skills" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="technical_skills" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="technical_skills" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="technical_skills" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="technical_skills" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Industry knowledge and expertise:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="industry_knowledge" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="industry_knowledge" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="industry_knowledge" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="industry_knowledge" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="industry_knowledge" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Equipment and tool proficiency:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="equipment_proficiency" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="equipment_proficiency" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="equipment_proficiency" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="equipment_proficiency" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="equipment_proficiency" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Safety awareness and compliance:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="safety_compliance" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="safety_compliance" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="safety_compliance" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="safety_compliance" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="safety_compliance" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Quality standards adherence:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="quality_standards" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="quality_standards" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="quality_standards" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="quality_standards" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="quality_standards" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance & Reliability -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-clock mr-2"></i>Attendance & Reliability
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Punctuality and schedule adherence:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="punctuality" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="punctuality" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="punctuality" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="punctuality" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="punctuality" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium">Overall dependability rating:</span>
+                        <div class="rating-scale">
+                            <span class="text-sm">Poor</span>
+                            <input type="radio" name="dependability" value="1"> <span class="text-xs">1</span>
+                            <input type="radio" name="dependability" value="2"> <span class="text-xs">2</span>
+                            <input type="radio" name="dependability" value="3"> <span class="text-xs">3</span>
+                            <input type="radio" name="dependability" value="4"> <span class="text-xs">4</span>
+                            <input type="radio" name="dependability" value="5"> <span class="text-xs">5</span>
+                            <span class="text-sm">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label class="block font-medium mb-2">Absence patterns and reasons:</label>
+                    <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                </div>
+            </section>
+
+            <!-- Areas of Strength -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-star mr-2"></i>Areas of Strength
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium mb-2">Outstanding performance areas:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Skills and abilities recognition:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Achievements and accomplishments:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Development Opportunities -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-arrow-up mr-2"></i>Development Opportunities
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium mb-2">Performance areas needing improvement:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Skill gaps and training needs:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Support and resources required:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goal Setting for Next Period -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-target mr-2"></i>Goal Setting for Next Period
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium mb-2">Specific performance objectives:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Skill development targets:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Training and education plans:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Timeline and measurement criteria:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overall Performance Rating -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-trophy mr-2"></i>Overall Performance Rating
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium mb-2">Performance Category:</label>
+                        <select class="w-full border border-gray-300 p-2 rounded">
+                            <option value="">Select Category</option>
+                            <option value="outstanding">Outstanding</option>
+                            <option value="exceeds">Exceeds Expectations</option>
+                            <option value="meets">Meets Expectations</option>
+                            <option value="below">Below Expectations</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Overall Score (1-10):</label>
+                        <select class="w-full border border-gray-300 p-2 rounded">
+                            <option value="">Select Score</option>
+                            <option value="10">10 - Outstanding</option>
+                            <option value="9">9 - Excellent</option>
+                            <option value="8">8 - Very Good</option>
+                            <option value="7">7 - Good</option>
+                            <option value="6">6 - Satisfactory</option>
+                            <option value="5">5 - Needs Improvement</option>
+                            <option value="4">4 - Below Average</option>
+                            <option value="3">3 - Poor</option>
+                            <option value="2">2 - Very Poor</option>
+                            <option value="1">1 - Unsatisfactory</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label class="block font-medium mb-2">Recommendation for advancement/retention:</label>
+                    <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                </div>
+                <div class="mt-4">
+                    <label class="block font-medium mb-2">Salary/compensation recommendations:</label>
+                    <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                </div>
+            </section>
+
+            <!-- Employee Self-Assessment -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-mirror mr-2"></i>Employee Self-Assessment
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium mb-2">Employee's view of performance:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Self-identified strengths and challenges:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Career goals and aspirations:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Training and development requests:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Planning -->
+            <section class="border-b pb-6">
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-tasks mr-2"></i>Action Planning
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium mb-2">Immediate improvement requirements:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Training and development plan:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Resources and support provided:</label>
+                        <textarea class="w-full border border-gray-300 p-2 rounded h-20"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Follow-up review schedule:</label>
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded" placeholder="e.g., 90 days, 6 months">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signatures & Acknowledgments -->
+            <section>
+                <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b-2 border-blue-200 pb-2">
+                    <i class="fas fa-signature mr-2"></i>Signatures & Acknowledgments
+                </h2>
+                <div class="grid grid-cols-2 gap-8 mt-6">
+                    <div>
+                        <div class="border-t border-gray-400 pt-2 mt-16">
+                            <p class="text-center font-medium">Supervisor Signature</p>
+                        </div>
+                        <div class="mt-4">
+                            <label class="block font-medium mb-1">Date:</label>
+                            <input type="date" class="w-full border border-gray-300 p-2 rounded">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-400 pt-2 mt-16">
+                            <p class="text-center font-medium">Employee Signature</p>
+                        </div>
+                        <div class="mt-4">
+                            <label class="block font-medium mb-1">Date:</label>
+                            <input type="date" class="w-full border border-gray-300 p-2 rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="block font-medium mb-2">Next Review Date:</label>
+                    <input type="date" class="w-full border border-gray-300 p-2 rounded max-w-md">
+                </div>
+                <div class="mt-6 p-4 bg-gray-100 rounded">
+                    <h3 class="font-semibold mb-2">Employee Acknowledgment:</h3>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="acknowledge" class="rounded">
+                        <label for="acknowledge" class="text-sm">I acknowledge that I have received and reviewed this performance evaluation. My signature does not necessarily indicate agreement with the evaluation.</label>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9764fe35efad3b05","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrAsJWSEb%2Bxk8OSS8WsD2kZYLA6F2hJodExViO7fzAYebpYTvoo2zRtF4q19kFrk9a0PV4Onp3wKssuU5EpHHzX6HALRloyzVAyHJgHlOyJWZvbxCsmCDNvIdx3BeaU9pFW0t6Z3w0m3GrHcnSDzFVDg3%2F9guX0cFLVXPomO%2F25gVYQstPMFuBNQUq1LQ9VKybchlJKd%2B3%2F%2FK5c4P%2FeuxhbKYBNxW6y9QrrHyhDIFANSwlgHcgPVtA78Qdj2pNSgWV8VaS0dq4h8LVGEh0NMTSYYksF812Jzxp0JvBc%2Fa5LEDhyVY61KozcoxHql3rTEgjW3zWRaAjhS4WJ1lnizFK0wlH1LgkW8Bnn7RYmo135gP478%2BhHTjtXOeSGdfx7Fr%2B0IGI7%2B9DhHQvXKsprk6oi4FoReUFaXWo6F9v%2F73BfCkwgstQKQSBFbPviAG5mK07sR7pQZOlqKmxt%2FF4QjvYy9bCpgLVNmquLyQN2ZzmDHoLXvKiOREQOUp%2FUn9UtMqw%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrAsJWSEb+xk8OSS8WsD2kZYLA6F2hJodExViO7fzAYebpYTvoo2zRtF4q19kFrk9a0PV4Onp3wKssuU5EpHHzX6HALRloyzVAyHJgHlOyJWZvbxCsmCDNvIdx3BeaU9pFW0t6Z3w0m3GrHcnSDzFVDg3/9guX0cFLVXPomO/25gVYQstPMFuBNQUq1LQ9VKybchlJKd+3//K5c4P/euxhbKYBNxW6y9QrrHyhDIFANSwlgHcgPVtA78Qdj2pNSgWV8VaS0dq4h8LVGEh0NMTSYYksF812Jzxp0JvBc/a5LEDhyVY61KozcoxHql3rTEgjW3zWRaAjhS4WJ1lnizFK0wlH1LgkW8Bnn7RYmo135gP478+hHTjtXOeSGdfx7Fr+0IGI7+9DhHQvXKsprk6oi4FoReUFaXWo6F9v/73BfCkwgstQKQSBFbPviAG5mK07sR7pQZOlqKmxt/F4QjvYy9bCpgLVNmquLyQN2ZzmDHoLXvKiOREQOUp/Un9UtMqw==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

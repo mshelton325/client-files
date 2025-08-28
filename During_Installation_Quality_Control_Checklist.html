@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>During-Installation Quality Control Checklist</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+         {
+            body { print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        .signature-box {
+            border-bottom: 2px solid #000;
+            min-height: 60px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-6 text-center">
+            <h1 class="text-3xl font-bold"><i class="fas fa-clipboard-check mr-3"></i>During-Installation Quality Control Checklist</h1>
+            <p class="mt-2">Real-Time Monitoring & Quality Assurance</p>
+        </div>
+
+        <!-- Header Section -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-blue-600"><i class="fas fa-info-circle mr-2"></i>Job Information</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-semibold mb-1">Customer Name:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Job Address:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Installer Name:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Date:</label>
+                    <input type="date" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Start Time:</label>
+                    <input type="time" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Expected Completion:</label>
+                    <input type="time" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Weather Conditions:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Room/Area:</label>
+                    <input type="text" class="w-full border border-gray-300 rounded p-2">
+                </div>
+            </div>
+        </div>
+
+        <!-- Installation Technique Verification -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-green-600"><i class="fas fa-tools mr-2"></i>Installation Technique Verification</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Proper layout and pattern alignment verified</label>
+                    <select class="border border-gray-300 rounded p-1">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Correct cutting techniques employed</label>
+                    <select class="border border-gray-300 rounded p-1">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Adhesive application proper (if applicable)</label>
+                    <select class="border border-gray-300 rounded p-1">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>N/A</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Expansion gaps maintained properly</label>
+                    <select class="border border-gray-300 rounded p-1">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Seaming quality and alignment correct</label>
+                    <select class="border border-gray-300 rounded p-1">
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Quality Checkpoints -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-purple-600"><i class="fas fa-chart-line mr-2"></i>Progress Quality Checkpoints</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> First few rows/pieces quality approved</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time checked">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Pattern continuity verified</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time checked">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Joint consistency monitored</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time checked">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Transition planning executed properly</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time checked">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Obstacle navigation quality acceptable</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time checked">
+                </div>
+            </div>
+        </div>
+
+        <!-- Material Handling -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-orange-600"><i class="fas fa-boxes mr-2"></i>Material Handling</h2>
+            <div class="space-y-3">
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Proper material handling procedures followed</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Waste minimization practices implemented</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Defective materials identified and segregated</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Unused materials properly stored</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Finished areas protected from damage</label>
+            </div>
+        </div>
+
+        <!-- Customer Communication Updates -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-blue-600"><i class="fas fa-comments mr-2"></i>Customer Communication Updates</h2>
+            <div class="space-y-3">
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Progress milestone notifications provided</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time notified">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Issues identified and explained to customer</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time discussed">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Timeline updates provided</label>
+                    <input type="time" class="border border-gray-300 rounded p-1" placeholder="Time updated">
+                </div>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Disruption management communicated</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Customer questions addressed promptly</label>
+            </div>
+        </div>
+
+        <!-- Problem Identification & Resolution -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-red-600"><i class="fas fa-exclamation-triangle mr-2"></i>Problem Identification & Resolution</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-semibold mb-2">Issues Encountered:</label>
+                    <textarea class="w-full border border-gray-300 rounded p-2 h-20" placeholder="Describe any issues encountered during installation..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Resolution Methods Applied:</label>
+                    <textarea class="w-full border border-gray-300 rounded p-2 h-20" placeholder="Describe resolution methods used..."></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Customer notified of changes</label>
+                    <label class="flex items-center"><input type="checkbox" class="mr-3"> Additional materials/time needed documented</label>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Quality Impact Assessment:</label>
+                    <select class="w-full border border-gray-300 rounded p-2">
+                        <option>No impact on final quality</option>
+                        <option>Minor impact - acceptable</option>
+                        <option>Moderate impact - customer informed</option>
+                        <option>Significant impact - requires correction</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Monitoring -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-yellow-600"><i class="fas fa-hard-hat mr-2"></i>Safety Monitoring</h2>
+            <div class="space-y-3">
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Personal protective equipment worn consistently</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Work area safety maintained throughout</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Tool safety compliance verified</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Customer/occupant safety measures in place</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Emergency procedures ready and accessible</label>
+            </div>
+        </div>
+
+        <!-- Photo Documentation Points -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-indigo-600"><i class="fas fa-camera mr-2"></i>Photo Documentation Points</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Progress milestone photos taken</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Quality detail photos documented</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Issue identification photos captured</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Before/after comparisons photographed</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Customer approval photos obtained</label>
+                <label class="flex items-center"><input type="checkbox" class="mr-3"> Final completion photos taken</label>
+            </div>
+        </div>
+
+        <!-- Overall Quality Assessment -->
+        <div class="p-6 border-b border-gray-300">
+            <h2 class="text-xl font-bold mb-4 text-green-600"><i class="fas fa-star mr-2"></i>Overall Quality Assessment</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-semibold mb-2">Installation Quality Rating:</label>
+                    <select class="w-full border border-gray-300 rounded p-2">
+                        <option>Excellent (95-100%)</option>
+                        <option>Good (85-94%)</option>
+                        <option>Satisfactory (75-84%)</option>
+                        <option>Needs Improvement (<75%)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Customer Satisfaction Level:</label>
+                    <select class="w-full border border-gray-300 rounded p-2">
+                        <option>Very Satisfied</option>
+                        <option>Satisfied</option>
+                        <option>Neutral</option>
+                        <option>Dissatisfied</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="p-6">
+            <h2 class="text-xl font-bold mb-4 text-gray-800"><i class="fas fa-signature mr-2"></i>Signatures & Approvals</h2>
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <label class="block font-semibold mb-2">Installer Signature:</label>
+                    <div class="signature-box mb-2"></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-sm">Print Name:</label>
+                            <input type="text" class="w-full border border-gray-300 rounded p-1">
+                        </div>
+                        <div>
+                            <label class="block text-sm">Date:</label>
+                            <input type="date" class="w-full border border-gray-300 rounded p-1">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Customer Approval:</label>
+                    <div class="signature-box mb-2"></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-sm">Print Name:</label>
+                            <input type="text" class="w-full border border-gray-300 rounded p-1">
+                        </div>
+                        <div>
+                            <label class="block text-sm">Date:</label>
+                            <input type="date" class="w-full border border-gray-300 rounded p-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <label class="block font-semibold mb-2">Additional Notes:</label>
+                <textarea class="w-full border border-gray-300 rounded p-2 h-24" placeholder="Any additional notes, observations, or recommendations..."></textarea>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-100 p-4 text-center text-sm text-gray-600">
+            <p><i class="fas fa-shield-alt mr-2"></i>This form ensures quality standards are maintained throughout the installation process</p>
+            <p class="mt-1">For questions or support, contact: [Your Company Contact Information]</p>
+        </div>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"976552eb392c824e","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDkEjBoQK3uHqFESUk5fnDPoIQxz8M%2BMCHnjRvX0mu0yqGklrObusEGhI8A%2BGGhd4%2FFmVPWXUy4QOhxXYCD7kF7DMFS1saLHsaACF2HxivVy1772gTFYAs7a35qspguNDAt5mvKl%2FfADq9fpuRklIifrTbwD8Bd7%2F2Bcm9Ft101nkA%2BAwTGCjG2coXWREh9aFZ6dQ06gp0Tju7PKiTJwIYEL1htxPW3Y%2FYdbXefEk0fxt2pYMWA1FqJhTPaYXHceSCAetD3fV%2BdWiINshAbTGk9nlhNWozWNk2h2xvaQXuGdQhJQyqLF9DruBszP8UhzAcM6q4CL%2F166Txo4%2FPcDklAgmSDCnR7Pug5U4cEqvUuwI7aw11JRFDDAELR1s1gKBYd6GhbQ1DQeSIiiqKUyLeW1YiI%2FGmM9ULtnJ9vOroWxlaqjbVvj86G5aONy%2FXlvKuKnPc1%2F4I%2B3ybBSB8QDjZ6g%2FBv08JEpczrJ0OwKGFqv2LSyXRMK7qE8ksAn3c%2BonJi%2BSoqX3JvdgiULqQLorz1elqMxRhcewKd0HhtCeRfG3";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDkEjBoQK3uHqFESUk5fnDPoIQxz8M+MCHnjRvX0mu0yqGklrObusEGhI8A+GGhd4/FmVPWXUy4QOhxXYCD7kF7DMFS1saLHsaACF2HxivVy1772gTFYAs7a35qspguNDAt5mvKl/fADq9fpuRklIifrTbwD8Bd7/2Bcm9Ft101nkA+AwTGCjG2coXWREh9aFZ6dQ06gp0Tju7PKiTJwIYEL1htxPW3Y/YdbXefEk0fxt2pYMWA1FqJhTPaYXHceSCAetD3fV+dWiINshAbTGk9nlhNWozWNk2h2xvaQXuGdQhJQyqLF9DruBszP8UhzAcM6q4CL/166Txo4/PcDklAgmSDCnR7Pug5U4cEqvUuwI7aw11JRFDDAELR1s1gKBYd6GhbQ1DQeSIiiqKUyLeW1YiI/GmM9ULtnJ9vOroWxlaqjbVvj86G5aONy/XlvKuKnPc1/4I+3ybBSB8QDjZ6g/Bv08JEpczrJ0OwKGFqv2LSyXRMK7qE8ksAn3c+onJi+SoqX3JvdgiULqQLorz1elqMxRhcewKd0HhtCeRfG3";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
