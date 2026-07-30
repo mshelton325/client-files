@@ -1,1 +1,38 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12372a">
+<title>Matt's Florida Fishing Companion</title>
+<style>
+:root{--bg:#f4f1e8;--card:#fff;--ink:#17211c;--muted:#68736b;--green:#12372a;--green2:#1f5a43;--tan:#ece3cf;--line:#d7d5cc;--warn:#faeee5;--blue:#eaf3f8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:19px 17px}header h1{font-size:22px;margin:0 0 4px}header p{font-size:13px;margin:0;opacity:.86}main{max-width:900px;margin:auto;padding:12px 13px 60px}.tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0}.tabs button{white-space:nowrap;margin:0;min-height:39px;padding:7px 10px;font-size:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #0000000d}.grid,.setup{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:16px 0 7px}label{display:block;font-size:13px;font-weight:800;margin-bottom:4px}select,button{width:100%;min-height:46px;border-radius:11px;border:1px solid #bbc2bc;background:#fff;font:inherit;padding:9px}button{background:var(--green);color:#fff;border:0;font-weight:850;margin-top:12px}.tabs .active{background:var(--green);color:#fff}.tabs button:not(.active){background:#fff;color:var(--green);border:1px solid var(--green)}.secondary{background:#fff;color:var(--green);border:1px solid var(--green)}.hidden{display:none}.pill{display:inline-block;background:var(--tan);border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;margin:2px 3px 2px 0}.rank{font-size:27px;font-weight:900;color:var(--green)}.score{float:right;font-size:12px;color:var(--muted)}.result{border-left:5px solid var(--green)}.callout{background:var(--tan);border-radius:12px;padding:11px;margin:10px 0}.blue{background:var(--blue)}.warning{background:var(--warn);color:#5b2f18}.setup div{background:#f7f6f1;border-radius:10px;padding:9px}.setup b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}ol,ul{padding-left:21px}.small{font-size:12px;color:var(--muted)}a{color:var(--green2);font-weight:800}.check{display:flex;gap:8px;margin:8px 0}.check input{margin-top:4px;transform:scale(1.15)}@media(max-width:560px){.grid,.setup{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>Florida Fishing Companion</h1><p>Bank • paddleboard/kayak • boat • exact rigging • confidence-first plans</p></header>
+<main>
+<div class="tabs">
+<button class="tab active" data-tab="planner">Build Plan</button>
+<button class="tab" data-tab="library">Techniques</button>
+<button class="tab" data-tab="rigging">Rigging</button>
+<button class="tab" data-tab="confidence">Confidence</button>
+</div>
+<section id="planner">
+<div class="card"><h2>What are you seeing?</h2><div class="grid">
+<div><label>Platform</label><select id="platform"><option value="bank">Bank</option><option value="paddle">Paddleboard / kayak</option><option value="boat">Boat</option></select></div>
+<div><label>Water type</label><select id="water"><option>River</option><option>Pond</option><option>Lake</option><option>Canal</option></select></div>
+<div><label>Clarity</label><select id="clarity"><option value="tannic">Tannic / tea-colored</option><option value="clear">Clear</option><option value="stained">Stained</option><option value="muddy">Muddy</option></select></div>
+<div><label>Depth</label><select id="depth"><option value="shallow">Under 3 ft</option><option value="mid">3–6 ft</option><option value="deep">Over 6 ft</option></select></div>
+<div><label>Cover</label><select id="cover"><option value="wood">Wood / roots</option><option value="grass">Grass / pads</option><option value="dock">Docks / shade</option><option value="rock">Rock / riprap</option><option value="open">Open water</option><option value="mixed">Mixed cover</option></select></div>
+<div><label>Wind</label><select id="wind"><option value="calm">Calm</option><option value="light">Light</option><option value="moderate">Moderate</option><option value="strong">Strong</option></select></div>
+<div><label>Fish activity</label><select id="activity"><option value="unknown">Unknown</option><option value="active">Chasing bait</option><option value="inactive">Inactive / pressured</option></select></div>
+<div><label>Goal</label><select id="goal"><option value="bite">Get a bite</option><option value="cover">Find active fish</option><option value="big">Target bigger fish</option></select></div>
+<div><label>Snag risk</label><select id="snag"><option value="moderate">Moderate</option><option value="low">Low</option><option value="high">High</option></select></div>
+<div><label>Today’s focus</label><select id="focus"><option value="simple">Keep it simple</option><option value="learn">Practice one technique</option><option value="explore">Explore patterns</option></select></div>
+</div><button id="build">Build My Fishing Plan</button></div><div id="output"></div>
+</section>
+<section id="library" class="hidden"></section><section id="rigging" class="hidden"></section><section id="confidence" class="hidden"></section>
+</main>
+<script src="app.js"></script>
+</body></html>
