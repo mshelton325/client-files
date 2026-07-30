@@ -4,18 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#12372a">
-<title>Matt's Florida Fishing Companion</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Matt Outdoors">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>Matt Outdoors — Fishing Companion</title>
 <style>
-:root{--bg:#f4f1e8;--card:#fff;--ink:#17211c;--muted:#68736b;--green:#12372a;--green2:#1f5a43;--tan:#ece3cf;--line:#d7d5cc;--warn:#faeee5;--blue:#eaf3f8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:19px 17px}header h1{font-size:22px;margin:0 0 4px}header p{font-size:13px;margin:0;opacity:.86}main{max-width:900px;margin:auto;padding:12px 13px 60px}.tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0}.tabs button{white-space:nowrap;margin:0;min-height:39px;padding:7px 10px;font-size:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #0000000d}.grid,.setup{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:16px 0 7px}label{display:block;font-size:13px;font-weight:800;margin-bottom:4px}select,button{width:100%;min-height:46px;border-radius:11px;border:1px solid #bbc2bc;background:#fff;font:inherit;padding:9px}button{background:var(--green);color:#fff;border:0;font-weight:850;margin-top:12px}.tabs .active{background:var(--green);color:#fff}.tabs button:not(.active){background:#fff;color:var(--green);border:1px solid var(--green)}.secondary{background:#fff;color:var(--green);border:1px solid var(--green)}.hidden{display:none}.pill{display:inline-block;background:var(--tan);border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;margin:2px 3px 2px 0}.rank{font-size:27px;font-weight:900;color:var(--green)}.score{float:right;font-size:12px;color:var(--muted)}.result{border-left:5px solid var(--green)}.callout{background:var(--tan);border-radius:12px;padding:11px;margin:10px 0}.blue{background:var(--blue)}.warning{background:var(--warn);color:#5b2f18}.setup div{background:#f7f6f1;border-radius:10px;padding:9px}.setup b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}ol,ul{padding-left:21px}.small{font-size:12px;color:var(--muted)}a{color:var(--green2);font-weight:800}.check{display:flex;gap:8px;margin:8px 0}.check input{margin-top:4px;transform:scale(1.15)}@media(max-width:560px){.grid,.setup{grid-template-columns:1fr}}
+:root{--bg:#f4f1e8;--card:#fff;--ink:#17211c;--muted:#68736b;--green:#12372a;--green2:#1f5a43;--tan:#ece3cf;--line:#d7d5cc;--warn:#faeee5;--blue:#eaf3f8}*{box-sizing:border-box}html{background:var(--green)}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:calc(19px + env(safe-area-inset-top)) 17px 19px}header h1{font-size:22px;margin:0 0 4px}header p{font-size:13px;margin:0;opacity:.86}main{max-width:900px;margin:auto;padding:12px 13px calc(72px + env(safe-area-inset-bottom))}.tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0}.tabs button{white-space:nowrap;margin:0;min-height:39px;padding:7px 10px;font-size:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #0000000d}.grid,.setup{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:16px 0 7px}label{display:block;font-size:13px;font-weight:800;margin-bottom:4px}select,input,textarea,button{width:100%;min-height:46px;border-radius:11px;border:1px solid #bbc2bc;background:#fff;font:inherit;padding:9px}textarea{min-height:90px;resize:vertical}button{background:var(--green);color:#fff;border:0;font-weight:850;margin-top:12px}.tabs .active{background:var(--green);color:#fff}.tabs button:not(.active){background:#fff;color:var(--green);border:1px solid var(--green)}.secondary{background:#fff;color:var(--green);border:1px solid var(--green)}.danger{background:#fff;color:#8a2f24;border:1px solid #c79690}.hidden{display:none}.pill{display:inline-block;background:var(--tan);border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;margin:2px 3px 2px 0}.rank{font-size:27px;font-weight:900;color:var(--green)}.score{float:right;font-size:12px;color:var(--muted)}.result{border-left:5px solid var(--green)}.callout{background:var(--tan);border-radius:12px;padding:11px;margin:10px 0}.blue{background:var(--blue)}.warning{background:var(--warn);color:#5b2f18}.setup div{background:#f7f6f1;border-radius:10px;padding:9px}.setup b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}ol,ul{padding-left:21px}.small{font-size:12px;color:var(--muted)}a{color:var(--green2);font-weight:800}.check{display:flex;gap:8px;margin:8px 0}.check input{width:auto;margin-top:4px;transform:scale(1.15)}.empty{text-align:center;color:var(--muted);padding:25px 10px}.install{background:#e8f2ec;border:1px solid #bcd4c4}.row-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.row-actions button{margin-top:6px}.spot-title,.journal-title{display:flex;justify-content:space-between;gap:12px;align-items:start}.spot-title h3,.journal-title h3{margin:0}.tagline{margin:4px 0 0;color:var(--muted);font-size:13px}@media(max-width:560px){.grid,.setup{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><h1>Florida Fishing Companion</h1><p>Bank • paddleboard/kayak • boat • exact rigging • confidence-first plans</p></header>
+<header><h1>Matt Outdoors</h1><p>Florida Fishing Companion • clear next actions on the water</p></header>
 <main>
+<div id="installHelp" class="card install hidden"></div>
 <div class="tabs">
 <button class="tab active" data-tab="planner">Build Plan</button>
-<button class="tab" data-tab="library">Techniques</button>
-<button class="tab" data-tab="rigging">Rigging</button>
+<button class="tab" data-tab="spots">Spots</button>
+<button class="tab" data-tab="journal">Journal</button>
+<button class="tab" data-tab="library">Learn</button>
+<button class="tab" data-tab="rigging">Tackle</button>
 <button class="tab" data-tab="confidence">Confidence</button>
 </div>
 <section id="planner">
@@ -32,7 +41,12 @@
 <div><label>Today’s focus</label><select id="focus"><option value="simple">Keep it simple</option><option value="learn">Practice one technique</option><option value="explore">Explore patterns</option></select></div>
 </div><button id="build">Build My Fishing Plan</button></div><div id="output"></div>
 </section>
-<section id="library" class="hidden"></section><section id="rigging" class="hidden"></section><section id="confidence" class="hidden"></section>
+<section id="spots" class="hidden"></section>
+<section id="journal" class="hidden"></section>
+<section id="library" class="hidden"></section>
+<section id="rigging" class="hidden"></section>
+<section id="confidence" class="hidden"></section>
 </main>
 <script src="app.js"></script>
+<script src="companion.js"></script>
 </body></html>
