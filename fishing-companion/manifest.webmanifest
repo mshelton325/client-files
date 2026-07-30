@@ -1,0 +1,19 @@
+{
+  "name": "Matt Outdoors — Fishing Companion",
+  "short_name": "Matt Outdoors",
+  "description": "A mobile-first fishing planner, tackle locker, saved-spots log, and fishing journal.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#12372a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
